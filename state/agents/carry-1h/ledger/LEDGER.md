@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-25T21:05:53.825448Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-25T22:05:52.388114Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -32,5 +32,4 @@ _Rendered 2026-10-25T21:05:53.825448Z in paper mode from state/positions_paper.j
 ## Last run
 
 - BTC weekly Bullish · daily Bullish · data 6 min after the bar close
-- PUMP: signal carry tier C REFUSED: gross exposure cap (1.01x after entry, cap 1.00x)
-- evaluated 6 names · 0 triggers · 1 refused · 0 proposed · 0 entered · 5 open
+- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 5 open
