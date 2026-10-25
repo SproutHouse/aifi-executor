@@ -1,5 +1,5 @@
 {
-  "t": "2026-10-25T00:05:54Z",
+  "t": "2026-10-25T01:05:54Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 1.7646718823796732,
+    "drawdown_pct": 1.7557022951683507,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bullish · data 6 min after the bar close",
+    "BTC weekly Bullish · daily Bullish · data 66 min after the bar close",
     "long-short book: between rebalances (next on 2026-10-29); 16 names held as they drift",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -63,7 +63,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.35244
+      "mark": 0.35538
     },
     {
       "coin": "DOGE",
@@ -77,9 +77,9 @@
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 0.2767284,
+      "funding_pct": 4.927149600000001,
       "days": 200,
-      "mark": 0.077616
+      "mark": 0.07781
     },
     {
       "coin": "ETH",
@@ -95,7 +95,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 2355.7
+      "mark": 2357.7
     },
     {
       "coin": "LINK",
@@ -111,7 +111,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 11.611
+      "mark": 11.617
     },
     {
       "coin": "LTC",
@@ -125,9 +125,9 @@
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": -11.5151952,
+      "funding_pct": -4.129902,
       "days": 200,
-      "mark": 56.987
+      "mark": 57.003
     },
     {
       "coin": "MON",
@@ -141,9 +141,9 @@
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": -5.0252616,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.021598
+      "mark": 0.021597
     },
     {
       "coin": "NEAR",
@@ -159,7 +159,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 4.4912
+      "mark": 4.5055
     },
     {
       "coin": "SOL",
@@ -175,7 +175,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 102.27
+      "mark": 102.34
     },
     {
       "coin": "STRK",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04709
+      "mark": 0.04713
     },
     {
       "coin": "VVV",
@@ -207,7 +207,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 24.414
+      "mark": 24.616
     },
     {
       "coin": "WLD",
@@ -223,7 +223,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.46749
+      "mark": 0.4703
     },
     {
       "coin": "XPL",
@@ -239,7 +239,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.074355
+      "mark": 0.074451
     },
     {
       "coin": "XRP",
@@ -255,7 +255,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.3
+      "mark": 1.3036
     },
     {
       "coin": "ZEC",
@@ -271,7 +271,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1206.1
+      "mark": 1207.4165
     },
     {
       "coin": "ZRO",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.7574
+      "mark": 1.7376
     },
     {
       "coin": "kPEPE",
@@ -303,9 +303,9 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004513
+      "mark": 0.004497
     }
   ],
-  "equity": 982.3348163201022,
-  "hours_local": "20:05 EDT"
+  "equity": 982.4396865413305,
+  "hours_local": "21:05 EDT"
 }
