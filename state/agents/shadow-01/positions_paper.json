@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26T00:06:07.031096Z",
+  "updated": "2026-10-26T01:06:06.422496Z",
   "mode": "paper",
   "positions": {
     "CRV": {
@@ -17,11 +17,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.04733656210123669,
+      "funding_paid": 0.048483902588461955,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -38,8 +38,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.3435,
-      "upnl_pct": -5.616797934879026
+      "mark": 0.34059,
+      "upnl_pct": -6.416376153247305
     },
     "DOGE": {
       "coin": "DOGE",
@@ -56,11 +56,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.009128097587791335,
+      "funding_paid": -0.008896748377776228,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": -2.743632
       },
@@ -77,8 +77,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.076845,
-      "upnl_pct": 2.566948402628677
+      "mark": 0.076871,
+      "upnl_pct": 2.5322572881841143
     },
     "ETH": {
       "coin": "ETH",
@@ -95,11 +95,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.032500887753390585,
+      "funding_paid": -0.032802671426707605,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 6.340488
       },
@@ -116,8 +116,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 2324.7,
-      "upnl_pct": 2.5941798941798933
+      "mark": 2323.5,
+      "upnl_pct": 2.6471659134925662
     },
     "LINK": {
       "coin": "LINK",
@@ -134,11 +134,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.03844008647961417,
+      "funding_paid": -0.0395035383896914,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 3.9667908
       },
@@ -155,8 +155,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 11.44,
-      "upnl_pct": 4.475708041958049
+      "mark": 11.424,
+      "upnl_pct": 4.622032563025225
     },
     "LTC": {
       "coin": "LTC",
@@ -173,11 +173,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.021604407779778245,
+      "funding_paid": -0.02197753600389034,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -194,8 +194,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 56.703,
-      "upnl_pct": 3.230372290707728
+      "mark": 56.763,
+      "upnl_pct": 3.1212550428976638
     },
     "MON": {
       "coin": "MON",
@@ -212,11 +212,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.015115906794575997,
+      "funding_paid": 0.013900886077899447,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": -10.9616508
       },
@@ -233,8 +233,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.021498,
-      "upnl_pct": -1.85856591310819
+      "mark": 0.02148,
+      "upnl_pct": -1.7763244878957085
     },
     "NEAR": {
       "coin": "NEAR",
@@ -251,11 +251,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.014715258813155125,
+      "funding_paid": 0.015858967234481942,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -272,8 +272,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 4.589,
-      "upnl_pct": -6.125529130645468
+      "mark": 4.5603,
+      "upnl_pct": -6.712628131288422
     },
     "SOL": {
       "coin": "SOL",
@@ -290,11 +290,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.03180649802975456,
+      "funding_paid": -0.03268939695029604,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -311,8 +311,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 101.28,
-      "upnl_pct": 2.21979660347551
+      "mark": 101.285,
+      "upnl_pct": 2.214750456632286
     },
     "STRK": {
       "coin": "STRK",
@@ -329,11 +329,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.04387295787488457,
+      "funding_paid": 0.04491990669501373,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -350,8 +350,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.04576,
-      "upnl_pct": -14.060256606007403
+      "mark": 0.04547,
+      "upnl_pct": -14.604892217551512
     },
     "VVV": {
       "coin": "VVV",
@@ -368,11 +368,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.04871401524188733,
+      "funding_paid": 0.04989280391436308,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -389,8 +389,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 24.958,
-      "upnl_pct": -4.9368269639807565
+      "mark": 25.243,
+      "upnl_pct": -3.851283077641088
     },
     "WLD": {
       "coin": "WLD",
@@ -407,11 +407,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.0024746110206535395,
+      "funding_paid": -0.002291464141876781,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -428,8 +428,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.45041,
-      "upnl_pct": -17.55308178191183
+      "mark": 0.44609,
+      "upnl_pct": -18.34385171753079
     },
     "XPL": {
       "coin": "XPL",
@@ -446,11 +446,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.04852621540055303,
+      "funding_paid": -0.049721378816441945,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -467,8 +467,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.073711,
-      "upnl_pct": 2.4748185481135776
+      "mark": 0.073635,
+      "upnl_pct": 2.580584640456296
     },
     "XRP": {
       "coin": "XRP",
@@ -485,11 +485,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": -0.047362936551169174,
+      "funding_paid": -0.048576810413644526,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -506,8 +506,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 1.2956,
-      "upnl_pct": 0.9760381290521813
+      "mark": 1.2953,
+      "upnl_pct": 0.999424843665575
     },
     "ZEC": {
       "coin": "ZEC",
@@ -524,11 +524,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.035692469671953476,
+      "funding_paid": 0.03690663057860312,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -545,8 +545,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 1205.3825,
-      "upnl_pct": -1.401087654879507
+      "mark": 1210.7,
+      "upnl_pct": -0.9661222257354884
     },
     "ZRO": {
       "coin": "ZRO",
@@ -563,11 +563,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.05864517121157131,
+      "funding_paid": 0.059853247978165214,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -584,8 +584,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 1.7591,
-      "upnl_pct": -1.4063315451565916
+      "mark": 1.7581,
+      "upnl_pct": -1.4623793357624981
     },
     "kPEPE": {
       "coin": "kPEPE",
@@ -602,11 +602,11 @@
       "leverage": 3,
       "notional_pct_equity": 4.904022477710787,
       "entry_fee": 0.02206810114969854,
-      "funding_paid": 0.04218708549363897,
+      "funding_paid": 0.042188504941503106,
       "opened": "2026-10-23T00:05:53Z",
       "opened_ts": 1792713953,
       "last_bar_t": 1792886400,
-      "last_funding_ts": 1792972800,
+      "last_funding_ts": 1792976400,
       "context": {
         "funding_annual_pct": 10.950000000000001
       },
@@ -623,8 +623,8 @@
       "book": "longshort",
       "benchmark": null,
       "bench_entry": null,
-      "mark": 0.004263,
-      "upnl_pct": -3.0298232768003808
+      "mark": 0.00427,
+      "upnl_pct": -2.8705947435931467
     }
   }
 }
