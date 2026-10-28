@@ -1,5 +1,5 @@
 {
-  "t": "2026-10-28T00:05:46Z",
+  "t": "2026-10-28T01:05:46Z",
   "agent": "trend-1d",
   "tf": "1d",
   "mode": "paper",
@@ -27,7 +27,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bullish · data 6 min after the bar close",
+    "BTC weekly Bullish · daily Bullish · data 66 min after the bar close",
     "BTC: target 0% of pot, holding 0% → none",
     "ETH: target 0% of pot, holding 0% → none",
     "evaluated 2 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 0 open"
@@ -47,7 +47,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 1500,
-      "mark": 80822.0
+      "mark": 80647.0
     },
     {
       "coin": "ETH",
@@ -63,9 +63,9 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 1500,
-      "mark": 2348.1
+      "mark": 2342.16
     }
   ],
   "equity": 947.3100793064124,
-  "hours_local": "20:05 EDT"
+  "hours_local": "21:05 EDT"
 }
