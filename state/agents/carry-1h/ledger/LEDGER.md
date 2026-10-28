@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-28T21:05:51.741199Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-28T22:05:51.566822Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -27,7 +27,7 @@ _Rendered 2026-10-28T21:05:51.741199Z in paper mode from state/positions_paper.j
 | 2026-10-11T08:07 | carry | BTC | carry | C | 84628.3 | — | -0.01 | n/a | funding below exit | 324 |
 | 2026-10-01T20:07 | carry | HYPE | carry | C | 91.015 | — | -0.04 | n/a | funding below exit | 104 |
 
-## Refused signals: 47 recorded (state/ledger/refused.jsonl)
+## Refused signals: 48 recorded (state/ledger/refused.jsonl)
 
 ## Last run
 
