@@ -44,3 +44,4 @@
 {"t": "2026-10-28T18:05:46Z", "coin": "PUMP", "kind": "carry", "tier": "C", "stage": "pre-trade", "detail": [{"check": "gross exposure cap", "ok": false, "detail": "1.01x after entry, cap 1.00x"}]}
 {"t": "2026-10-28T19:05:46Z", "coin": "PUMP", "kind": "carry", "tier": "C", "stage": "pre-trade", "detail": [{"check": "gross exposure cap", "ok": false, "detail": "1.01x after entry, cap 1.00x"}]}
 {"t": "2026-10-28T20:05:46Z", "coin": "PUMP", "kind": "carry", "tier": "C", "stage": "pre-trade", "detail": [{"check": "gross exposure cap", "ok": false, "detail": "1.01x after entry, cap 1.00x"}]}
+{"t": "2026-10-28T21:05:46Z", "coin": "PUMP", "kind": "carry", "tier": "C", "stage": "pre-trade", "detail": [{"check": "gross exposure cap", "ok": false, "detail": "1.00x after entry, cap 1.00x"}]}
