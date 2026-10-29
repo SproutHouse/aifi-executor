@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-29T02:05:54.891776Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-29T03:05:52.261017Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -33,5 +33,4 @@ _Rendered 2026-10-29T02:05:54.891776Z in paper mode from state/positions_paper.j
 ## Last run
 
 - BTC weekly Bullish · daily Bullish · data 6 min after the bar close
-- PUMP: carry ENTERING · funding 10.9%/yr · 2% of pot per leg, both legs at market
-- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 1 entered · 6 open
+- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 6 open
