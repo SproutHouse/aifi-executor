@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-29T01:06:06.303889Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-29T02:06:08.606303Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -35,6 +35,6 @@ None yet.
 
 ## Last run
 
-- BTC weekly Bullish · daily Bullish · data 66 min after the bar close
+- BTC weekly Bullish · daily Bullish · data 126 min after the bar close
 - long-short book: between rebalances (next on 2026-10-29); 16 names held as they drift
 - evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
