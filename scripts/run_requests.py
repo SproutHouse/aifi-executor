@@ -35,8 +35,14 @@ def run(doc):
     else:
         return 2, f"unknown action {action!r}"
     env = dict(os.environ, EXECUTOR_AGENT=agent)
-    r = subprocess.run([PY, os.path.join(HERE, "with_agent_keys.py"), PY] + args, env=env, cwd=str(C.ROOT),
-                       capture_output=True, text=True, timeout=600)
+    try:
+        r = subprocess.run([PY, os.path.join(HERE, "with_agent_keys.py"), PY] + args, env=env, cwd=str(C.ROOT),
+                           capture_output=True, text=True, timeout=600)
+    except subprocess.TimeoutExpired as e:   # recorded as failed and alerted, never left pending to re-run every tick
+        # the lines already printed say which positions were closed before the kill; a timeout hands them back as bytes
+        text = lambda b: b.decode("utf-8", "replace") if isinstance(b, bytes) else (b or "")
+        out = text(e.stdout) + text(e.stderr)
+        return 124, (out + "\ntimed out after 10 min and stopped: check the positions and re-file if needed")[-1500:]
     return r.returncode, (r.stdout + r.stderr)[-1500:]
 
 

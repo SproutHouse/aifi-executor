@@ -238,6 +238,22 @@ class FlattenCarry(Clean):
         self.assertEqual(rec["kind"], "carry")
         self.assertNotIn("HYPE", cy.positions)
 
+    def test_paper_flatten_fills_each_side_worse_than_the_mark(self):
+        # audit 2026-10-23: a short's buy-back was booked at mark*(1-slip), better than the mark, flattering paper P&L
+        cy = self.cycle("paper", {}, {}, {"ETH": 100.0, "SOL": 100.0})
+        sizing = {"notional": 100.0, "risk_amt": 1.0, "leverage": 1.0, "notional_pct_equity": 10.0}
+        for coin, side, stop in (("ETH", "short", 200.0), ("SOL", "long", 50.0)):
+            cand = {"coin": coin, "side": side, "kind": "book", "tier": "A", "stop": stop}
+            cy.positions[coin] = PA.open_position(cand, sizing, 100.0, cy.s, cy.now)
+        cy.load_market = cy.load_account = lambda: None
+        with mock.patch.object(CT, "Cycle", lambda dry=False: cy):
+            CT.flatten()
+        slip = cy.s["paper_slippage_pct"] / 100
+        exits = {t["coin"]: t["exit"] for t in L.trades() if t.get("reason") == "manual flatten"}
+        self.assertAlmostEqual(exits["ETH"], 100.0 * (1 + slip), places=9)       # the short buys back above the mark
+        self.assertAlmostEqual(exits["SOL"], 100.0 * (1 - slip), places=9)       # the long sells below it, as before
+        self.assertEqual(L.positions("paper"), {})
+
 
 # 6 -----------------------------------------------------------------------------------------------------------------
 def sandbox():

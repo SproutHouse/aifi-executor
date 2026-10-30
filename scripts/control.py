@@ -33,7 +33,10 @@ def flatten():
         try:
             if pos.get("kind") != "carry" and not mark:
                 raise RuntimeError("no mark price")
-            px = (mark * (1 - cy.s["paper_slippage_pct"] / 100) if cy.mode == "paper" else mark) if mark else None
+            px = mark
+            if mark and cy.mode == "paper":        # a paper fill is worse than the mark: a short buys back above it
+                slip = cy.s["paper_slippage_pct"] / 100
+                px = mark * (1 + slip) if PA.is_short(pos) else mark * (1 - slip)
             cy.close_position(coin, pos, px, "manual flatten", cy.now)
         except Exception as e:  # noqa: BLE001 — one position's failure must not stop the others
             cy.say(f"{coin}: flatten failed ({type(e).__name__}: {str(e)[:100]}); position kept")

@@ -210,7 +210,13 @@ def agents_loop(S, now, force, dry, push_only, only, failed, rows_dir, push_fail
         aid = a["id"]
         if not a.get("enabled", True) or (only and aid not in only):
             continue
-        if not (force or push_only or due(aid, now)):
+        try:
+            is_due = force or push_only or due(aid, now)
+        except Exception as e:  # noqa: BLE001 — one bot's unusable settings must not stop the others (audit 2026-10-23)
+            print(f"[{aid}] settings unusable, skipped: {type(e).__name__}: {str(e)[:200]}", flush=True)
+            failed.append(aid)
+            continue
+        if not is_due:
             print(f"[{aid}] not due ({C.trigger_tf(agent_settings(aid))} bars)", flush=True)
             continue
         if not push_only:
