@@ -1,24 +1,24 @@
 {
  "v": 1,
- "gen": "2026-10-29T11:27:37Z",
+ "gen": "2026-10-30T11:55:44Z",
  "lab": {
-  "tried": 12844,
+  "tried": 13020,
   "survivors": 117,
   "by_family": {
    "rs_rotation": {
-    "tried": 247,
+    "tried": 258,
     "survived": 1
    },
    "tsmom": {
-    "tried": 281,
+    "tried": 305,
     "survived": 0
    },
    "donchian": {
-    "tried": 303,
+    "tried": 321,
     "survived": 0
    },
    "meanrev": {
-    "tried": 867,
+    "tried": 915,
     "survived": 0
    },
    "carry": {
@@ -26,23 +26,23 @@
     "survived": 110
    },
    "cloud_trend": {
-    "tried": 475,
+    "tried": 504,
     "survived": 0
    },
    "sma_trend": {
-    "tried": 267,
+    "tried": 289,
     "survived": 0
    },
    "bull_momentum": {
-    "tried": 158,
+    "tried": 161,
     "survived": 6
    },
    "dual_ma": {
-    "tried": 341,
+    "tried": 358,
     "survived": 0
    },
    "ls_xs": {
-    "tried": 41,
+    "tried": 42,
     "survived": 0
    },
    "trend_ens": {
@@ -54,11 +54,11 @@
     "survived": 0
    },
    "sim_grammar": {
-    "tried": 940,
+    "tried": 941,
     "survived": 0
    },
    "sim_event": {
-    "tried": 6,
+    "tried": 8,
     "survived": 0
    },
    "sim_setup": {
@@ -78,21 +78,21 @@
     "survived": 0
    }
   },
-  "last_batch": "2026-10-29",
+  "last_batch": "2026-10-30",
   "gates_version": 11,
   "vetoed": 113,
   "retired": 4,
   "funnel": {
-   "tested": 12844,
-   "passed_cheap": 11015,
+   "tested": 13020,
+   "passed_cheap": 11112,
    "passed_audit": 140,
    "waiting_holdout": 14,
    "passed_holdout": 117,
    "vetoed": 113
   },
   "last": {
-   "date": "2026-10-29",
-   "tried": 314,
+   "date": "2026-10-30",
+   "tried": 176,
    "passed": 0
   },
   "studies": [
@@ -108,7 +108,7 @@
   "now": "bull",
   "fine": "bull",
   "since": "2026-08-24",
-  "as_of": "2026-10-28"
+  "as_of": "2026-10-29"
  },
  "shortlist": [
   {
@@ -122,7 +122,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 30.5,
+   "days": 31.5,
    "backtest": {
     "sharpe": 1.132,
     "cagr_pct": 17.32,
@@ -146,10 +146,10 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9971,
-   "deflated_now": 0.5773,
-   "trials_now": 247,
-   "deflated_alpha_now": 0.0112,
-   "search_k": 2536,
+   "deflated_now": 0.5768,
+   "trials_now": 258,
+   "deflated_alpha_now": 0.0109,
+   "search_k": 2607,
    "rw_p": 1.0,
    "verdict_now": "unproven",
    "verdict_now_why": "does not beat Bitcoin at the same risk over development (-3.4%/yr)",
@@ -281,7 +281,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 26.5,
+   "days": 27.5,
    "backtest": {
     "sharpe": 1.609,
     "cagr_pct": 31.29,
@@ -305,13 +305,13 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9932,
-   "deflated_now": 0.8475,
-   "trials_now": 242,
-   "deflated_alpha_now": 0.1655,
-   "search_k": 2536,
-   "rw_p": 0.9914,
+   "deflated_now": 0.8472,
+   "trials_now": 245,
+   "deflated_alpha_now": 0.1637,
+   "search_k": 2607,
+   "rw_p": 0.9925,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.991 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -441,7 +441,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 24.5,
+   "days": 25.5,
    "backtest": {
     "sharpe": 1.751,
     "cagr_pct": 32.29,
@@ -465,13 +465,13 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9979,
-   "deflated_now": 0.8799,
-   "trials_now": 242,
-   "deflated_alpha_now": 0.3445,
-   "search_k": 2536,
-   "rw_p": 0.9383,
+   "deflated_now": 0.8797,
+   "trials_now": 245,
+   "deflated_alpha_now": 0.3418,
+   "search_k": 2607,
+   "rw_p": 0.9415,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.938 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.941 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -601,7 +601,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 11.5,
+   "days": 12.5,
    "backtest": {
     "sharpe": 1.574,
     "cagr_pct": 29.81,
@@ -625,11 +625,11 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9913,
-   "deflated_now": 0.434,
-   "trials_now": 242,
-   "deflated_alpha_now": 0.2593,
-   "search_k": 2536,
-   "rw_p": 0.9927,
+   "deflated_now": 0.4335,
+   "trials_now": 245,
+   "deflated_alpha_now": 0.257,
+   "search_k": 2607,
+   "rw_p": 0.9934,
    "verdict_now": "unproven",
    "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
    "bench": {
@@ -678,7 +678,7 @@
      {
       "check": "runs healthy",
       "ok": false,
-      "detail": "fresh, successful runs on 0 of 11 days a run was due (0%, needs 95%)"
+      "detail": "fresh, successful runs on 0 of 12 days a run was due (0%, needs 95%)"
      },
      {
       "check": "orders placed",
@@ -732,7 +732,7 @@
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "same coins as the backtest: held the same coins as the backtest replay on 0 of 0 days (needs 80%)",
     "return matches the backtest: only 0 paper days to compare with the backtest replay (needs 5)",
-    "runs healthy: fresh, successful runs on 0 of 11 days a run was due (0%, needs 95%)",
+    "runs healthy: fresh, successful runs on 0 of 12 days a run was due (0%, needs 95%)",
     "orders placed: 0 orders filled since enrolment (needs 10)",
     "days invested: held positions on 0 days (needs 15)",
     "edge not confirmed on paper (sequential test: waiting; 0 paper days: the first 20 only set the hedge ratios; evidence starts after them)"
@@ -740,15 +740,15 @@
   }
  ],
  "honesty": {
-  "as_of": "2026-10-29",
-  "k": 2536,
-  "luck_t": 3.511,
-  "need_t": 5.156,
-  "spa_p": 0.24375851112119837,
-  "rc_p": 0.24738992283250114,
+  "as_of": "2026-10-30",
+  "k": 2607,
+  "luck_t": 3.518,
+  "need_t": 5.163,
+  "spa_p": 0.24719101123595505,
+  "rc_p": 0.250936329588015,
   "best": "ls-759fac45",
-  "strategies": 2021,
-  "report": "reports/honesty/2026-10-29.md"
+  "strategies": 2079,
+  "report": "reports/honesty/2026-10-30.md"
  },
  "fleet": {
   "regime": "bull",
@@ -818,28 +818,28 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 32,
-   "evidence_days": 12,
+   "paper_days": 33,
+   "evidence_days": 13,
    "breaches": 0,
    "verdict": "continue",
    "decided": null,
-   "why": "12 evidence days of the 30 before any decision",
+   "why": "13 evidence days of the 30 before any decision",
    "yardsticks": {
     "cash": {
-     "n": 12,
-     "mean_apr": 4.6,
-     "sd_apr": 0.54,
-     "lower_apr": -10.93,
-     "upper_apr": 17.78,
-     "z": 5.313,
-     "edge_boundary": 17.931,
-     "z_futility": -1.616,
-     "futility_boundary": 15.219,
+     "n": 13,
+     "mean_apr": 2.58,
+     "sd_apr": 0.65,
+     "lower_apr": -14.6,
+     "upper_apr": 17.16,
+     "z": 2.713,
+     "edge_boundary": 18.093,
+     "z_futility": -3.607,
+     "futility_boundary": 15.364,
      "hedge": 0.0
     }
    },
-   "days_to_edge_at_pace": 43,
-   "last_day": "2026-10-28",
+   "days_to_edge_at_pace": 169,
+   "last_day": "2026-10-29",
    "enabled": true
   },
   {
@@ -855,14 +855,14 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 10,
+   "paper_days": 11,
    "evidence_days": 0,
    "breaches": 0,
    "verdict": "waiting",
    "decided": null,
    "yardsticks": {},
    "days_to_edge_at_pace": null,
-   "why": "10 paper days: the first 20 only set the hedge ratios; evidence starts after them",
+   "why": "11 paper days: the first 20 only set the hedge ratios; evidence starts after them",
    "enabled": true
   },
   {
@@ -878,40 +878,40 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 32,
-   "evidence_days": 12,
+   "paper_days": 33,
+   "evidence_days": 13,
    "breaches": 0,
    "verdict": "continue",
    "decided": null,
-   "why": "12 evidence days of the 30 before any decision",
+   "why": "13 evidence days of the 30 before any decision",
    "yardsticks": {
     "own": {
-     "n": 12,
-     "mean_apr": -16.05,
-     "sd_apr": 6.87,
-     "lower_apr": -212.16,
-     "upper_apr": 180.07,
-     "z": -1.467,
-     "edge_boundary": 17.931,
-     "z_futility": -2.381,
-     "futility_boundary": 17.931,
-     "hedge": 0.517
+     "n": 13,
+     "mean_apr": 47.53,
+     "sd_apr": 13.68,
+     "lower_apr": -316.29,
+     "upper_apr": 411.35,
+     "z": 2.364,
+     "edge_boundary": 18.093,
+     "z_futility": 1.866,
+     "futility_boundary": 18.093,
+     "hedge": 0.514
     },
     "btc": {
-     "n": 12,
-     "mean_apr": -34.35,
-     "sd_apr": 6.38,
-     "lower_apr": -216.42,
-     "upper_apr": 147.72,
-     "z": -3.383,
-     "edge_boundary": 17.931,
-     "z_futility": -4.368,
-     "futility_boundary": 17.931,
-     "hedge": 0.641
+     "n": 13,
+     "mean_apr": 42.14,
+     "sd_apr": 15.67,
+     "lower_apr": -374.62,
+     "upper_apr": 458.89,
+     "z": 1.829,
+     "edge_boundary": 18.093,
+     "z_futility": 1.395,
+     "futility_boundary": 18.093,
+     "hedge": 0.638
     }
    },
-   "days_to_edge_at_pace": null,
-   "last_day": "2026-10-28",
+   "days_to_edge_at_pace": 374,
+   "last_day": "2026-10-29",
    "enabled": true
   }
  ]
