@@ -2171,6 +2171,7 @@ def envelope(prev_raw, rows, newest=False, gen=None, fails=None, report=None, no
     """exec:agents v2: {v, gen, fleet, host, order, paper, agents}. Each row in `rows` replaces the stored one (with
     newest=True only when its gen ≥ the stored gen); rows of agents not in `rows` are kept; rows of agents off the roster
     are dropped. `agents` follows the roster (enabled and disabled); `order` is the enabled roster ids. Rows not pushed now
+    take `enabled` from the roster (a bot retired after its last push was still "enabled" on the page, 2026-10-30) and
     get `ran_t` from the committed state (so the page can tell "page behind" from "bot stopped"), `fails` {id: why} marks
     push failures (mark_fails), and `paper` is the fleet's paper pot (fleet_paper). A stored row that fails the privacy
     assert is replaced by a bare row with push_fail "data check", so one bad row can never freeze the whole index."""
@@ -2204,6 +2205,9 @@ def envelope(prev_raw, rows, newest=False, gen=None, fails=None, report=None, no
             me = next((a for a in roster if a.get("id") == aid), {"id": aid})
             have[aid] = {"id": aid, "name": me.get("name", aid), "desc": me.get("desc", ""), "enabled": bool(me.get("enabled", True))}
             fails.setdefault(aid, push_why(e))
+        me = next((a for a in roster if a.get("id") == aid), None)
+        if me is not None:                   # a retired bot is never pushed again, so the roster decides, not its last row
+            have[aid] = dict(have[aid], enabled=bool(me.get("enabled", True)))
         ran = ran_t_of(aid)
         if ran is not None:
             have[aid] = dict(have[aid], ran_t=ran)

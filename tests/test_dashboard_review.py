@@ -183,6 +183,20 @@ class D1FleetStep(unittest.TestCase):
         _e3, r3 = self.env(e2, [], {"fast-1h": "data check"}, 1792141200)
         self.assertEqual((r3["new_fail"], list(r3["still_fail"])), ({}, ["fast-1h"]))
 
+    def test_a_bot_retired_after_its_last_push_shows_as_retired(self):
+        # its row was stored while it still ran; a retired bot is never pushed again, so the roster decides (2026-10-30:
+        # six retired bots sat in "Needs you" as halted or stale)
+        self.ROSTER = [{"id": "core", "name": "Core", "enabled": False}, {"id": "fast-1h", "name": "Fast", "enabled": True}]
+        stale = {"id": "core", "name": "Core", "gen": "2026-10-16T06:07:00.000Z", "enabled": True, "halt": True}
+        e, _r = self.env({"v": 2, "agents": [stale]}, [{"id": "fast-1h", "name": "Fast", "gen": "x", "enabled": True}], {}, 1792134000)
+        core = e["agents"][0]
+        self.assertIs(core["enabled"], False)
+        self.assertTrue(core["halt"])                                           # the rest of its record stays as it was
+        self.assertEqual(e["order"], ["fast-1h"])
+        self.ROSTER = [dict(self.ROSTER[0], enabled=True), self.ROSTER[1]]       # and a bot switched back on shows as on
+        e2, _r = self.env(e, [], {}, 1792137600)
+        self.assertIs(e2["agents"][0]["enabled"], True)
+
     def test_a_row_that_fails_the_privacy_check_never_freezes_the_index(self):
         bad = {"id": "core", "name": "Core", "gen": "x", "risk": {"notional": 12.5}}
         e, r = self.env({"v": 2, "agents": [bad]}, [], {}, 1792134000)
