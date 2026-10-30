@@ -1,37 +1,42 @@
 {
   "peak": 1000.0,
-  "day": "2026-10-22",
-  "equity_seen": 997.8870395816591,
+  "day": "2026-10-29",
+  "equity_seen": 973.6870302980666,
   "last_rebalance": {
-    "day": "2026-10-22",
+    "day": "2026-10-29",
     "ranked": 29,
     "k": 8,
     "long": [
+      "ARB",
       "CRV",
       "NEAR",
       "STRK",
+      "UNI",
       "VVV",
-      "WLD",
       "ZEC",
-      "ZRO",
       "kPEPE"
     ],
     "short": [
-      "DOGE",
-      "ETH",
+      "AAVE",
+      "ADA",
+      "FARTCOIN",
       "LINK",
-      "LTC",
-      "MON",
+      "ONDO",
+      "PUMP",
       "SOL",
-      "XPL",
-      "XRP"
+      "ZRO"
     ],
     "why": null,
     "refused_long": {
-      "LIT": "mark vs Binance 361.02%",
-      "XMR": "mark vs Binance 412.36%"
+      "ENA": "funding 51%/yr against longs above 30%",
+      "HYPE": "funding 249%/yr against longs above 30%",
+      "XMR": "funding 325%/yr against longs above 30%; mark vs Binance 418.11%",
+      "XPL": "funding 104%/yr against longs above 30%"
     },
-    "refused_short": {},
+    "refused_short": {
+      "ETH": "funding -61%/yr against shorts beyond -30%",
+      "LIT": "mark vs Binance 268.37%"
+    },
     "universe": [
       "BTC",
       "ETH",
@@ -45,24 +50,24 @@
       "WLD",
       "LIT",
       "SUI",
-      "UNI",
       "ZRO",
-      "ONDO",
-      "XPL",
-      "VVV",
-      "DOGE",
+      "UNI",
       "XMR",
-      "ARB",
-      "AAVE",
-      "TAO",
+      "VVV",
+      "ONDO",
       "kPEPE",
-      "AVAX",
-      "LINK",
       "STRK",
+      "ARB",
+      "TAO",
+      "XPL",
+      "DOGE",
+      "AAVE",
       "CRV",
+      "LINK",
       "FARTCOIN",
       "MON",
-      "LTC"
+      "CASHCAT",
+      "ADA"
     ],
     "excluded": {}
   }
