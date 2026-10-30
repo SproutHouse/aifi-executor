@@ -62,7 +62,11 @@ def agent_settings(agent_id):
 
 def due(agent_id, now):
     """Due inside the window after the agent's bar closes. Daily agents use their own late limit (GitHub's cron can
-    slip for hours), and their cycle is idempotent, so running twice inside the window changes nothing."""
+    slip for hours), so a daily agent runs up to three times after a close (00:05, 01:05, 02:05 UTC). Those runs are
+    not idempotent by themselves: each reads live marks, funding and volume. A daily target agent derives the same
+    target from the closed daily bar and trades only outside its band, so a later run mostly holds or retries an open
+    the checks refused; the long-short book decides once per rebalance day, on its first fresh run, and its later runs
+    only finish that decision (cycle.manage_book; audit 2026-10-30 N3)."""
     s = agent_settings(agent_id)
     window = DUE_WINDOW_MIN
     if C.trigger_tf(s) == "1d":

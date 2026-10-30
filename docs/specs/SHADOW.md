@@ -49,8 +49,40 @@ Settings: `agents/shadow-01/settings.json` → `target` (the recipe's own parame
    (`book.json` in its state holds the peak and the brake).
 
 Order of work in a daily run (`cycle.manage_book`): the catastrophic stops and funding (`manage_target_stops`), a held
-coin Hyperliquid no longer lists closed at its last mark, the brake, then on a rebalance day the universe, the book and
-the trades: exits and trims first (they never wait), then opens and growth, which pass the pre-trade checks.
+coin Hyperliquid no longer lists closed at its last mark, the brake, then on a rebalance day the day's decision (the
+universe, the per-side refusals, the book) and the trades: exits and trims first (they never wait), then opens and
+growth, which pass the pre-trade checks.
+
+### One decision per rebalance day
+
+A daily agent runs up to three times after the close (00:05, 01:05 and 02:05 UTC), and the funding it reads moves
+between those runs. Until 2026-10-30 each run re-formed the legs from its own reading, so a name crossing the funding
+line closed one name and opened another: on 2026-10-30 a quarter of the week's book changed after 00:05 (lab audits
+2026-10-23 E3 and 2026-10-30 N3). The lab models one reading, just after the close (about 00:08 UTC, `lab/pit.py`
+`funding_reading`), so the book is now **decided once**:
+
+- The **first fresh run** of a rebalance day decides: the universe, the per-name and per-side refusals, the legs and
+  their target weights. It saves that decision in `book.json` (`last_rebalance`: `weights`, `decided`, and `pending`,
+  the names not traded yet) **before** it trades, so a run that stops part-way leaves it to be finished.
+- **Later runs that day re-decide nothing.** They keep the decided legs and weights and only finish the decision: an
+  open or growth that was refused (a halt, a check) or a name that had no mark is retried at its decided weight of the
+  current equity; a name held against the decision (a close that was missed) closes. Every other name keeps what the
+  first run left, without a band check or a re-size. Delisting closes and the brake apply on every run, as before.
+- A run whose data is **not fresh** never decides: positions are kept, and the first fresh run decides.
+- The next rebalance day decides afresh from its own reading.
+
+The lab's replay runs one run a day, so the deciding run is the one it measures; its trading is unchanged.
+
+### Visible refusals and the second source
+
+Every name refused at leg formation is said in the run summary ("refused at leg formation", with its reasons), counted
+in the run's refusals, recorded in the refusal ledger (stage `leg formation`, the failed checks) and kept in
+`book.json` (`refused_long`, `refused_short`). The price sanity band needs a second source: Binance's price counts
+only while its USDT pair trades and its last trade is under an hour old (`binance_data.py`). LITUSDT and XMRUSDT are
+halted on Binance (status BREAK) and kept serving prices frozen at 0.743 and 118.7, 3 to 4 times off Hyperliquid, so
+until 2026-10-30 LIT and XMR were refused on both sides at every rebalance (audit E1). Names with no second source (a
+halted or stale pair, no Binance pair at all, e.g. kPEPE and VVV) pass the band unchecked, as before (it fails open);
+the run summary lists them with the reason, and `book.json` keeps them (`unchecked`, audit E10).
 
 ### Point-in-time universe, live
 
@@ -93,6 +125,7 @@ engine with identical results).
 | Engine trading (band, drift, brake, fills, funding) vs the harness, same universe | lab Phase 0 "mechanics" row, catastrophic stop out of reach: same bounds as the other parity checks |
 | The catastrophic stop | lab Phase 0 "as shadow-01 trades it" row: fires and cost |
 | The live universe (Hyperliquid volume ranking) | same row: daily overlap with the lab's universe, and the engine on its own universe end to end |
-| Price sanity band and open-interest filter at leg formation | not in the lab; refusals are recorded in `book.json` (`refused_long`, `refused_short`) every rebalance |
+| Price sanity band and open-interest filter at leg formation | not in the lab; refusals are said, recorded in the refusal ledger (stage `leg formation`) and in `book.json` (`refused_long`, `refused_short`) every rebalance; names with no second source are listed (`unchecked`) |
+| Three runs a day (00:05, 01:05, 02:05 UTC) | the book is decided once, by the first fresh run (the lab's one reading); later runs only retry refused opens |
 | Portfolio-level checks per order (stale data, halt, gross cap 2.3x, $10 minimum) | not in the lab; recorded as refusals |
 | Throttle | off (99%): the book's own brake is its drawdown control, as in the lab |

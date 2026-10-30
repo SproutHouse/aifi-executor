@@ -295,7 +295,7 @@ def check_codes(check, detail):
 def refusal_codes(r):
     """The normalised failing codes of one refusal record, in check order."""
     st, d = r.get("stage"), r.get("detail")
-    if st == "pre-trade":
+    if st in ("pre-trade", "leg formation"):          # leg formation: the long-short book's per-side gates (failed checks)
         out = []
         if isinstance(d, list):
             for c in d:

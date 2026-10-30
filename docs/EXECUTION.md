@@ -77,7 +77,10 @@ The exchange is the truth; the ledger is derived. Each cycle:
 ## Data checks before any entry
 
 - Freshness: the agent's last completed trigger bar closed within its late-run window (`data.late_run_minutes`).
-- Sanity band: Hyperliquid mark within 2% of Binance's last price when a Binance pair exists.
+- Sanity band: Hyperliquid mark within 2% of Binance's last price when Binance gives a second source: a USDT pair that
+  trades, its last trade under an hour old (`binance_data.py`, the 24-hour ticker's close time). A halted pair keeps
+  serving a frozen price (LITUSDT and XMRUSDT, status BREAK, were 3 to 4 times off Hyperliquid in October 2026), so it
+  counts as no second source; with none the band is not checked (it fails open) and the check's detail says why.
 - Universe filters on live volume, open interest, funding and max leverage.
 
 ## Paper engine, `src/executor/paper.py`
@@ -98,8 +101,10 @@ passes halt, throttle, freshness, reconciliation, equity, gross-exposure, exchan
 checks. Live: growth is an immediate-or-cancel buy; a trim is a **reduce-only** immediate-or-cancel sell that can never
 open a short; after any change the resident stop (15% below the average entry) is replaced at the new size through the
 same fail-closed path as a fresh entry. Partial trims are realised into the position and counted when it finally closes.
-Daily agents are due for up to their late limit after 00:00 UTC; the cycle is idempotent, so a second run inside the
-window changes nothing.
+Daily agents are due for up to their late limit after 00:00 UTC, so they run up to three times after a close (00:05,
+01:05, 02:05). A later run derives the same target from the closed daily bar and trades only outside the band, so it
+mostly holds or retries an open the checks refused; it is not idempotent by itself (marks, funding and volume are read
+live each run). The long-short book is decided once per rebalance day, by its first fresh run (docs/specs/SHADOW.md).
 
 **Recipe agents (strategy families).** A `target` block with `"family"`, `"params"` and `"coins"` (written by the AiFi
 Lab for arena agents) computes each coin's target with `src/executor/families.py` instead of the Trend rule: the same

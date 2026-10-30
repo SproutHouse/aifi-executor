@@ -66,6 +66,12 @@ def freshness(h4, now_ts, s):
     return True, f"{late:.0f} min after the bar close"
 
 
+def no_second(coin):
+    """The sanity band's detail when Binance gives no second source for coin (the band fails open): why, when known."""
+    why = B.why_none(coin)
+    return why if why == B.NO_SOURCE else f"{B.NO_SOURCE} ({why})"
+
+
 def bearish(d):
     return d == 1
 
@@ -564,7 +570,7 @@ class Cycle:
             dev = abs(mark - second) / second * 100
             sanity_ok, sanity_detail = dev <= self.s["data"]["sanity_band_pct"], f"mark vs Binance {dev:.2f}%"
         else:
-            sanity_ok, sanity_detail = True, "no second source for this coin"
+            sanity_ok, sanity_detail = True, no_second(coin)
         worst_entry = mark * (1 + self.s["entry_slippage_cap_pct"] / 100)
         sizing = K.size(self.equity or 0.0, worst_entry, cand["stop"], self.s, row.get("maxLeverage"), self.thr["multiplier"] * self.fleet_mult)
         flags = {"halt": self.halt, "halt_reason": self.halt_reason, "throttle_halt": self.thr["halt"],
@@ -1018,7 +1024,7 @@ class Cycle:
         mark = self.marks.get(coin)
         second = B.last_price(coin)
         dev = abs(mark - second) / second * 100 if (mark and second) else 0.0
-        add("price sanity band", dev <= self.s["data"]["sanity_band_pct"], f"mark vs Binance {dev:.2f}%" if second else "no second source")
+        add("price sanity band", dev <= self.s["data"]["sanity_band_pct"], f"mark vs Binance {dev:.2f}%" if second else no_second(coin))
         u_ok, u_reasons = U.check(coin, row, self.s["universe"], None) if side == "long" else U.check(coin, row, self.s["universe"], None, side)
         add("universe filters", u_ok, "; ".join(u_reasons))
         return all(c["ok"] for c in checks), checks
@@ -1179,8 +1185,15 @@ class Cycle:
     # The lab's ls_xs family (src/executor/longshort.py), PAPER ONLY: the shadow experiment agents/shadow-01. Order of
     # work each daily run, as the lab's harness: the catastrophic stops (manage_target_stops, above), a held coin no
     # longer listed closed at its last mark, the book drawdown brake on the agent's equity, then, on a rebalance day
-    # only, the universe, the book and the trades toward it (exits and trims first, then opens and growth, which pass
-    # the pre-trade checks). Between rebalances nothing is traded: the weights drift, as in the lab.
+    # only, the day's decision (the universe, the legs, the target weights) and the trades toward it (exits and trims
+    # first, then opens and growth, which pass the pre-trade checks). Between rebalances nothing is traded: the weights
+    # drift, as in the lab.
+    # One decision per rebalance day (audit 2026-10-23 E3, 2026-10-30 N3): a daily agent runs up to three times after
+    # the close (00:05, 01:05, 02:05 UTC) and the funding it reads moves between runs, so re-forming the legs on every
+    # run re-formed the book (2026-10-30: a quarter of the week's book changed after 00:05). The first fresh run decides,
+    # as the lab's single funding reading at about 00:08 UTC (lab/pit.py funding_reading), and saves the decision in
+    # book.json (last_rebalance) before any trade; later runs that day keep that book and only finish it (book_trade).
+    # A run whose data is not fresh never decides.
     def manage_book(self):
         cfg = self.s["target"]
         if self.mode != "paper" or not cfg.get("shorts"):
@@ -1231,41 +1244,105 @@ class Cycle:
                 self._book_reading(coin, f"{pos.get('side')} leg, held between rebalances", None)
             self._book_save(book)
             return
+        day_s = C.iso(day)[:10]
+        dec = book.get("last_rebalance") or {}
+        later = dec.get("day") == day_s and isinstance(dec.get("weights"), dict)
+        if later:
+            pend = dec.get("pending") or {}
+            self.say(f"long-short book {day_s}: the day's book stands (decided {str(dec.get('decided') or '?')[11:16]} UTC); "
+                     + (f"long {', '.join(dec.get('long') or [])} · short {', '.join(dec.get('short') or [])}" if dec["weights"]
+                        else (dec.get("why") or "no book"))
+                     + (f"; still to do: {', '.join(f'{c} ({why})' for c, why in sorted(pend.items()))}" if pend else "; nothing pending"))
+        elif not self.fresh:
+            self.say(f"long-short book {day_s}: data not fresh ({self.fresh_detail}); the first fresh run decides the day's book, "
+                     f"{len(self.positions)} names kept as they are")
+            for coin, pos in self.positions.items():
+                self._book_reading(coin, f"{pos.get('side')} leg, kept: the day's book is not decided yet", None)
+            self._book_save(book)
+            return
+        else:
+            dec = self.book_decide(day, u, p, book)
+            if dec is None:
+                self._book_save(book)
+                return
+        self.book_trade(dec, later, band, cat, slip, eq)
+        self._book_save(book)
+
+    def book_decide(self, day, u, p, book):
+        """The day's decision, made by the first fresh run of a rebalance day: the universe, the per-name and per-side
+        gates, the legs and their target weights, saved in book.json (last_rebalance) before any trade with every name
+        pending until a run has traded it. Leg-formation refusals are said, counted and recorded (stage "leg formation"),
+        and so are the names that had no second source for the price band (it fails open for them). None when there
+        is no reading this run (positions kept; the next run decides)."""
         try:
             elig, excluded, top, bars = self.book_universe(day, u)
         except Exception as e:  # noqa: BLE001 — a missing coin would change the ranking: no rebalance this run
             self.say(f"long-short book: universe unavailable ({type(e).__name__}: {str(e)[:100]}); positions kept, retried next run")
-            self._book_save(book)
-            return
+            return None
         row = lambda c: self.ctxs.get(c) or {}                       # noqa: E731
         # gates v7 (review R1): each leg is formed only from names the engine could enter on that side today, so a
         # refusal never leaves a one-sided book. Per name and side: the universe filters (funding mirrored for a short,
         # volume, open interest, max leverage) and the price sanity band. Portfolio checks stay per order.
-        why_not = {"long": {}, "short": {}}
+        why_not = {"long": {}, "short": {}}                          # {side: {coin: [failed checks]}}
+        unchecked = {}                                               # no second source: the band is not checked (E10)
         for c in elig:
             mark, second = self.marks.get(c), B.last_price(c)
+            if not second:
+                unchecked[c] = B.why_none(c)
             dev = abs(mark - second) / second * 100 if (mark and second) else 0.0
             for side in ("long", "short"):
                 ok, reasons = U.check(c, row(c), self.s["universe"], None, side)
+                failed = [] if ok else [{"check": "universe filters", "ok": False, "detail": "; ".join(reasons)}]
                 if dev > self.s["data"]["sanity_band_pct"]:
-                    ok, reasons = False, reasons + [f"mark vs Binance {dev:.2f}%"]
-                if not ok:
-                    why_not[side][c] = "; ".join(reasons)
+                    failed.append({"check": "price sanity band", "ok": False, "detail": f"mark vs Binance {dev:.2f}%"})
+                if failed:
+                    why_not[side][c] = failed
         no_long, no_short = set(why_not["long"]), set(why_not["short"])
         panel = {c: bars[c] for c in set(elig) | set(self.positions) | {"BTC"} if bars.get(c)}
         w, info = XS.latest(panel, p, elig, no_long, no_short)
         if w is None:
             self.say(f"long-short book: no reading today ({info.get('why')}); positions kept")
-            self._book_save(book)
-            return
-        book["last_rebalance"] = {"day": C.iso(day)[:10], "ranked": info.get("ranked"), "k": info.get("k"),
-                                  "long": info.get("long"), "short": info.get("short"), "why": info.get("why") or None,
-                                  "refused_long": {c: why_not["long"][c] for c in sorted(info.get("skipped_long") or [])},
-                                  "refused_short": {c: why_not["short"][c] for c in sorted(info.get("skipped_short") or [])},
-                                  "universe": [c for c, _v in top], "excluded": excluded}
+            return None
+        text = lambda f: "; ".join(x["detail"] for x in f)           # noqa: E731
+        refused = {side: {c: why_not[side][c] for c in sorted(info.get("skipped_" + side) or [])} for side in ("long", "short")}
         day_s = C.iso(day)[:10]
+        dec = {"day": day_s, "ranked": info.get("ranked"), "k": info.get("k"),
+               "long": info.get("long"), "short": info.get("short"), "why": info.get("why") or None,
+               "refused_long": {c: text(f) for c, f in refused["long"].items()},
+               "refused_short": {c: text(f) for c, f in refused["short"].items()},
+               "universe": [c for c, _v in top], "excluded": excluded, "unchecked": dict(sorted(unchecked.items())),
+               "decided": C.iso(self.now), "weights": w,
+               "pending": {c: "not traded yet" for c in sorted(set(w) | set(self.positions))}}
+        book["last_rebalance"] = dec
+        self._book_save(book)                     # the decision before any trade: a run that stops part-way leaves it to finish
         self.say(f"long-short book {day_s}: {info.get('ranked')} names ranked of {len(elig)} eligible (top {u['n']} by Hyperliquid volume); "
                  + (f"long {', '.join(info['long'])} · short {', '.join(info['short'])}" if w else info.get("why", "no book")))
+        if refused["long"] or refused["short"]:
+            self.say("long-short book: refused at leg formation, so left out of that side's leg today: "
+                     + " · ".join(f"{side} " + ", ".join(f"{c} ({text(f)})" for c, f in refused[side].items())
+                                  for side in ("long", "short") if refused[side]))
+            for side in ("long", "short"):
+                for c, f in refused[side].items():
+                    self.counts["refused"] += 1
+                    if not self.dry:
+                        L.record_refusal({"coin": c, "kind": "book", "tier": "S" if side == "short" else "L"}, f, self.now, "leg formation")
+        if unchecked:
+            by_why = {}
+            for c, why in sorted(unchecked.items()):
+                by_why.setdefault(why, []).append(c)
+            self.say(f"long-short book: no second source for the price band, so it was not checked for {len(unchecked)} of {len(elig)} "
+                     "eligible names: " + "; ".join(f"{', '.join(cs)} ({why})" for why, cs in by_why.items()))
+        return dec
+
+    def book_trade(self, dec, later, band, cat, slip, eq):
+        """Trade toward the day's decided book (dec: book.json last_rebalance). The deciding run takes every name. A later
+        run the same day re-decides nothing: it takes only the names still pending (an open or growth that was refused,
+        a name that had no mark) and any name held against the decision (a close that was missed); every other name
+        keeps what the earlier run left, without a band check or a re-size. A name leaves pending once traded or found
+        inside the band."""
+        w, pending = dec["weights"], dec.setdefault("pending", {})
+        row = lambda c: self.ctxs.get(c) or {}                       # noqa: E731
+        when = f" (decided {str(dec.get('decided') or '?')[11:16]} UTC)" if later else ""
         mult = (self.thr["multiplier"] if self.thr["multiplier"] > 0 else 1.0) * self.fleet_mult
         want = {c: w.get(c, 0.0) * eq * mult for c in sorted(set(w) | set(self.positions))}
         ups = []
@@ -1273,29 +1350,36 @@ class Cycle:
             mark = self.marks.get(coin)
             pos = self.positions.get(coin)
             why = (f"{'long' if tgt > 0 else 'short'} leg, weight {w[coin] * 100:+.1f}% of equity" if coin in w
-                   else "not in this week's book")
+                   else "not in this week's book") + when
             self._book_reading(coin, why, mark)
+            sg = -1.0 if (pos and PA.is_short(pos)) else 1.0
+            against = bool(pos) and (tgt == 0 or (tgt > 0) != (sg > 0))
+            if later and coin not in pending and not against:
+                continue                                              # traded by an earlier run today: kept as decided
             if not mark:
                 self.say(f"{coin}: no reading on one timeframe (data gap); position and stop kept as they are")
+                pending[coin] = "no mark (data gap)"
                 continue
-            sg = -1.0 if (pos and PA.is_short(pos)) else 1.0
             cur = sg * pos["sz"] * mark if pos else 0.0
-            if pos and (tgt == 0 or (tgt > 0) != (cur > 0)):
+            if against:
                 self.say(f"{coin}: target {tgt / eq * 100 if eq else 0:+.0f}% of pot, holding {cur / eq * 100 if eq else 0:+.0f}% → close")
                 if not self.dry:
                     self.close_position(coin, pos, mark * (1 + slip) if sg < 0 else mark * (1 - slip), "target weight zero" if tgt == 0 else "side flips", self.now)
                 pos, cur = None, 0.0
             if tgt == 0:
+                pending.pop(coin, None)
                 continue
             action = TG.decide(abs(cur), abs(tgt), band)
             if action == "decrease":
                 self.say(f"{coin}: target {tgt / eq * 100 if eq else 0:+.0f}% of pot, holding {cur / eq * 100 if eq else 0:+.0f}% → decrease")
                 if not self.dry:
                     self._book_resize(coin, pos, abs(tgt), mark, cat)
+                pending.pop(coin, None)
             elif action in ("open", "increase"):
                 ups.append((coin, tgt, action))
             else:
                 self.say(f"{coin}: target {tgt / eq * 100 if eq else 0:+.0f}% of pot, holding {cur / eq * 100 if eq else 0:+.0f}% → {action}")
+                pending.pop(coin, None)
         for coin, tgt, action in ups:                                # 2. opens and growth: the pre-trade checks
             mark, pos = self.marks[coin], self.positions.get(coin)
             side = "long" if tgt > 0 else "short"
@@ -1310,12 +1394,13 @@ class Cycle:
                 cand = {"coin": coin, "kind": "book", "tier": "S" if side == "short" else "L", "side": side, "action": action}
                 L.record_refusal(cand, failed, self.now, "pre-trade")
                 self.say(f"{coin}: signal {cand['kind']} tier {cand['tier']} REFUSED: " + "; ".join(f"{c['check']} ({c['detail']})" for c in failed))
+                pending[coin] = f"{action} refused: " + "; ".join(c["check"] for c in failed)
                 continue
             if pos:
                 self._book_resize(coin, pos, abs(tgt), mark, cat)
             else:
-                self._book_open(coin, side, abs(tgt), mark, cat, book["last_rebalance"])
-        self._book_save(book)
+                self._book_open(coin, side, abs(tgt), mark, cat, dec)
+            pending.pop(coin, None)
 
     def book_funding(self, coin, pos):
         """The long-short book with target "funding": "history" (shadow-01): accrue Hyperliquid's actual hourly funding

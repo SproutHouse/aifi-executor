@@ -136,6 +136,20 @@ CASES = {
                           "elig": ["AAVE"] * 28, "u": {"n": 30}, "w": {"AAVE": 0.1}}, True, SKIP, None),
                          ({"day_s": "2026-10-15", "info": {"ranked": 9, "why": "only 9 names could be ranked, fewer than 12: no book this week"},
                            "elig": ["AAVE"] * 9, "u": {"n": 30}, "w": {}}, True, SKIP, None)],
+    # one decision per rebalance day (audit E3/N3) and the leg-formation refusals and unchecked names (E1/E10): SKIP too
+    "the day's book stands": [({"day_s": "2026-10-29", "dec": {"decided": "2026-10-30T00:05:54Z", "long": ["ARB"], "short": ["SOL"],
+                                                              "weights": {"ARB": 0.04, "SOL": -0.04}},
+                                "pend": {"AAVE": "open refused: price sanity band"}}, True, SKIP, None),
+                               ({"day_s": "2026-10-29", "dec": {"decided": "2026-10-30T00:05:54Z", "weights": {}, "why": "a leg is empty"},
+                                 "pend": {}}, True, SKIP, None)],
+    "the first fresh run decides": [({"day_s": "2026-10-29", "self": base_self(fresh_detail="run started 200 min after the bar close, limit 180")},
+                                     True, SKIP, None)],
+    "refused at leg formation": [({"refused": {"long": {"ENA": [{"check": "universe filters", "ok": False, "detail": "funding 51%/yr against longs above 30%"}]},
+                                               "short": {"LIT": [{"check": "price sanity band", "ok": False, "detail": "mark vs Binance 268.37%"}]}},
+                                   "text": lambda f: "; ".join(x["detail"] for x in f)}, True, SKIP, None)],
+    "no second source for the price band": [({"unchecked": {"kPEPE": "no Binance kPEPEUSDT pair", "VVV": "no Binance VVVUSDT pair"},
+                                              "by_why": {"no Binance kPEPEUSDT pair": ["kPEPE"], "no Binance VVVUSDT pair": ["VVV"]},
+                                              "elig": ["AAVE"] * 30}, True, SKIP, None)],
 }
 
 
@@ -167,7 +181,7 @@ def render(fn, call, overrides):
 class SayTemplates(unittest.TestCase):
     def test_every_say_parses_into_its_event(self):
         sites = say_sites()
-        self.assertEqual(len(sites), 65, "cycle.py gained or lost a say(): add or remove its template case here")
+        self.assertEqual(len(sites), 69, "cycle.py gained or lost a say(): add or remove its template case here")
         used = set()
         for fn, call, src in sites:
             keys = [k for k in CASES if k in src]
