@@ -1,7 +1,7 @@
 {
   "peak": 1000.0,
   "day": "2026-10-29",
-  "equity_seen": 971.4600347601796,
+  "equity_seen": 976.2649373662053,
   "last_rebalance": {
     "day": "2026-10-29",
     "ranked": 29,
@@ -9,12 +9,12 @@
     "long": [
       "ARB",
       "CRV",
-      "ENA",
       "NEAR",
       "STRK",
       "UNI",
       "VVV",
-      "ZEC"
+      "ZEC",
+      "kPEPE"
     ],
     "short": [
       "FARTCOIN",
@@ -28,17 +28,16 @@
     ],
     "why": null,
     "refused_long": {
-      "HYPE": "funding 158%/yr against longs above 30%",
-      "XMR": "funding 228%/yr against longs above 30%; mark vs Binance 410.37%",
-      "XPL": "funding 109%/yr against longs above 30%",
-      "kPEPE": "funding 58%/yr against longs above 30%"
+      "ENA": "funding 56%/yr against longs above 30%",
+      "HYPE": "funding 181%/yr against longs above 30%",
+      "XMR": "funding 224%/yr against longs above 30%; mark vs Binance 430.44%"
     },
     "refused_short": {
-      "AAVE": "funding -50%/yr against shorts beyond -30%",
-      "ADA": "funding -46%/yr against shorts beyond -30%",
-      "ETH": "funding -50%/yr against shorts beyond -30%",
-      "LINK": "funding -41%/yr against shorts beyond -30%",
-      "LIT": "mark vs Binance 268.63%"
+      "AAVE": "funding -34%/yr against shorts beyond -30%",
+      "ADA": "funding -34%/yr against shorts beyond -30%",
+      "ETH": "funding -65%/yr against shorts beyond -30%",
+      "LINK": "funding -43%/yr against shorts beyond -30%",
+      "LIT": "mark vs Binance 263.52%"
     },
     "universe": [
       "BTC",

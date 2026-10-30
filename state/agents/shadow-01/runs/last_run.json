@@ -1,5 +1,5 @@
 {
-  "t": "2026-10-30T00:05:54Z",
+  "t": "2026-10-30T01:05:55Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -12,7 +12,6 @@
   "positions": [
     "ARB",
     "CRV",
-    "ENA",
     "FARTCOIN",
     "MON",
     "NEAR",
@@ -25,71 +24,48 @@
     "VVV",
     "WLD",
     "ZEC",
-    "ZRO"
+    "ZRO",
+    "kPEPE"
   ],
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 2.85531707676945,
+    "drawdown_pct": 2.372846698080525,
     "halt": false,
     "peak": 1000.0
   },
   "halt": false,
   "fleet_mult": 1.0,
   "counts": {
-    "evaluated": 23,
+    "evaluated": 17,
     "triggers": 0,
     "refused": 0,
     "proposed": 0,
-    "entered": 9
+    "entered": 1
   },
   "summary": [
-    "BTC weekly Bullish · daily Bearish · data 6 min after the bar close",
-    "long-short book 2026-10-29: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long ARB, CRV, ENA, NEAR, STRK, UNI, VVV, ZEC · short FARTCOIN, MON, ONDO, PUMP, SOL, SUI, WLD, ZRO",
+    "BTC weekly Bullish · daily Bearish · data 66 min after the bar close",
+    "long-short book 2026-10-29: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long ARB, CRV, NEAR, STRK, UNI, VVV, ZEC, kPEPE · short FARTCOIN, MON, ONDO, PUMP, SOL, SUI, WLD, ZRO",
+    "ARB: target +4% of pot, holding +4% → hold",
     "CRV: target +4% of pot, holding +4% → hold",
-    "DOGE: target +0% of pot, holding -5% → close",
-    "DOGE [longshort]: closed on target weight zero at 0.075286 → +0.05 R",
-    "ETH: target +0% of pot, holding -5% → close",
-    "ETH [longshort]: closed on target weight zero at 2252.6 → +0.06 R",
-    "LINK: target +0% of pot, holding -4% → close",
-    "LINK [longshort]: closed on target weight zero at 10.601 → +0.11 R",
-    "LTC: target +0% of pot, holding -5% → close",
-    "LTC [longshort]: closed on target weight zero at 54.92 → +0.06 R",
-    "MON: target -4% of pot, holding -5% → hold",
+    "ENA: target +0% of pot, holding +4% → close",
+    "ENA [longshort]: closed on target weight zero at 0.17268 → -0.01 R",
+    "FARTCOIN: target -4% of pot, holding -4% → hold",
+    "MON: target -4% of pot, holding -4% → hold",
     "NEAR: target +4% of pot, holding +4% → hold",
+    "ONDO: target -4% of pot, holding -4% → hold",
+    "PUMP: target -4% of pot, holding -4% → hold",
     "SOL: target -4% of pot, holding -5% → hold",
     "STRK: target +4% of pot, holding +4% → hold",
+    "SUI: target -4% of pot, holding -4% → hold",
+    "UNI: target +4% of pot, holding +4% → hold",
     "VVV: target +4% of pot, holding +4% → hold",
-    "WLD: target -4% of pot, holding +4% → close",
-    "WLD [longshort]: closed on side flips at 0.37938 → -0.31 R",
-    "XPL: target +0% of pot, holding -5% → close",
-    "XPL [longshort]: closed on target weight zero at 0.073768 → +0.02 R",
-    "XRP: target +0% of pot, holding -5% → close",
-    "XRP [longshort]: closed on target weight zero at 1.2388 → +0.05 R",
+    "WLD: target -4% of pot, holding -4% → hold",
     "ZEC: target +4% of pot, holding +5% → hold",
-    "ZRO: target -4% of pot, holding +4% → close",
-    "ZRO [longshort]: closed on side flips at 1.5233 → -0.15 R",
-    "kPEPE: target +0% of pot, holding +5% → close",
-    "kPEPE [longshort]: closed on target weight zero at 0.0045237 → +0.03 R",
-    "ARB: target +4% of pot, holding +0% → open",
-    "ARB: ENTERED ARB long [longshort] · book tier L · stop 0 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "ENA: target +4% of pot, holding +0% → open",
-    "ENA: ENTERED ENA long [longshort] · book tier L · stop 0 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "FARTCOIN: target -4% of pot, holding -0% → open",
-    "FARTCOIN: ENTERED FARTCOIN short [longshort] · book tier S · stop 0.23836 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "ONDO: target -4% of pot, holding -0% → open",
-    "ONDO: ENTERED ONDO short [longshort] · book tier S · stop 0.76104 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "PUMP: target -4% of pot, holding -0% → open",
-    "PUMP: ENTERED PUMP short [longshort] · book tier S · stop 0.0078921 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "SUI: target -4% of pot, holding -0% → open",
-    "SUI: ENTERED SUI short [longshort] · book tier S · stop 1.7407 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "UNI: target +4% of pot, holding +0% → open",
-    "UNI: ENTERED UNI long [longshort] · book tier L · stop 0 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "WLD: target -4% of pot, holding -0% → open",
-    "WLD: ENTERED WLD short [longshort] · book tier S · stop 0.75876 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "ZRO: target -4% of pot, holding -0% → open",
-    "ZRO: ENTERED ZRO short [longshort] · book tier S · stop 3.0467 (100.0% away) · size 4.3% of pot at 3x · risk 4.32% of pot",
-    "evaluated 23 names · 0 triggers · 0 refused · 0 proposed · 9 entered · 16 open"
+    "ZRO: target -4% of pot, holding -4% → hold",
+    "kPEPE: target +4% of pot, holding +0% → open",
+    "kPEPE: ENTERED kPEPE long [longshort] · book tier L · stop 0 (100.0% away) · size 4.5% of pot at 3x · risk 4.48% of pot",
+    "evaluated 17 names · 0 triggers · 0 refused · 0 proposed · 1 entered · 16 open"
   ],
   "readings": [
     {
@@ -102,11 +78,11 @@
       "line": null,
       "close": 0.1543,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
-      "funding_pct": 3.7258908,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.15318
+      "mark": 0.15311
     },
     {
       "coin": "CRV",
@@ -118,27 +94,11 @@
       "line": null,
       "close": 0.30622,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.3043
-    },
-    {
-      "coin": "DOGE",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 0.07522,
-      "trigger": null,
-      "why": "not in this week's book",
-      "vol_m": null,
-      "funding_pct": -3.6215592000000005,
-      "days": 200,
-      "mark": 0.075248
+      "mark": 0.30129
     },
     {
       "coin": "ENA",
@@ -150,27 +110,11 @@
       "line": null,
       "close": 0.17534,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
-      "vol_m": null,
-      "funding_pct": -66.3980844,
-      "days": 200,
-      "mark": 0.17349
-    },
-    {
-      "coin": "ETH",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 2251.9,
-      "trigger": null,
       "why": "not in this week's book",
       "vol_m": null,
-      "funding_pct": -49.921400399999996,
+      "funding_pct": 56.0091624,
       "days": 200,
-      "mark": 2251.5
+      "mark": 0.17277
     },
     {
       "coin": "FARTCOIN",
@@ -182,43 +126,11 @@
       "line": null,
       "close": 0.11926,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -14.039214,
       "days": 200,
-      "mark": 0.11924
-    },
-    {
-      "coin": "LINK",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 10.604,
-      "trigger": null,
-      "why": "not in this week's book",
-      "vol_m": null,
-      "funding_pct": -41.286405599999995,
-      "days": 200,
-      "mark": 10.596
-    },
-    {
-      "coin": "LTC",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 54.917,
-      "trigger": null,
-      "why": "not in this week's book",
-      "vol_m": null,
-      "funding_pct": 7.5107364,
-      "days": 200,
-      "mark": 54.893
+      "mark": 0.11322
     },
     {
       "coin": "MON",
@@ -230,11 +142,11 @@
       "line": null,
       "close": 0.019001,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -20.39328,
       "days": 200,
-      "mark": 0.018956
+      "mark": 0.01867
     },
     {
       "coin": "NEAR",
@@ -246,11 +158,11 @@
       "line": null,
       "close": 4.0574,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
-      "funding_pct": -9.16734,
+      "funding_pct": -13.449228,
       "days": 200,
-      "mark": 4.05399
+      "mark": 3.9873
     },
     {
       "coin": "ONDO",
@@ -262,11 +174,11 @@
       "line": null,
       "close": 0.38029,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 2.8918511999999996,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.38071
+      "mark": 0.37261
     },
     {
       "coin": "PUMP",
@@ -278,11 +190,11 @@
       "line": null,
       "close": 0.003947,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 1.6714080000000002,
+      "funding_pct": -20.951992800000003,
       "days": 200,
-      "mark": 0.003948
+      "mark": 0.00386
     },
     {
       "coin": "SOL",
@@ -294,11 +206,11 @@
       "line": null,
       "close": 95.611,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 4.2035736,
+      "funding_pct": 6.7147152000000006,
       "days": 200,
-      "mark": 95.583
+      "mark": 94.325
     },
     {
       "coin": "STRK",
@@ -310,11 +222,11 @@
       "line": null,
       "close": 0.04228,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
-      "funding_pct": -1.7385972,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04223
+      "mark": 0.04126
     },
     {
       "coin": "SUI",
@@ -326,11 +238,11 @@
       "line": null,
       "close": 0.86929,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": -2.9012244,
+      "funding_pct": 6.8696796,
       "days": 200,
-      "mark": 0.87081
+      "mark": 0.85247
     },
     {
       "coin": "UNI",
@@ -342,11 +254,11 @@
       "line": null,
       "close": 6.47,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 6.4593
+      "mark": 6.4275
     },
     {
       "coin": "VVV",
@@ -358,11 +270,11 @@
       "line": null,
       "close": 22.287,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 22.307
+      "mark": 22.207
     },
     {
       "coin": "WLD",
@@ -374,43 +286,11 @@
       "line": null,
       "close": 0.38191,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.37957
-    },
-    {
-      "coin": "XPL",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 0.0727,
-      "trigger": null,
-      "why": "not in this week's book",
-      "vol_m": null,
-      "funding_pct": 109.30176119999999,
-      "days": 200,
-      "mark": 0.073731
-    },
-    {
-      "coin": "XRP",
-      "book": "longshort",
-      "weekly": null,
-      "daily": null,
-      "h4": null,
-      "range": null,
-      "line": null,
-      "close": 1.2372,
-      "trigger": null,
-      "why": "not in this week's book",
-      "vol_m": null,
-      "funding_pct": 10.950000000000001,
-      "days": 200,
-      "mark": 1.2382
+      "mark": 0.3723
     },
     {
       "coin": "ZEC",
@@ -422,11 +302,11 @@
       "line": null,
       "close": 1224.1,
       "trigger": null,
-      "why": "long leg, weight +4.3% of equity",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1231.1
+      "mark": 1230.9
     },
     {
       "coin": "ZRO",
@@ -438,11 +318,11 @@
       "line": null,
       "close": 1.5224,
       "trigger": null,
-      "why": "short leg, weight -4.3% of equity",
+      "why": "short leg, weight -4.5% of equity",
       "vol_m": null,
-      "funding_pct": 3.2790432000000003,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.5241
+      "mark": 1.4801
     },
     {
       "coin": "kPEPE",
@@ -454,13 +334,13 @@
       "line": null,
       "close": 0.00456,
       "trigger": null,
-      "why": "not in this week's book",
+      "why": "long leg, weight +4.5% of equity",
       "vol_m": null,
-      "funding_pct": 58.054885199999994,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004526
+      "mark": 0.004603
     }
   ],
-  "equity": 970.7176672079852,
-  "hours_local": "20:05 EDT"
+  "equity": 976.1837302250527,
+  "hours_local": "21:05 EDT"
 }
