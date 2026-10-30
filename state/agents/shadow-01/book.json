@@ -1,7 +1,7 @@
 {
   "peak": 1000.0,
   "day": "2026-10-29",
-  "equity_seen": 976.2649373662053,
+  "equity_seen": 973.6870302980666,
   "last_rebalance": {
     "day": "2026-10-29",
     "ranked": 29,
@@ -17,27 +17,25 @@
       "kPEPE"
     ],
     "short": [
+      "AAVE",
+      "ADA",
       "FARTCOIN",
-      "MON",
+      "LINK",
       "ONDO",
       "PUMP",
       "SOL",
-      "SUI",
-      "WLD",
       "ZRO"
     ],
     "why": null,
     "refused_long": {
-      "ENA": "funding 56%/yr against longs above 30%",
-      "HYPE": "funding 181%/yr against longs above 30%",
-      "XMR": "funding 224%/yr against longs above 30%; mark vs Binance 430.44%"
+      "ENA": "funding 51%/yr against longs above 30%",
+      "HYPE": "funding 249%/yr against longs above 30%",
+      "XMR": "funding 325%/yr against longs above 30%; mark vs Binance 418.11%",
+      "XPL": "funding 104%/yr against longs above 30%"
     },
     "refused_short": {
-      "AAVE": "funding -34%/yr against shorts beyond -30%",
-      "ADA": "funding -34%/yr against shorts beyond -30%",
-      "ETH": "funding -65%/yr against shorts beyond -30%",
-      "LINK": "funding -43%/yr against shorts beyond -30%",
-      "LIT": "mark vs Binance 263.52%"
+      "ETH": "funding -61%/yr against shorts beyond -30%",
+      "LIT": "mark vs Binance 268.37%"
     },
     "universe": [
       "BTC",

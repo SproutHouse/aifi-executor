@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-30T01:05:55.504155Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-30T02:05:54.349694Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -33,6 +33,4 @@ _Rendered 2026-10-30T01:05:55.504155Z in paper mode from state/positions_paper.j
 ## Last run
 
 - BTC weekly Bullish · daily Bearish · data 6 min after the bar close
-- ETH: carry EXITING · funding -2.8%/yr below exit
-- ETH: carry CLOSED · +0.01% of pot · capture 34%
 - evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 5 open
