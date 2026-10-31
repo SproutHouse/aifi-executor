@@ -1,8 +1,8 @@
 {
  "v": 1,
- "gen": "2026-10-30T11:55:44Z",
+ "gen": "2026-10-31T11:14:08Z",
  "lab": {
-  "tried": 13020,
+  "tried": 13066,
   "survivors": 117,
   "by_family": {
    "rs_rotation": {
@@ -14,7 +14,7 @@
     "survived": 0
    },
    "donchian": {
-    "tried": 321,
+    "tried": 365,
     "survived": 0
    },
    "meanrev": {
@@ -54,7 +54,7 @@
     "survived": 0
    },
    "sim_grammar": {
-    "tried": 941,
+    "tried": 943,
     "survived": 0
    },
    "sim_event": {
@@ -78,21 +78,21 @@
     "survived": 0
    }
   },
-  "last_batch": "2026-10-30",
-  "gates_version": 11,
+  "last_batch": "2026-10-31",
+  "gates_version": 12,
   "vetoed": 113,
   "retired": 4,
   "funnel": {
-   "tested": 13020,
-   "passed_cheap": 11112,
+   "tested": 13066,
+   "passed_cheap": 11148,
    "passed_audit": 140,
    "waiting_holdout": 14,
    "passed_holdout": 117,
    "vetoed": 113
   },
   "last": {
-   "date": "2026-10-30",
-   "tried": 176,
+   "date": "2026-10-31",
+   "tried": 46,
    "passed": 0
   },
   "studies": [
@@ -108,7 +108,7 @@
   "now": "bull",
   "fine": "bull",
   "since": "2026-08-24",
-  "as_of": "2026-10-29"
+  "as_of": "2026-10-30"
  },
  "shortlist": [
   {
@@ -122,7 +122,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 31.5,
+   "days": 32.5,
    "backtest": {
     "sharpe": 1.132,
     "cagr_pct": 17.32,
@@ -149,7 +149,7 @@
    "deflated_now": 0.5768,
    "trials_now": 258,
    "deflated_alpha_now": 0.0109,
-   "search_k": 2607,
+   "search_k": 2618,
    "rw_p": 1.0,
    "verdict_now": "unproven",
    "verdict_now_why": "does not beat Bitcoin at the same risk over development (-3.4%/yr)",
@@ -262,12 +262,26 @@
     "days_to_edge_at_pace": null,
     "why": "17 paper days: the first 20 only set the hedge ratios; evidence starts after them"
    },
+   "edge_routes": {
+    "forward": {
+     "confirmed": false,
+     "why": "not in the frozen forward set"
+    },
+    "prereg": {
+     "confirmed": false,
+     "why": "not a pre-registered hypothesis"
+    },
+    "sequential": {
+     "confirmed": false,
+     "why": "paper sequential test waiting"
+    }
+   },
    "ready": false,
    "not_ready": [
     "retired: 2026-10-17: the owner retired it after the 2026-10-16 review: no skill once tested honestly (edge evidence weak, deflated Sharpe 0.52 at today's trial count; its market filter ranked 31st of 32)",
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "orders placed: 9 orders filled since enrolment (needs 10)",
-    "edge not confirmed on paper (sequential test: waiting; 17 paper days: the first 20 only set the hedge ratios; evidence starts after them)"
+    "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
    ]
   },
   {
@@ -281,7 +295,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 27.5,
+   "days": 28.5,
    "backtest": {
     "sharpe": 1.609,
     "cagr_pct": 31.29,
@@ -307,11 +321,11 @@
    "deflated_at_trial": 0.9932,
    "deflated_now": 0.8472,
    "trials_now": 245,
-   "deflated_alpha_now": 0.1637,
-   "search_k": 2607,
+   "deflated_alpha_now": 0.1634,
+   "search_k": 2618,
    "rw_p": 0.9925,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.992 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -421,13 +435,27 @@
     "days_to_edge_at_pace": null,
     "why": "13 paper days: the first 20 only set the hedge ratios; evidence starts after them"
    },
+   "edge_routes": {
+    "forward": {
+     "confirmed": false,
+     "why": "not in the frozen forward set"
+    },
+    "prereg": {
+     "confirmed": false,
+     "why": "not a pre-registered hypothesis"
+    },
+    "sequential": {
+     "confirmed": false,
+     "why": "paper sequential test waiting"
+    }
+   },
    "ready": false,
    "not_ready": [
     "retired: 2026-10-17: the owner retired it under lab rulebook v5",
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "orders placed: 9 orders filled since enrolment (needs 10)",
     "days invested: held positions on 14 days (needs 15)",
-    "edge not confirmed on paper (sequential test: waiting; 13 paper days: the first 20 only set the hedge ratios; evidence starts after them)"
+    "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
    ]
   },
   {
@@ -441,7 +469,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 25.5,
+   "days": 26.5,
    "backtest": {
     "sharpe": 1.751,
     "cagr_pct": 32.29,
@@ -467,11 +495,11 @@
    "deflated_at_trial": 0.9979,
    "deflated_now": 0.8797,
    "trials_now": 245,
-   "deflated_alpha_now": 0.3418,
-   "search_k": 2607,
-   "rw_p": 0.9415,
+   "deflated_alpha_now": 0.3414,
+   "search_k": 2618,
+   "rw_p": 0.9417,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.941 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.942 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -581,13 +609,27 @@
     "days_to_edge_at_pace": null,
     "why": "11 paper days: the first 20 only set the hedge ratios; evidence starts after them"
    },
+   "edge_routes": {
+    "forward": {
+     "confirmed": false,
+     "why": "not in the frozen forward set"
+    },
+    "prereg": {
+     "confirmed": false,
+     "why": "not a pre-registered hypothesis"
+    },
+    "sequential": {
+     "confirmed": false,
+     "why": "paper sequential test waiting"
+    }
+   },
    "ready": false,
    "not_ready": [
     "retired: 2026-10-17: the owner retired it under lab rulebook v5",
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "orders placed: 8 orders filled since enrolment (needs 10)",
     "days invested: held positions on 12 days (needs 15)",
-    "edge not confirmed on paper (sequential test: waiting; 11 paper days: the first 20 only set the hedge ratios; evidence starts after them)"
+    "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
    ]
   },
   {
@@ -601,7 +643,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 12.5,
+   "days": 13.5,
    "backtest": {
     "sharpe": 1.574,
     "cagr_pct": 29.81,
@@ -627,8 +669,8 @@
    "deflated_at_trial": 0.9913,
    "deflated_now": 0.4335,
    "trials_now": 245,
-   "deflated_alpha_now": 0.257,
-   "search_k": 2607,
+   "deflated_alpha_now": 0.2566,
+   "search_k": 2618,
    "rw_p": 0.9934,
    "verdict_now": "unproven",
    "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
@@ -678,7 +720,7 @@
      {
       "check": "runs healthy",
       "ok": false,
-      "detail": "fresh, successful runs on 0 of 12 days a run was due (0%, needs 95%)"
+      "detail": "fresh, successful runs on 0 of 13 days a run was due (0%, needs 95%)"
      },
      {
       "check": "orders placed",
@@ -726,29 +768,43 @@
     "days_to_edge_at_pace": null,
     "why": "0 paper days: the first 20 only set the hedge ratios; evidence starts after them"
    },
+   "edge_routes": {
+    "forward": {
+     "confirmed": false,
+     "why": "not in the frozen forward set"
+    },
+    "prereg": {
+     "confirmed": false,
+     "why": "not a pre-registered hypothesis"
+    },
+    "sequential": {
+     "confirmed": false,
+     "why": "paper sequential test waiting"
+    }
+   },
    "ready": false,
    "not_ready": [
     "retired: 2026-10-18 before its first trade: enrolled by mistake",
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "same coins as the backtest: held the same coins as the backtest replay on 0 of 0 days (needs 80%)",
     "return matches the backtest: only 0 paper days to compare with the backtest replay (needs 5)",
-    "runs healthy: fresh, successful runs on 0 of 12 days a run was due (0%, needs 95%)",
+    "runs healthy: fresh, successful runs on 0 of 13 days a run was due (0%, needs 95%)",
     "orders placed: 0 orders filled since enrolment (needs 10)",
     "days invested: held positions on 0 days (needs 15)",
-    "edge not confirmed on paper (sequential test: waiting; 0 paper days: the first 20 only set the hedge ratios; evidence starts after them)"
+    "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
    ]
   }
  ],
  "honesty": {
-  "as_of": "2026-10-30",
-  "k": 2607,
-  "luck_t": 3.518,
-  "need_t": 5.163,
-  "spa_p": 0.24719101123595505,
-  "rc_p": 0.250936329588015,
+  "as_of": "2026-10-31",
+  "k": 2618,
+  "luck_t": 3.519,
+  "need_t": 5.164,
+  "spa_p": 0.24741298212605833,
+  "rc_p": 0.25117591721542804,
   "best": "ls-759fac45",
-  "strategies": 2079,
-  "report": "reports/honesty/2026-10-30.md"
+  "strategies": 2090,
+  "report": "reports/honesty/2026-10-31.md"
  },
  "fleet": {
   "regime": "bull",
@@ -818,28 +874,28 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 33,
-   "evidence_days": 13,
+   "paper_days": 34,
+   "evidence_days": 14,
    "breaches": 0,
    "verdict": "continue",
    "decided": null,
-   "why": "13 evidence days of the 30 before any decision",
+   "why": "14 evidence days of the 30 before any decision",
    "yardsticks": {
     "cash": {
-     "n": 13,
-     "mean_apr": 2.58,
-     "sd_apr": 0.65,
-     "lower_apr": -14.6,
-     "upper_apr": 17.16,
-     "z": 2.713,
-     "edge_boundary": 18.093,
-     "z_futility": -3.607,
-     "futility_boundary": 15.364,
+     "n": 14,
+     "mean_apr": 4.14,
+     "sd_apr": 0.69,
+     "lower_apr": -13.1,
+     "upper_apr": 18.79,
+     "z": 4.383,
+     "edge_boundary": 18.253,
+     "z_futility": -1.971,
+     "futility_boundary": 15.509,
      "hedge": 0.0
     }
    },
-   "days_to_edge_at_pace": 169,
-   "last_day": "2026-10-29",
+   "days_to_edge_at_pace": 78,
+   "last_day": "2026-10-30",
    "enabled": true
   },
   {
@@ -855,14 +911,14 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 11,
+   "paper_days": 12,
    "evidence_days": 0,
    "breaches": 0,
    "verdict": "waiting",
    "decided": null,
    "yardsticks": {},
    "days_to_edge_at_pace": null,
-   "why": "11 paper days: the first 20 only set the hedge ratios; evidence starts after them",
+   "why": "12 paper days: the first 20 only set the hedge ratios; evidence starts after them",
    "enabled": true
   },
   {
@@ -878,41 +934,48 @@
    "rho": 54.539,
    "plan_days": 365,
    "uses_backtest": false,
-   "paper_days": 33,
-   "evidence_days": 13,
+   "paper_days": 34,
+   "evidence_days": 14,
    "breaches": 0,
    "verdict": "continue",
    "decided": null,
-   "why": "13 evidence days of the 30 before any decision",
+   "why": "14 evidence days of the 30 before any decision",
    "yardsticks": {
     "own": {
-     "n": 13,
-     "mean_apr": 47.53,
-     "sd_apr": 13.68,
-     "lower_apr": -316.29,
-     "upper_apr": 411.35,
-     "z": 2.364,
-     "edge_boundary": 18.093,
-     "z_futility": 1.866,
-     "futility_boundary": 18.093,
-     "hedge": 0.514
+     "n": 14,
+     "mean_apr": 50.12,
+     "sd_apr": 13.16,
+     "lower_apr": -277.58,
+     "upper_apr": 377.83,
+     "z": 2.792,
+     "edge_boundary": 18.253,
+     "z_futility": 2.235,
+     "futility_boundary": 18.253,
+     "hedge": 0.405
     },
     "btc": {
-     "n": 13,
-     "mean_apr": 42.14,
-     "sd_apr": 15.67,
-     "lower_apr": -374.62,
-     "upper_apr": 458.89,
-     "z": 1.829,
-     "edge_boundary": 18.093,
-     "z_futility": 1.395,
-     "futility_boundary": 18.093,
-     "hedge": 0.638
+     "n": 14,
+     "mean_apr": 50.74,
+     "sd_apr": 15.15,
+     "lower_apr": -326.71,
+     "upper_apr": 428.19,
+     "z": 2.454,
+     "edge_boundary": 18.253,
+     "z_futility": 1.97,
+     "futility_boundary": 18.253,
+     "hedge": 0.557
     }
    },
-   "days_to_edge_at_pace": 374,
-   "last_day": "2026-10-29",
+   "days_to_edge_at_pace": 238,
+   "last_day": "2026-10-30",
    "enabled": true
   }
- ]
+ ],
+ "parked": {
+  "carry-1h": {
+   "since": "2026-10-30",
+   "until": "a rebuilt carry simulator (v2) can judge it across funding regimes",
+   "why": "the owner's D4 of 2026-10-30: weeks of paper judge nothing and carry's market (rich funding) has not come; its simulator cannot fail yet. Neither funding the live step nor retiring it"
+  }
+ }
 }
