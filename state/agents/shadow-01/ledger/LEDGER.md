@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-10-30T02:07:18.020767Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-10-31T00:06:06.863105Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -49,31 +49,6 @@ _Rendered 2026-10-30T02:07:18.020767Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bullish · daily Bearish · data 126 min after the bar close
-- long-short book 2026-10-29: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long ARB, CRV, NEAR, STRK, UNI, VVV, ZEC, kPEPE · short AAVE, ADA, FARTCOIN, LINK, ONDO, PUMP, SOL, ZRO
-- ARB: target +5% of pot, holding +4% → hold
-- CRV: target +5% of pot, holding +4% → hold
-- FARTCOIN: target -5% of pot, holding -4% → hold
-- MON: target +0% of pot, holding -4% → close
-- MON [longshort]: closed on target weight zero at 0.018621 → +0.12 R
-- NEAR: target +5% of pot, holding +4% → hold
-- ONDO: target -5% of pot, holding -4% → hold
-- PUMP: target -5% of pot, holding -4% → hold
-- SOL: target -5% of pot, holding -5% → hold
-- STRK: target +5% of pot, holding +4% → hold
-- SUI: target +0% of pot, holding -4% → close
-- SUI [longshort]: closed on target weight zero at 0.85026 → +0.02 R
-- UNI: target +5% of pot, holding +4% → hold
-- VVV: target +5% of pot, holding +4% → hold
-- WLD: target +0% of pot, holding -4% → close
-- WLD [longshort]: closed on target weight zero at 0.37168 → +0.02 R
-- ZEC: target +5% of pot, holding +5% → hold
-- ZRO: target -5% of pot, holding -4% → hold
-- kPEPE: target +5% of pot, holding +4% → hold
-- AAVE: target -5% of pot, holding -0% → open
-- AAVE: ENTERED AAVE short [longshort] · book tier S · stop 239.06 (100.0% away) · size 4.7% of pot at 3x · risk 4.65% of pot
-- ADA: target -5% of pot, holding -0% → open
-- ADA: ENTERED ADA short [longshort] · book tier S · stop 0.37225 (100.0% away) · size 4.7% of pot at 3x · risk 4.65% of pot
-- LINK: target -5% of pot, holding -0% → open
-- LINK: ENTERED LINK short [longshort] · book tier S · stop 20.988 (100.0% away) · size 4.7% of pot at 3x · risk 4.65% of pot
-- evaluated 19 names · 0 triggers · 0 refused · 0 proposed · 3 entered · 16 open
+- BTC weekly Bullish · daily Bearish · data 6 min after the bar close
+- long-short book: between rebalances (next on 2026-11-05); 16 names held as they drift
+- evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
