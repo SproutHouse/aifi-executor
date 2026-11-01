@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-01T15:05:52.450280Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-01T16:05:51.424205Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -34,14 +34,4 @@ _Rendered 2026-11-01T15:05:52.450280Z in paper mode from state/positions_paper.j
 ## Last run
 
 - BTC weekly Bullish · daily Bearish · data 6 min after the bar close
-- ZEC: carry EXITING · funding 10.5%/yr left the basket
-- ZEC: carry dust · spot remainder below the exchange's size step, written off at the mark
-- ZEC: carry dust · perp remainder below the exchange's size step, written off at the mark
-- ZEC: carry CLOSED · -0.15% of pot · capture 73%
-- XPL: carry EXITING · funding 17.7%/yr left the basket
-- XPL: carry CLOSED · +0.08% of pot · capture 71%
-- HYPE: carry EXITING · funding 15.5%/yr left the basket
-- HYPE: carry CLOSED · -0.01% of pot · capture 58%
-- PUMP: carry EXITING · funding 6.9%/yr left the basket
-- PUMP: carry CLOSED · -0.01% of pot · capture -125%
-- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 2 open
+- evaluated 2 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 2 open
