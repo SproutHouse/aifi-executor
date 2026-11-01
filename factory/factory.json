@@ -1,8 +1,8 @@
 {
  "v": 1,
- "gen": "2026-10-31T11:14:08Z",
+ "gen": "2026-11-01T12:00:31Z",
  "lab": {
-  "tried": 13066,
+  "tried": 13117,
   "survivors": 117,
   "by_family": {
    "rs_rotation": {
@@ -14,7 +14,7 @@
     "survived": 0
    },
    "donchian": {
-    "tried": 365,
+    "tried": 411,
     "survived": 0
    },
    "meanrev": {
@@ -42,7 +42,7 @@
     "survived": 0
    },
    "ls_xs": {
-    "tried": 42,
+    "tried": 43,
     "survived": 0
    },
    "trend_ens": {
@@ -54,11 +54,11 @@
     "survived": 0
    },
    "sim_grammar": {
-    "tried": 943,
+    "tried": 946,
     "survived": 0
    },
    "sim_event": {
-    "tried": 8,
+    "tried": 9,
     "survived": 0
    },
    "sim_setup": {
@@ -78,21 +78,21 @@
     "survived": 0
    }
   },
-  "last_batch": "2026-10-31",
+  "last_batch": "2026-11-01",
   "gates_version": 12,
   "vetoed": 113,
   "retired": 4,
   "funnel": {
-   "tested": 13066,
-   "passed_cheap": 11148,
+   "tested": 13117,
+   "passed_cheap": 11188,
    "passed_audit": 140,
    "waiting_holdout": 14,
    "passed_holdout": 117,
    "vetoed": 113
   },
   "last": {
-   "date": "2026-10-31",
-   "tried": 46,
+   "date": "2026-11-01",
+   "tried": 51,
    "passed": 0
   },
   "studies": [
@@ -108,7 +108,7 @@
   "now": "bull",
   "fine": "bull",
   "since": "2026-08-24",
-  "as_of": "2026-10-30"
+  "as_of": "2026-10-31"
  },
  "shortlist": [
   {
@@ -122,7 +122,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 32.5,
+   "days": 33.5,
    "backtest": {
     "sharpe": 1.132,
     "cagr_pct": 17.32,
@@ -149,7 +149,7 @@
    "deflated_now": 0.5768,
    "trials_now": 258,
    "deflated_alpha_now": 0.0109,
-   "search_k": 2618,
+   "search_k": 2635,
    "rw_p": 1.0,
    "verdict_now": "unproven",
    "verdict_now_why": "does not beat Bitcoin at the same risk over development (-3.4%/yr)",
@@ -295,7 +295,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 28.5,
+   "days": 29.5,
    "backtest": {
     "sharpe": 1.609,
     "cagr_pct": 31.29,
@@ -321,11 +321,11 @@
    "deflated_at_trial": 0.9932,
    "deflated_now": 0.8472,
    "trials_now": 245,
-   "deflated_alpha_now": 0.1634,
-   "search_k": 2618,
-   "rw_p": 0.9925,
+   "deflated_alpha_now": 0.163,
+   "search_k": 2635,
+   "rw_p": 0.9934,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.992 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -469,7 +469,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 26.5,
+   "days": 27.5,
    "backtest": {
     "sharpe": 1.751,
     "cagr_pct": 32.29,
@@ -495,11 +495,11 @@
    "deflated_at_trial": 0.9979,
    "deflated_now": 0.8797,
    "trials_now": 245,
-   "deflated_alpha_now": 0.3414,
-   "search_k": 2618,
-   "rw_p": 0.9417,
+   "deflated_alpha_now": 0.3408,
+   "search_k": 2635,
+   "rw_p": 0.9436,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.942 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.944 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
@@ -643,7 +643,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 13.5,
+   "days": 14.5,
    "backtest": {
     "sharpe": 1.574,
     "cagr_pct": 29.81,
@@ -669,11 +669,11 @@
    "deflated_at_trial": 0.9913,
    "deflated_now": 0.4335,
    "trials_now": 245,
-   "deflated_alpha_now": 0.2566,
-   "search_k": 2618,
-   "rw_p": 0.9934,
+   "deflated_alpha_now": 0.2561,
+   "search_k": 2635,
+   "rw_p": 0.9943,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.994 is above 0.1",
    "bench": {
     "dev": {
      "days": 3561,
@@ -720,7 +720,7 @@
      {
       "check": "runs healthy",
       "ok": false,
-      "detail": "fresh, successful runs on 0 of 13 days a run was due (0%, needs 95%)"
+      "detail": "fresh, successful runs on 0 of 14 days a run was due (0%, needs 95%)"
      },
      {
       "check": "orders placed",
@@ -788,7 +788,7 @@
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "same coins as the backtest: held the same coins as the backtest replay on 0 of 0 days (needs 80%)",
     "return matches the backtest: only 0 paper days to compare with the backtest replay (needs 5)",
-    "runs healthy: fresh, successful runs on 0 of 13 days a run was due (0%, needs 95%)",
+    "runs healthy: fresh, successful runs on 0 of 14 days a run was due (0%, needs 95%)",
     "orders placed: 0 orders filled since enrolment (needs 10)",
     "days invested: held positions on 0 days (needs 15)",
     "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
@@ -796,15 +796,15 @@
   }
  ],
  "honesty": {
-  "as_of": "2026-10-31",
-  "k": 2618,
-  "luck_t": 3.519,
-  "need_t": 5.164,
-  "spa_p": 0.24741298212605833,
-  "rc_p": 0.25117591721542804,
+  "as_of": "2026-11-01",
+  "k": 2635,
+  "luck_t": 3.521,
+  "need_t": 5.166,
+  "spa_p": 0.2482235907153008,
+  "rc_p": 0.25201326385599243,
   "best": "ls-759fac45",
-  "strategies": 2090,
-  "report": "reports/honesty/2026-10-31.md"
+  "strategies": 2107,
+  "report": "reports/honesty/2026-11-01.md"
  },
  "fleet": {
   "regime": "bull",
