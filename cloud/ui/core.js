@@ -348,8 +348,8 @@ function tip(k) { const g = gloss(k); return '<button class="tip" type="button" 
 // ========================================================================================== words ==
 const KIND = { flip: ['flip', '4-hour flip'], pullback: ['pullback', 'pullback into the band'] };
 const EXIT = { stop: 'stop hit', h1: 'hourly turn', h4: '4-hour turn', d: 'daily turn', w: 'weekly turn', flatten: 'manual flatten', nostop: 'no stop possible', exch: 'exchange stop', fund: 'funding fell below its exit rate', other: 'exit',
-  brake: 'book brake', cat: 'catastrophic stop', side: 'switched sides', delist: 'delisted' };
-const OUTCOME = { blocked: 'Blocked by a check', recorded: 'Recorded, not traded', expired: 'Expired (old approval model)', notfilled: 'Order not filled', bought: 'Bought' };
+  brake: 'book brake', cat: 'catastrophic stop', side: 'switched sides', delist: 'delisted', venue: 'moved between perp and spot', basket: 'left the basket' };
+const OUTCOME = { blocked: 'Blocked by a check', recorded: 'Recorded, not traded', expired: 'Expired (old approval model)', notfilled: 'Order not filled', bought: 'Bought', perp: 'Spot not usable: traded on the perp' };
 const EV_IC = { bought: 'up', sold: 'down', trail: 'raise', blocked: 'block', recorded: 'rec', proposed: 'rec', expired: 'clock', notfilled: 'x',
   late: 'clock', failed: 'bad', halt: 'pause', resume: 'play', thr_halt: 'pause', thr_half: 'warn', recon: 'bad', no_stop: 'bad', close_failed: 'bad',
   exit_failed: 'bad', fallback: 'warn', regime: 'flag', gap: 'warn', entry_failed: 'warn', not_on_exchange: 'warn', sweep: 'swap', review: 'doc', board: 'eye',

@@ -58,18 +58,15 @@
   "carry_live_validated": false,
   "carry": {
     "basket": [
-      "HYPE",
-      "PUMP",
-      "XPL",
       "BTC",
-      "ETH",
-      "ZEC"
+      "ETH"
     ],
-    "window_hours": 24,
-    "enter_apr": 0.1,
-    "exit_apr": 0.0,
-    "per_asset_cap": 0.3,
+    "window_hours": 281,
+    "enter_apr": 0.062,
+    "exit_apr": -0.076,
+    "per_asset_cap": 0.977,
     "perp_leverage": 2,
+    "_settings_doc": "2026-11-01, the owner's decision: the setting the lab's carry simulator v2 kept choosing (recipe car-6485434d). BTC and ETH only, a slow funding average (about 12 days) and a wide gap between entry and exit (it holds through brief negative funding), so it trades rarely and fees no longer eat the funding. per_asset_cap lets one coin use almost the whole pot when it is the only one in; with both in, each gets half. Pairs in coins that left the basket are unwound.",
     "execution": "taker",
     "_execution_doc": "taker: both legs trade together with immediate-or-cancel orders, so a pair is never one-legged (replayed on 205 days of real hourly data: hedge P&L -8 vs -79 for maker orders with a 1h fix and -158 for the old engine, on a 1000 pot). maker: resting post-only orders; a lagging leg completes at market after max_unhedged_hours. Legs are equal in coins; the pair is re-sized only when its notional drifts more than resize_band from target.",
     "resize_band": 0.25,

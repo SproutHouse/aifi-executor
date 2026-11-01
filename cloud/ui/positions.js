@@ -182,8 +182,10 @@
   // ------------------------------------------------------------------------------------- the card ---
   function kindPill(p) {
     if (p.kind === 'book') return '<span class="pill">' + (p.side === 'short' ? 'Short leg' : 'Long leg') + ' · long-short book</span>';
-    return '<span class="pill' + (p.tier === 'A' ? ' auto' : '') + '">' + esc(cap1(word.kind(p.kind))) + ' · ' + esc(word.tier(p.tier)) + '</span>';
+    return '<span class="pill' + (p.tier === 'A' ? ' auto' : '') + '">' + esc(cap1(word.kind(p.kind))) + ' · ' + esc(word.tier(p.tier)) + (p.venue === 'spot' ? ' · spot' : '') + '</span>';
   }
+  // a spot long (p.venue 'spot', paper): the coin itself, bought with cash; no leverage, no funding
+  function levWords(p, lev) { return p.venue === 'spot' ? 'spot, no leverage' : lev == null ? 'leverage —' : fmt.lev(lev) + ' isolated'; }
   function exitsLine(p, first) {
     const d = num(p.to_stop_pct), e = isObj(p.exits) ? p.exits : {};
     // a rebalancer's position: a fixed protective stop (touched, not a close) or a rebalance to 0; never a daily or weekly turn
@@ -199,7 +201,7 @@
   }
   function secLine(p) {
     const sz = num(p.size_pct), lev = num(p.lev), rk = num(p.risk_pct);
-    return '<p class="ps-sec">Exposure ' + (sz == null ? '—' : fmt.pctu(sz, sz >= 10 ? 0 : 1)) + ' of pot · ' + (lev == null ? 'leverage —' : fmt.lev(lev) + ' isolated')
+    return '<p class="ps-sec">Exposure ' + (sz == null ? '—' : fmt.pctu(sz, sz >= 10 ? 0 : 1)) + ' of pot · ' + levWords(p, lev)
       + (p.kind === 'target' || p.kind === 'book' ? '' : ' · only ' + (rk == null ? '—' : fmt.pctu(rk, 2)) + ' of pot at risk at entry') + tip('exposure') + '</p>';
   }
   function body(p, o) {
@@ -239,8 +241,8 @@
       ['Grade', esc(word.tier(p.tier)) + (p.tier === 'A' ? tip('auto') : p.tier === 'B' ? tip('watch') : '')],
       ['Opened', tin == null ? na() : fmt.stamp(tin)],
       ['Held', tin != null && asof != null ? fmt.dur(Math.max(0, asof - tin)) + (bars != null ? ' · ' + word.plural(bars, 'bar') : '') : na()],
-      ['Costs so far', num(p.cost_R) == null ? na() : fmt.R(p.cost_R) + ' <span class="sub">fees and funding</span>'],
-      ['Exposure' + tip('exposure'), sz == null ? na() : fmt.pctu(sz, sz >= 10 ? 0 : 1) + ' of pot · ' + (num(p.lev) == null ? '—' : fmt.lev(p.lev) + ' isolated')],
+      ['Costs so far', num(p.cost_R) == null ? na() : fmt.R(p.cost_R) + ' <span class="sub">' + (p.venue === 'spot' ? 'fees (spot pays no funding)' : 'fees and funding') + '</span>'],
+      ['Exposure' + tip('exposure'), sz == null ? na() : fmt.pctu(sz, sz >= 10 ? 0 : 1) + ' of pot · ' + (p.venue === 'spot' ? levWords(p) : num(p.lev) == null ? '—' : fmt.lev(p.lev) + ' isolated')],
       p.kind === 'target' || p.kind === 'book' ? null : ['At risk at entry', rk == null ? na() : fmt.pctu(rk, 2) + ' of pot'],
       ['Stop at entry', sp ? fmt.pctu(sp, 1) + (p.side === 'short' ? ' above' : ' below') : na()],
       ['Bitcoin at entry', btc ? esc(btc) : na()],

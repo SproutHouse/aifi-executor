@@ -5,18 +5,52 @@ results in `research/phase1/carry_results.json`. Parameters chosen on 2023–202
 
 ## The rule
 
+_The basket, window, thresholds and per-asset cap changed on 2026-11-01: see "Settings since 2026-11-01" below. The
+evidence sections describe the original 2026-09-26 rule._
+
 | Item | Value |
 |---|---|
 | Position | short perp N + long spot N on Hyperliquid, delta-neutral; income = hourly funding × N |
-| Basket | **HYPE, PUMP, XPL, BTC, ETH, ZEC** (every perp with a liquid spot leg, minus ENA and SOL, see below) |
-| Enter | when the trailing **24-hour** mean funding, annualised, is **≥ 10%** |
-| Exit | when the trailing 24-hour mean funding falls **below 0%** |
+| Basket | **BTC, ETH** (was HYPE, PUMP, XPL, BTC, ETH, ZEC until 2026-11-01) |
+| Enter | when the trailing **281-hour** (about 12 days) mean funding, annualised, is **≥ 6.2%** (was 24 hours, 10%) |
+| Exit | when the trailing 281-hour mean funding falls **below −7.6%** (was 24 hours, 0%) |
 | Leverage | perp leg **≤ 2x**; capital per unit N = 1.5N |
-| Per-asset cap | 30% of the carry bot's capital in any one asset |
+| Per-asset cap | 97.7% of the carry bot's capital in any one asset (was 30%); with both coins in, each gets half |
 | Orders | **both legs together, taker (IOC), in the same cycle** since 2026-10-16 (was maker-only; see "Execution evidence") |
 | Delta | legs equal in coins; the pair is re-sized (both legs together) only when its notional drifts more than 25% from target |
 | Regime | unwind on **crisis** (REGIME.md); weight 0.5 in bear and chop |
 | Cadence | hourly, on an always-on runner (not GitHub's cron, which is unreliable at hourly) |
+
+## Settings since 2026-11-01
+
+The owner adopted the setting the lab's carry simulator v2 kept choosing (recipe `car-6485434d`). The simulator trades a
+recipe the way carry-1h trades it: hourly signal, both legs at market, real spot venues, the spot-perp gap as profit
+or loss. In plain words, what changed and why:
+
+- **A slow average.** The old rule looked at one day of funding and flipped in and out often, so fees ate most of the
+  funding. The new one averages about twelve days, so a pair is held for weeks, not days.
+- **A wide gap between entry and exit.** It enters when funding has paid shorts about 6% a year on average and leaves
+  only when it has turned clearly against them (below about −8% a year), holding through brief negative spells.
+- **BTC and ETH only.** The two deepest spot books. Pairs held in coins that left the basket (HYPE, PUMP, XPL, ZEC) are
+  unwound on the next run like any exit, with the trade reason "left the basket".
+- **Almost the whole pot per coin.** One coin in alone may use nearly all the capital; with both in, each gets half.
+
+| Recipe field | Setting (`agents/carry-1h/settings.json`) | Value |
+|---|---|---|
+| coins | `carry.basket` | BTC, ETH |
+| window_hours | `carry.window_hours` | 281 |
+| enter_apr | `carry.enter_apr` | 0.062 |
+| exit_apr | `carry.exit_apr` | −0.076 |
+| per_asset_cap | `carry.per_asset_cap` | 0.977 |
+| perp_leverage | `carry.perp_leverage` | 2 |
+| alloc (none) | — | the whole pot, as before |
+
+The simulator's fixed costs and checks already match the engine's settings (taker execution on both legs, the 25%
+re-size band, the 1% price gap limit, 0.5M of daily spot volume, the crisis unwind, the 0.07% spot and 0.045% perp taker
+fees). Not expressible: the simulator charges more slippage on the spot leg than on the perp leg, while the paper engine
+has one slippage figure for both (`paper_slippage_pct`, kept); the simulator checks re-sizes at daily closes and models
+the short being liquidated, while the engine checks every hour and its paper book has no liquidation. A pair already
+open keeps the size it was entered at until it exits. carry-1h stays on paper and stays parked in the factory.
 
 ## Evidence
 

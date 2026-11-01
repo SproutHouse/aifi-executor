@@ -29,7 +29,7 @@ def flatten():
     cy.load_account()
     left = []
     for coin, pos in list(cy.positions.items()):
-        mark = cy.marks.get(coin)
+        mark = cy.pos_mark(coin, pos)              # a spot long at its pair's mark (load_account read the spot prices)
         try:
             if pos.get("kind") != "carry" and not mark:
                 raise RuntimeError("no mark price")

@@ -1305,6 +1305,7 @@ Not shipped: `notional`, `sz`, `risk_amt`, `entry_fee`, `funding_paid`, cloids, 
 | policy | `recorded` | `tier` |
 | proposal | `expired` | `expired` |
 | execution | `notfilled` | `fill` (the raw exchange text is dropped) |
+| venue | `perp` | from §7: a spot agent's long went on the perp because its spot pair failed the spot checks (2026-11-01) |
 | trades opened | `bought` | — |
 
 - Rows are filtered to `mode == eff` once refusals carry `mode` (E5). Before that, all rows are treated as paper, and in live mode only rows after the first live equity point are shipped.

@@ -53,3 +53,31 @@ band; the resident 15% stop on a target-weight position; reconciliation of targe
   resident stop following the size. Tests in `tests/test_target.py`.
 - Agent `trend-1d` runs in paper from the next 00:00 UTC close. Its drawdown throttle is set at 25% (halve) and 45% (halt),
   above the rule's historical 40% drawdown, so normal drawdowns do not stop it.
+
+## Spot holdings (2026-11-01, the owner's decision; paper only)
+
+The rule is unchanged (same signal, size, band and stop, still read from the perps' daily bars). What changed is
+where a long is held: `settings.target.long_venue: "spot"` makes `trend-1d` hold the coins themselves on Hyperliquid's
+spot pairs, **UBTC/USDC (`@142`) and UETH/USDC (`@151`)**, instead of perpetuals. A perp long pays funding every hour;
+a coin held outright pays none. Every other agent keeps the default `"perp"` and its exact old behaviour.
+
+- **Prices and costs.** A spot long is bought and sold at its spot pair's mark price with the engine's paper slippage,
+  and pays Hyperliquid's spot taker fee (`target.spot.fee_taker_pct`, 0.07%) instead of the perp's. Its funding is
+  always zero. It is valued at the spot mark (the perp's mark stands in for a run whose spot prices cannot be read).
+- **Checks.** The perp funding filter (`universe.max_funding_annual_pct`) exists because a perp long pays funding; it
+  does not apply to a spot long and still applies to every perp long. Every other pre-trade check, the throttle, the
+  halt and the 15% stop work as before; the stop is checked on the spot pair's own daily bars.
+- **No borrowed money.** Spot is bought with cash, so the spot longs together hold at most `target.spot.max_x` (1x) of
+  the pot. A target above that is capped and the run says so. At the rule's usual volatility this rarely binds.
+- **Fallback to the perp.** A coin whose spot pair is missing, has no price, trades less than `target.spot.min_spot_vol_m`
+  (0.5M) a day, or sits more than `target.spot.max_basis_pct` (1%) from the perp's price is opened or increased on the
+  perp instead. The run says why ("venue · spot not used (…)") and a record with stage `venue` goes into
+  `refused.jsonl`; the dashboard shows it as "Spot not usable: traded on the perp". A held spot long whose pair turns
+  thin is kept (exits and trims still happen there) but is not increased.
+- **Switching venue.** A long held on the other venue than the setting is moved **at once**, on the first run after
+  the change: closed and re-opened at that day's target on the new venue, both fees paid, so it stops paying funding
+  the day the setting changes instead of whenever the band next trades. The close is a normal trade line with reason
+  "venue switch". The move waits (the position stays as it is) while the pre-trade checks would refuse the new
+  position, for example under a halt; a perp long also stays a perp while spot is unusable.
+- **Live.** There is no live spot order path yet: an agent with `long_venue: "spot"` runs paper even if `mode` says live
+  (`spot_live_validated` would be the switch, as `carry_live_validated` is for carry).

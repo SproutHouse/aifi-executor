@@ -65,7 +65,15 @@
     "weights": {
       "BTC": 0.5,
       "ETH": 0.5
+    },
+    "long_venue": "spot",
+    "spot": {
+      "fee_taker_pct": 0.07,
+      "min_spot_vol_m": 0.5,
+      "max_basis_pct": 1.0,
+      "max_x": 1.0,
+      "_doc": "long_venue spot (2026-11-01, owner's decision; paper only): the long is the coin itself on its Hyperliquid spot pair (UBTC, UETH), so it pays no funding and the perp funding filter does not apply. fee_taker_pct: Hyperliquid's spot taker fee in %. A spot pair with less than min_spot_vol_m million of 24h volume or a price more than max_basis_pct % from the perp is not used: the long goes on the perp and the reason is recorded. max_x: spot is bought with cash, so the spot longs together hold at most this multiple of the pot (a higher target is capped). A perp long held when the setting changes is closed and re-opened on spot in the next run."
     }
   },
-  "_agent_note": "Trend (Doctrine build 2): BTC+ETH, long while the daily close is above its 50-day average, vol-targeted 30%, cap 2x, 25% no-trade band, 15% resident stop. Frozen in docs/specs/TREND.md. Throttle set above the rule's 40% historical drawdown so normal drawdowns do not halt it."
+  "_agent_note": "Trend (Doctrine build 2): BTC+ETH, long while the daily close is above its 50-day average, vol-targeted 30%, cap 2x, 25% no-trade band, 15% resident stop. Frozen in docs/specs/TREND.md. Throttle set above the rule's 40% historical drawdown so normal drawdowns do not halt it. Since 2026-11-01 the longs are held as spot coins (target.long_venue), not perps."
 }

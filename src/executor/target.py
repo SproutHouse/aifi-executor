@@ -44,7 +44,8 @@ def paper_resize(pos, new_notional, mark, s):
     Returns the cash change (negative fee on an increase; realised P&L net of fee on a decrease).
     new_notional is the size's absolute value: a short (the long-short book, paper only) grows by selling below the
     mark and shrinks by buying back above it."""
-    slip, fee_pct = s["paper_slippage_pct"] / 100, s["fee_taker_pct"] / 100
+    fee = pos.get("fee_taker_pct")                     # a spot long pays its own (spot) taker fee
+    slip, fee_pct = s["paper_slippage_pct"] / 100, (float(fee) if isinstance(fee, (int, float)) else s["fee_taker_pct"]) / 100
     if pos.get("side") == "short":
         return _paper_resize_short(pos, new_notional, mark, slip, fee_pct)
     cur = pos["sz"] * mark

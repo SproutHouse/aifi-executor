@@ -107,10 +107,14 @@ CASES = {
                             ("thr_half", None, None, None, "11.2", None, None), None)],
     "leftover stop cancel failed": [({"coin": "LINK", "e": E_CONN}, True, SKIP, None)],
     "% of pot, holding": [({"coin": "BTC", "tgt": 330.0, "cur": 0.0, "eq": 1000.0, "action": "open"}, True, SKIP, None)],
+    # a spot agent's venue notes (2026-11-01, target.long_venue "spot"): fallback, cap, switch; never an event
+    "venue · ": [({"coin": "BTC", "note": "spot not used (UBTC spot 24h volume 0.3M below 0.5M); the perp is traded instead"}, True, SKIP, None),
+                 ({"coin": "ETH", "note": "moving the long from perp to spot: closed and re-opened at the target, both fees paid"}, True, SKIP, None)],
     # Command Center §6.1: the five acting lines are typed events now (the `target` weights line stays SKIP)
     "carry ENTERING": [({"coin": "HYPE", "apr": 0.349, "n": 200.0, "self": base_self()}, True, ("carry_in", "HYPE", "carry", None, "34.9", None, None), None)],
-    "carry EXITING": [({"coin": "HYPE", "apr": -0.002}, True, ("carry_out", "HYPE", "carry", None, "-0.2", None, None), None),
-                      ({"coin": "HYPE", "apr": None}, True, ("carry_out", "HYPE", "carry", None, "0.0", None, None), None)],
+    "carry EXITING": [({"coin": "HYPE", "apr": -0.002, "cfg": {"basket": ["HYPE"]}}, True, ("carry_out", "HYPE", "carry", None, "-0.2", None, None), None),
+                      ({"coin": "HYPE", "apr": None, "cfg": {"basket": ["HYPE"]}}, True, ("carry_out", "HYPE", "carry", None, "0.0", None, None), None),
+                      ({"coin": "ZEC", "apr": 0.05, "cfg": {"basket": ["BTC"]}}, True, ("carry_out", "ZEC", "carry", None, "5.0", None, None), None)],
     "carry CLOSED": [({"coin": "HYPE", "rec": {"pnl": 1.2, "capture": 0.85}, "cap": "85%", "self": base_self()}, True,
                       ("carry_closed", "HYPE", "carry", None, "+0.12,85%", None, None), None),
                      ({"coin": "HYPE", "rec": {"pnl": -0.5, "capture": None}, "cap": "n/a", "self": base_self()}, True,
@@ -181,7 +185,7 @@ def render(fn, call, overrides):
 class SayTemplates(unittest.TestCase):
     def test_every_say_parses_into_its_event(self):
         sites = say_sites()
-        self.assertEqual(len(sites), 69, "cycle.py gained or lost a say(): add or remove its template case here")
+        self.assertEqual(len(sites), 70, "cycle.py gained or lost a say(): add or remove its template case here")
         used = set()
         for fn, call, src in sites:
             keys = [k for k in CASES if k in src]

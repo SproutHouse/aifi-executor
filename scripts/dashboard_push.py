@@ -64,13 +64,16 @@ CHECK_CODES = {"not halted": "halt", "throttle allows entries": "thr", "data fre
                "no reconciliation mismatch": "recon", "sizing accepted": "sizing", "no open position in this coin": "dup",
                "below max positions": "maxpos", "equity positive": "equity", "open-risk cap": "cap", "gross exposure cap": "gross",
                "book open-risk cap": "bookcap", "price sanity band": "sanity", "universe filters": "universe"}
-OUTCOME = {"pre-trade": "blocked", "policy": "recorded", "proposal": "expired", "execution": "notfilled", "approval": "blocked"}
+OUTCOME = {"pre-trade": "blocked", "policy": "recorded", "proposal": "expired", "execution": "notfilled", "approval": "blocked",
+           "venue": "perp"}         # venue: a spot agent's long went on the perp because its spot pair was not usable
 # Exit reasons: a flip names its timeframe (cycle.py writes f"{tf} flip"): on an hourly bot "4h flip" is its 4-hour
 # gate turning and "1h flip" its own bar, so each keeps its own code (h1 reads "hourly turn", h4 always "4-hour turn").
 RSN = {"stop": "stop", "4h flip": "h4", "1h flip": "h1", "1d flip": "d", "daily flip": "d", "weekly flip": "w", "manual flatten": "flatten",
-       "no stop possible": "nostop", "stop (exchange)": "exch", "funding below exit": "fund",
+       "no stop possible": "nostop", "stop (exchange)": "exch", "funding below exit": "fund", "left the basket": "basket",
        # the long-short book (shadow agents, paper only)
-       "book brake": "brake", "catastrophic stop": "cat", "side flips": "side", "delisted": "delist"}
+       "book brake": "brake", "catastrophic stop": "cat", "side flips": "side", "delisted": "delist",
+       # a target long moved between perp and spot when settings.target.long_venue changed (closed and re-opened)
+       "venue switch": "venue"}
 # the fixed why strings in signals.py (lines 13, 15, 18, 28, 30)
 WHY = {"weekly Momentum Cloud not bullish": "w", "daily Momentum Cloud not bullish": "d", "4-hour reading not ready": "n",
        "no trigger on the last 4-hour bar": "atu", "close not above the 4-hour line": "g"}
@@ -295,7 +298,8 @@ def check_codes(check, detail):
 def refusal_codes(r):
     """The normalised failing codes of one refusal record, in check order."""
     st, d = r.get("stage"), r.get("detail")
-    if st in ("pre-trade", "leg formation"):          # leg formation: the long-short book's per-side gates (failed checks)
+    if st in ("pre-trade", "leg formation", "venue"):  # leg formation: the long-short book's per-side gates (failed checks);
+        # venue: the spot checks a spot agent's long failed before it went on the perp
         out = []
         if isinstance(d, list):
             for c in d:
@@ -357,6 +361,7 @@ _P = {k: re.compile(v) for k, v in {
     "nomark": r"^(\S+): (?:weekly|daily|4h|1h|1d) flip but no mark price",
     "trail": r"^(\S+): stop trailed to ([\d.e+-]+)$",
     "target": r"^(\S+): target [+-]?\d+% of pot, holding [+-]?\d+% → \w+$",
+    "venue": r"^(\S+): venue · ",
     "book": r"^(?:long-short book\b|BOOK BRAKE: |book brake )",
     "resized": r"^(\S+): resized to (\d+)% of pot, stop \S+$",
     "carry_in": r"^(\S+): carry ENTERING · funding ([-\d.]+)%/yr",
@@ -454,7 +459,7 @@ def parse_line(line, fresh=True):
             return SKIP
         mins = re.search(r"(\d+) min after the bar close", m.group(3))
         return Ev("late", detail=mins.group(1) if mins else None, aux={"min": int(mins.group(1)) if mins else None})
-    for k in ("counts", "stop_cancel", "reading", "would_propose", "target", "carry_dust", "book"):
+    for k in ("counts", "stop_cancel", "reading", "would_propose", "target", "venue", "carry_dust", "book"):
         if _P[k].match(s):
             return SKIP
     m = _P["resized"].match(s)
@@ -997,13 +1002,15 @@ class Bundle:
             stop0 = float(p["initial_stop"]) if isinstance(p.get("initial_stop"), (int, float)) else stop
             mark = float(p["mark"]) if isinstance(p.get("mark"), (int, float)) and p["mark"] > 0 else None
             fee_in, fund = float(p.get("entry_fee") or 0), float(p.get("funding_paid") or 0)
+            spot = p.get("venue") == "spot"            # a spot long (paper): its own taker fee, no funding, no leverage
+            fee = float(p["fee_taker_pct"]) / 100 if spot and isinstance(p.get("fee_taker_pct"), (int, float)) else self.fee
 
             sg = -1.0 if p.get("side") == "short" else 1.0       # a short (the long-short book, paper only) gains as the price falls
 
             def net(px):          # net if closed at px now: price move − entry fee − estimated exit fee − funding
                 if sg < 0:
-                    return (entry - px) / entry * notional - fee_in - notional * (px / entry) * self.fee - fund
-                return (px - entry) / entry * notional - fee_in - notional * (px / entry) * self.fee - fund
+                    return (entry - px) / entry * notional - fee_in - notional * (px / entry) * fee - fund
+                return (px - entry) / entry * notional - fee_in - notional * (px / entry) * fee - fund
             risk = entry - stop0 if sg > 0 else stop0 - entry
 
             def rm(px):
@@ -1028,13 +1035,15 @@ class Bundle:
                         "risk_pct": num(p["risk_pct"]) if isinstance(p.get("risk_pct"), (int, float)) else self.ratio(risk_amt),
                         "size_pct": self.ratio(notional, 1), "val_pct": self.ratio(notional * mark / entry if mark else notional, 1),
                         "lev": p.get("leverage"), "to_stop_pct": to_stop,
-                        "cost_R": num((fee_in + notional * (mark / entry) * self.fee + fund) / risk_amt) if (mark and risk_amt) else None,
+                        "cost_R": num((fee_in + notional * (mark / entry) * fee + fund) / risk_amt) if (mark and risk_amt) else None,
                         "stops": stops,
                         "exits": {"h4_pct": to_stop, "d_pct": num((mark - h["dline"]) / mark * 100) if (mark and h.get("dline")) else None,
                                   "w_pct": num((mark - h["wline"]) / mark * 100) if (mark and h.get("wline")) else None},
                         "px": {"entry": sig5(entry), "stop0": sig5(stop0), "stop": sig5(stop), "mark": sig5(mark)}}
             if sg < 0:
                 row["side"] = "short"           # only a short carries it: every long row keeps its old shape
+            if spot:
+                row["venue"] = "spot"           # only a spot long carries it: a perp row keeps its old shape
             out.append(row)
         out.sort(key=lambda x: (x["to_stop_pct"] is None, x["to_stop_pct"] or 0))
         return out

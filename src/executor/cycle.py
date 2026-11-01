@@ -45,6 +45,8 @@ def resolve_mode(s):
         return "paper", "live requested but builder-market (HIP-3) order handling is not validated yet (docs/specs/MARKETS.md): running paper"
     if mode == "live" and s.get("strategy") == "carry" and not s.get("carry_live_validated"):
         return "paper", "live requested but carry live order handling is not validated on testnet yet (Phase 4): running paper"
+    if mode == "live" and long_venue(s) == "spot" and not s.get("spot_live_validated"):
+        return "paper", "live requested but spot long orders and their stops are not built for live yet: running paper"
     if mode == "live":
         key, addr = LV.creds()
         if not key or not addr:
@@ -52,6 +54,23 @@ def resolve_mode(s):
         if not LV.available():
             return "paper", "live requested but the exchange SDK is not installed: running paper"
     return mode, ""
+
+
+SPOT_DEFAULTS = {"fee_taker_pct": 0.07, "min_spot_vol_m": 0.5, "max_basis_pct": 1.0, "max_x": 1.0}
+
+
+def long_venue(s):
+    """Where a target-mode long is held: "perp" (the default, every agent as before) or "spot" (settings.target.long_venue:
+    the coin itself on its Hyperliquid spot pair, no funding; paper only). The long-short book always trades perps."""
+    t = s.get("target") or {}
+    return "spot" if s.get("strategy") == "target" and t.get("long_venue") == "spot" and t.get("family") != "ls_xs" else "perp"
+
+
+def spot_cfg(s):
+    """The spot venue's settings (settings.target.spot), over the defaults: Hyperliquid's spot taker fee in %, the spot
+    pair's 24h volume floor in millions, the spot-perp price gap limit in %, and the most of the pot the spot longs may
+    hold together (max_x: spot is bought with cash, never with borrowed money)."""
+    return dict(SPOT_DEFAULTS, **{k: v for k, v in ((s.get("target") or {}).get("spot") or {}).items() if not k.startswith("_")})
 
 
 def freshness(h4, now_ts, s):
@@ -139,6 +158,7 @@ class Cycle:
         self.thr = K.throttle([], self.s["throttle"])
         self.failed = False
         self.run_doc = None
+        self.spot, self.spot_err = None, ""          # Hyperliquid's spot pairs, loaded once when a spot long needs them
 
     def say(self, line):
         self.summary.append(line)
@@ -182,6 +202,8 @@ class Cycle:
     # ---------------------------------------------------------- accounts --
     def load_account(self):
         self.positions = L.positions(self.mode)
+        if self.needs_spot():
+            self.load_spot()                       # spot longs are valued at their pair's mark
         if self.mode == "paper":
             self.pot = PA.pot(self.s) if not self.dry else (C.load_json(PA.POT) or {"cash": float(self.s["pot_usd_paper"]), "start": float(self.s["pot_usd_paper"])})
             self.equity, self.unreal = PA.equity(self.pot, self.positions, self.marks)
@@ -484,6 +506,8 @@ class Cycle:
                    "pair_daily": R.label(ctx["daily_dir"]), "h4_range": cand.get("range"),
                    "funding_annual_pct": H.funding_annual_pct(self.ctxs.get(coin, {})), "hours_mode": self.hours_mode}
         rules = [f"LOGIC v{self.s.get('version', '?')}", f"agent:{C.AGENT}", f"trigger:{cand['kind']}", f"tier:{cand['tier']}", f"stop:{self.bars.tf}-line", "long-only", f"book:{cand.get('book')}"]
+        if cand.get("venue") == "spot" and self.mode != "paper":
+            raise RuntimeError("spot longs have no live order path; nothing sent")
         if self.mode == "paper":
             pos = PA.open_position(cand, sizing, mark, self.s, self.now, "paper", context, rules)
             self.pot["cash"] -= pos["entry_fee"]
@@ -674,19 +698,23 @@ class Cycle:
         pairs = H.spot_pairs()
         mids = H.all_mids()
         fund, dec = {}, {}
-        for coin in cfg["basket"]:
+        # a pair held in a coin the basket no longer lists (the basket was changed) is unwound like any exit; without
+        # this it would sit open forever, since only basket coins are stepped
+        left = [c for c, p in self.positions.items() if p.get("kind") == "carry" and c not in cfg["basket"]]
+        coins = list(cfg["basket"]) + left
+        for coin in coins:
             try:
                 fund[coin] = H.funding_history(coin, now_ms - (cfg["window_hours"] + 30) * 3600 * 1000)
             except Exception as e:  # noqa: BLE001
                 fund[coin] = None
                 self.say(f"{coin}: candles unavailable ({str(e)[:80]})")
             apr = CA.mean_apr(fund[coin] or [], now_ms, cfg["window_hours"]) if fund[coin] is not None else None
-            dec[coin] = (CA.decide(apr, coin in self.positions, cfg), apr)
+            dec[coin] = (CA.decide(apr, coin in self.positions, cfg), apr) if coin in cfg["basket"] else ("exit", apr)
         if self.btc and self.s.get("carry", {}).get("crisis_unwind") and self.regime_crisis():
             dec = {c: (("exit" if c in self.positions else "none"), a) for c, (d, a) in dec.items()}
         n_active = sum(1 for c, (d, a) in dec.items() if d in ("enter", "hold")) or 1
         # pairs already held first (an exit frees its capital before a new pair is sized), then new entries
-        for coin in sorted(cfg["basket"], key=lambda c: dec[c][0] == "enter"):
+        for coin in sorted(coins, key=lambda c: dec[c][0] == "enter"):
             try:
                 self.carry_step(coin, dec[coin][0], dec[coin][1], pairs.get(coin), mids, fund.get(coin) or [], n_active, cfg)
             except Exception as e:  # noqa: BLE001
@@ -739,7 +767,7 @@ class Cycle:
         spot_mid = mids.get(pair["pair"]) if pair else None
         self.counts["evaluated"] += 1
         self.readings.append({"coin": coin, "book": "carry", "weekly": None, "daily": None, "h4": None, "range": None, "line": None,
-                              "close": None, "trigger": None, "why": f"funding {apr * 100:.1f}%/yr (24h mean)" if apr is not None else "no funding reading",
+                              "close": None, "trigger": None, "why": f"funding {apr * 100:.1f}%/yr ({cfg['window_hours']}h mean)" if apr is not None else "no funding reading",
                               "vol_m": (pair or {}).get("vol", 0) / 1e6, "funding_pct": apr * 100 if apr is not None else None, "days": None, "mark": perp_mid})
         if not (perp_mid and spot_mid):
             if pos:
@@ -781,8 +809,9 @@ class Cycle:
         if not pos:
             return
         if decision == "exit" and pos["state"] != "exiting":
-            pos["state"], pos["orders"], pos["exit_reason"], pos["exit_ts"] = "exiting", {}, "funding below exit", self.now
-            self.say(f"{coin}: carry EXITING · funding {apr * 100 if apr is not None else 0:.1f}%/yr below exit")
+            pos["state"], pos["orders"], pos["exit_reason"], pos["exit_ts"] = ("exiting", {}, "funding below exit" if coin in cfg["basket"]
+                                                                               else "left the basket", self.now)
+            self.say(f"{coin}: carry EXITING · funding {apr * 100 if apr is not None else 0:.1f}%/yr {'below exit' if coin in cfg['basket'] else 'left the basket'}")
         self.carry_trade(coin, pos, spot_mid, perp_mid, pair, cfg)
         if pos["state"] == "exiting" and pos["legs"]["spot"]["sz"] <= 1e-12 and pos["legs"]["perp"]["sz"] <= 1e-12:
             self.carry_close_out(coin, pos)
@@ -990,9 +1019,13 @@ class Cycle:
         Live stops sit on the exchange; absorb_exchange_closes records them."""
         if self.mode != "paper":
             return
+        if self.needs_spot():
+            self.load_spot()
         for coin, pos in list(self.positions.items()):
             try:
                 d, h = self.bars.get(coin)
+                if PA.is_spot(pos):
+                    h = self.spot_bars(coin, pos, h)       # a spot long's stop is checked on its own pair's bars
                 row = self.ctxs.get(coin, {})
                 if not (pos.get("kind") == "book" and self.book_funding(coin, pos)):
                     try:
@@ -1006,9 +1039,11 @@ class Cycle:
                 self.say(f"{coin}: exit management failed ({type(e).__name__}: {str(e)[:100]}); position kept")
         self.persist()
 
-    def target_checks(self, coin, add_notional, row, stop_pct, side="long"):
+    def target_checks(self, coin, add_notional, row, stop_pct, side="long", venue="perp", mark=None, release=0.0):
         """The pre-trade checks that apply to opening or increasing a target position (exits never wait). side "short"
-        (the long-short book, paper only) mirrors the funding filter."""
+        (the long-short book, paper only) mirrors the funding filter. venue "spot" (a long held as the coin itself): the
+        funding filter does not apply (it exists because a perp long pays funding; a spot long pays none) and the price
+        band compares the spot mark (`mark`) with Binance. release: notional closed in the same step (a venue switch)."""
         checks = []
         add = lambda name, ok, detail="": checks.append({"check": name, "ok": bool(ok), "detail": detail})
         eq = self.equity or 0.0
@@ -1017,15 +1052,16 @@ class Cycle:
         add("data fresh and run on time", self.fresh, self.fresh_detail)
         add("no reconciliation mismatch", not self.rec_flags.get("reconcile_mismatch"), self.rec_flags.get("reconcile_detail", ""))
         add("equity positive", eq > 0, "" if eq > 0 else f"equity {eq}")
-        gross = sum(p["sz"] * (self.marks.get(c) or p["entry"]) for c, p in self.positions.items())
+        gross = sum(p["sz"] * (self.pos_mark(c, p) or p["entry"]) for c, p in self.positions.items()) - release
         add("gross exposure cap", eq > 0 and gross + add_notional <= self.s["gross_exposure_cap_x"] * eq + 1e-9,
             f"{(gross + add_notional) / eq:.2f}x after, cap {self.s['gross_exposure_cap_x']}x" if eq > 0 else "n/a")
         add("above the exchange minimum", add_notional >= self.s["min_notional_usd"], "")
-        mark = self.marks.get(coin)
+        mark = mark or self.marks.get(coin)
         second = B.last_price(coin)
         dev = abs(mark - second) / second * 100 if (mark and second) else 0.0
         add("price sanity band", dev <= self.s["data"]["sanity_band_pct"], f"mark vs Binance {dev:.2f}%" if second else no_second(coin))
-        u_ok, u_reasons = U.check(coin, row, self.s["universe"], None) if side == "long" else U.check(coin, row, self.s["universe"], None, side)
+        uni = self.s["universe"] if venue != "spot" else dict(self.s["universe"], max_funding_annual_pct=float("inf"))
+        u_ok, u_reasons = U.check(coin, row, uni, None) if side == "long" else U.check(coin, row, uni, None, side)
         add("universe filters", u_ok, "; ".join(u_reasons))
         return all(c["ok"] for c in checks), checks
 
@@ -1033,6 +1069,8 @@ class Cycle:
         cfg = self.s["target"]
         band, stop_pct = float(cfg["band"]), float(cfg["stop_pct"]) / 100
         eq = self.equity or 0.0
+        if self.needs_spot():
+            self.load_spot()
         for coin, (frac, why, d) in self.target_plan(cfg).items():
             try:
                 self.manage_target(coin, frac, why, d, eq, band, stop_pct, cfg)
@@ -1082,60 +1120,189 @@ class Cycle:
         return out
 
     def manage_target(self, coin, frac, why, d, eq, band, stop_pct, cfg):
+        """One coin's target step. Venue (settings.target.long_venue, paper only): a "spot" agent holds the coin itself on
+        its Hyperliquid spot pair when that pair passes the spot checks (spot_market), else the long goes on the perp and
+        the reason is recorded. A held long on the other venue than the setting is MOVED at once: closed and re-opened at
+        the day's target on the new venue in the same step (both fees paid), so it stops paying funding the day the
+        setting changes; while spot is unusable a perp long stays a perp, and a spot long is never moved back to the perp
+        for a temporary liquidity gap (only when the setting itself says perp)."""
         row = self.ctxs.get(coin) or {}
-        mark = self.marks.get(coin)
+        pos = self.positions.get(coin)
+        want = long_venue(self.s)
+        spot, vwhy = self.spot_market(coin) if want == "spot" else (None, "")
+        spot_px = (spot.get("mark") or spot.get("mid")) if spot else None
+        mark = self.pos_mark(coin, pos) if pos else (spot_px if spot else self.marks.get(coin))
         self.counts["evaluated"] += 1
         self.readings.append({"coin": coin, "book": cfg.get("book", "trend"), "weekly": None, "daily": None, "h4": None, "range": None,
                               "line": None, "close": d[-1]["c"] if d else None, "trigger": None, "why": why,
-                              "vol_m": None, "funding_pct": H.funding_annual_pct(row), "days": len(d), "mark": mark})
+                              "vol_m": None, "funding_pct": H.funding_annual_pct(row), "days": len(d), "mark": self.marks.get(coin)})
         if frac is None or not mark:
             self.say(f"{coin}: no reading on one timeframe (data gap); position and stop kept as they are")
             return
-        pos = self.positions.get(coin)
+        held = ("spot" if PA.is_spot(pos) else "perp") if pos else None
+        moving = held is not None and held != want and (want == "perp" or spot is not None)
+        on = want if (moving or not pos) and (want == "perp" or spot) else (held or "perp")   # the venue this step trades on
         cur = pos["sz"] * mark if pos else 0.0
         mult = (self.thr["multiplier"] if self.thr["multiplier"] > 0 else 1.0) * self.fleet_mult
         tgt = frac * eq * mult
+        if on == "spot" and tgt > 0:
+            room = self.spot_room(coin)
+            if tgt > room:
+                self.venue_note(coin, f"target {tgt / eq * 100 if eq else 0:.0f}% of pot capped at {room / eq * 100 if eq else 0:.0f}%: spot is bought with cash, never borrowed")
+                tgt = room
         action = TG.decide(cur, tgt, band)
         self.say(f"{coin}: target {tgt / eq * 100 if eq else 0:.0f}% of pot, holding {cur / eq * 100 if eq else 0:.0f}% → {action}")
-        if action in ("hold", "none") or self.dry:
+        if held == "perp" and want == "spot" and not moving:
+            self.venue_note(coin, f"stays on the perp: spot not usable ({vwhy})")
+        if self.dry or action == "none" or (action == "hold" and not moving):
             return
+        slip = self.s["paper_slippage_pct"] / 100
         if action == "close":
-            self.close_position(coin, pos, mark * (1 - self.s["paper_slippage_pct"] / 100) if self.mode == "paper" else mark, "below its average" if not cfg.get("family") else "target weight zero", self.now)
+            self.close_position(coin, pos, mark * (1 - slip) if self.mode == "paper" else mark, "below its average" if not cfg.get("family") else "target weight zero", self.now)
             return
+        if moving:
+            new_px = spot_px if on == "spot" else self.marks.get(coin)
+            ok, checks = self.target_checks(coin, tgt, row, stop_pct, venue=on, mark=new_px, release=cur)
+            if ok and new_px:
+                self.venue_note(coin, f"moving the long from {held} to {on}: closed and re-opened at the target, both fees paid")
+                self.close_position(coin, pos, mark * (1 - slip) if self.mode == "paper" else mark, "venue switch", self.now)
+                if coin not in self.positions:
+                    self.target_open(coin, tgt, new_px, stop_pct, why, spot if on == "spot" else None)
+                return
+            if action != "decrease":
+                self.refuse_target(coin, "switch", [c for c in checks if not c["ok"]] or
+                                   [{"check": "price sanity band", "ok": False, "detail": f"no {on} price"}])
+                return
+            on = held                                       # the move waits; the trim happens where the long is
         if action == "decrease":
             self.target_resize(coin, pos, tgt, mark, stop_pct)
             return
-        ok, checks = self.target_checks(coin, tgt - cur, row, stop_pct)
-        if not ok:
-            failed = [c for c in checks if not c["ok"]]
-            self.counts["refused"] += 1
-            L.record_refusal({"coin": coin, "kind": action, "tier": "T"}, failed, self.now, "pre-trade")
-            cand = {"kind": action, "tier": "T"}
-            self.say(f"{coin}: signal {cand['kind']} tier {cand['tier']} REFUSED: " + "; ".join(f"{c['check']} ({c['detail']})" for c in failed))
+        if on == "spot" and not spot:                       # a spot long cannot grow while its pair is unusable
+            self.refuse_target(coin, action, [{"check": "universe filters", "ok": False, "detail": f"spot: {vwhy}"}])
             return
+        ok, checks = self.target_checks(coin, tgt - cur, row, stop_pct, venue=on, mark=mark)
+        if not ok:
+            self.refuse_target(coin, action, [c for c in checks if not c["ok"]])
+            return
+        if want == "spot" and on == "perp":                 # the fallback: spot wanted, not usable, the perp trades instead
+            self.venue_note(coin, f"spot not used ({vwhy}); the perp is traded instead")
+            L.record_refusal({"coin": coin, "kind": action, "tier": "T", "venue": "spot"},
+                             [{"check": "universe filters", "ok": False, "detail": f"spot: {vwhy}; traded on the perp"}], self.now, "venue")
         if action == "open":
-            self.target_open(coin, tgt, mark, stop_pct, why)
+            self.target_open(coin, tgt, mark, stop_pct, why, spot if on == "spot" else None)
         else:
             self.target_resize(coin, pos, tgt, mark, stop_pct)
 
-    def target_open(self, coin, notional, mark, stop_pct, why):
+    def refuse_target(self, coin, kind, failed):
+        self.counts["refused"] += 1
+        L.record_refusal({"coin": coin, "kind": kind, "tier": "T"}, failed, self.now, "pre-trade")
+        cand = {"kind": kind, "tier": "T"}
+        self.say(f"{coin}: signal {cand['kind']} tier {cand['tier']} REFUSED: " + "; ".join(f"{c['check']} ({c['detail']})" for c in failed))
+
+    # --------------------------------------------------------- spot longs --
+    def needs_spot(self):
+        return long_venue(self.s) == "spot" or any(PA.is_spot(p) for p in self.positions.values())
+
+    def load_spot(self):
+        """Hyperliquid's spot pairs (H.spot_pairs), once per cycle; each pair's mark is merged into self.marks under the
+        pair's name ("@142"), plus the mid of a held pair that is no longer its coin's most liquid one. A failure leaves
+        {}: new longs fall back to the perp, held spot longs are kept and valued at the perp mark (PA.mark_of)."""
+        if self.spot is not None:
+            return self.spot
+        try:
+            self.spot = H.spot_pairs() or {}
+        except Exception as e:  # noqa: BLE001 — no spot data is a fallback to the perp, never a failed cycle
+            self.spot, self.spot_err = {}, f"spot market data unavailable ({type(e).__name__})"
+            C.log(f"  spot pairs unavailable: {type(e).__name__}: {str(e)[:100]}")
+        for r in self.spot.values():
+            if r.get("mark") or r.get("mid"):
+                self.marks[r["pair"]] = float(r.get("mark") or r.get("mid"))
+        missing = [p.get("pair") for p in self.positions.values() if PA.is_spot(p) and p.get("pair") not in self.marks]
+        if missing:
+            try:
+                mids = H.all_mids()
+                self.marks.update({k: float(mids[k]) for k in missing if mids.get(k)})
+            except Exception as e:  # noqa: BLE001
+                C.log(f"  spot mids unavailable ({type(e).__name__}); {', '.join(map(str, missing))} valued at the perp mark")
+        return self.spot
+
+    def pos_mark(self, coin, pos):
+        return PA.mark_of(pos, coin, self.marks)
+
+    def spot_market(self, coin):
+        """(the coin's spot pair, "") when a long may be held on spot now, else (None, why not): the pair exists, has a
+        price, its 24h volume reaches min_spot_vol_m, and its price is within max_basis_pct of the perp's (the carry
+        bot's own spot checks)."""
+        sc = spot_cfg(self.s)
+        pairs = self.load_spot()
+        if not pairs:
+            return None, self.spot_err or "no spot market data"
+        r = pairs.get(coin)
+        if not r:
+            return None, "no spot pair"
+        tok, px, perp = r.get("token") or coin, r.get("mark") or r.get("mid"), self.marks.get(coin)
+        if not px:
+            return None, f"no {tok} spot price"
+        vol_m = float(r.get("vol") or 0) / 1e6
+        if vol_m < sc["min_spot_vol_m"]:
+            return None, f"{tok} spot 24h volume {vol_m:.1f}M below {sc['min_spot_vol_m']}M"
+        if not perp:
+            return None, "no perp mark to compare the spot price with"
+        gap = abs(px / perp - 1) * 100
+        if gap > sc["max_basis_pct"]:
+            return None, f"{tok} spot vs perp {gap:.2f}%, limit {sc['max_basis_pct']}%"
+        return r, ""
+
+    def spot_room(self, coin):
+        """The most notional a spot long in `coin` may hold: spot is bought with cash, so the spot longs together stay
+        within max_x of equity, less the margin the perp positions use, net of this entry's own fee and slippage."""
+        sc, eq, used = spot_cfg(self.s), self.equity or 0.0, 0.0
+        for c, p in self.positions.items():
+            if c == coin or p.get("kind") == "carry":
+                continue
+            v = p["sz"] * (self.pos_mark(c, p) or p["entry"])
+            used += v if PA.is_spot(p) else v / max(1.0, float(p.get("leverage") or self.s["leverage_cap_x"]))
+        return max(0.0, eq * float(sc["max_x"]) - used) / (1 + (float(sc["fee_taker_pct"]) + self.s["paper_slippage_pct"]) / 100)
+
+    def spot_bars(self, coin, pos, fallback):
+        """The spot pair's bars on the trigger timeframe since the last stop check (a spot long's stop fills at spot
+        prices); the perp's bars when they cannot be read."""
+        days = max(3, int((self.now - pos.get("last_bar_t", self.now)) / 86400) + 2)
+        try:
+            bars = H.candles(pos["pair"], self.bars.tf, min(days, int(self.s["data"]["candle_days_daily"])))
+            if bars:
+                return bars
+        except Exception as e:  # noqa: BLE001
+            C.log(f"  {coin}: spot bars unavailable ({type(e).__name__}); stop checked on the perp's bars")
+        return fallback
+
+    def venue_note(self, coin, note):
+        self.say(f"{coin}: venue · {note}")
+
+    def target_open(self, coin, notional, mark, stop_pct, why, spot=None):
+        """Open a target long at `mark`; with `spot` (its spot pair, paper only) the long is the coin itself on that pair:
+        spot fee, no funding, no leverage."""
         eq = self.equity or 0.0
         stop = mark * (1 - stop_pct)
-        lev = int(self.s["leverage_cap_x"])
+        lev = 1 if spot else int(self.s["leverage_cap_x"])
         cand = {"coin": coin, "kind": "target", "tier": "T", "stop": stop, "bar_t": self.bars.get(coin)[0][-1]["t"],
-                "book": self.s["target"].get("book", "trend"), "benchmark": coin, "bench_mark": mark}
+                "book": self.s["target"].get("book", "trend"), "benchmark": coin, "bench_mark": self.marks.get(coin) or mark}
+        if spot:
+            cand.update({"venue": "spot", "pair": spot["pair"], "token": spot.get("token"), "fee_taker_pct": float(spot_cfg(self.s)["fee_taker_pct"])})
         sizing = {"notional": notional, "risk_amt": notional * stop_pct, "leverage": lev, "risk_pct": stop_pct * notional / eq * 100 if eq else 0,
                   "notional_pct_equity": notional / eq * 100 if eq else 0, "dist_pct": stop_pct * 100}
         pos = self.execute_entry(cand, sizing, mark, {"weekly_dir": None, "daily_dir": None})
         if pos:
             self.counts["entered"] += 1
-            pos["rules"] = pos.get("rules", []) + ["target:" + why[:60]]
+            pos["rules"] = pos.get("rules", []) + ["target:" + why[:60]] + (["venue:spot"] if spot else [])
             if self.mode == "paper":
                 pos["stop"] = pos["initial_stop"] = pos["entry"] * (1 - stop_pct)   # 15% below the fill, per the spec
             self.persist()
 
     def target_resize(self, coin, pos, tgt, mark, stop_pct):
         cur = pos["sz"] * mark
+        if PA.is_spot(pos) and self.mode != "paper":
+            raise RuntimeError("spot longs have no live order path; nothing sent")
         if self.mode == "paper":
             cash = TG.paper_resize(pos, tgt, mark, self.s)
             self.pot["cash"] += cash
@@ -1489,7 +1656,7 @@ class Cycle:
         if self.mode == "paper" and self.pot is not None:
             self.equity, self.unreal = PA.equity(self.pot, self.positions, self.marks)
         for coin, pos in self.positions.items():
-            m = self.marks.get(coin)
+            m = self.pos_mark(coin, pos) if PA.is_spot(pos) else self.marks.get(coin)
             if m and pos.get("entry"):
                 pos["mark"], pos["upnl_pct"] = m, ((pos["entry"] / m - 1) if PA.is_short(pos) else (m / pos["entry"] - 1)) * 100
         if not self.dry and (self.pot is not None or self.mode == "live"):
