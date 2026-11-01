@@ -1,26 +1,26 @@
 # Ledger
 
-_Rendered 2026-11-01T14:05:52.499715Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-01T15:05:52.450280Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
 | Book | Coin | Kind | Tier | Entry | Stop | Notional % eq | Lev | Opened |
 |---|---|---|---|---|---|---|---|---|
-| carry | ZEC | carry | None | 1343.73 | — | 0.0% | —x | 2026-09-27T02:14 |
 | carry | BTC | carry | None | 81673.2 | — | 0.0% | —x | 2026-10-15T00:08 |
-| carry | XPL | carry | None | 0.085169 | — | 0.0% | —x | 2026-10-16T09:06 |
-| carry | HYPE | carry | None | 77.9595 | — | 0.0% | —x | 2026-10-23T03:05 |
-| carry | PUMP | carry | None | 0.00428664 | — | 0.0% | —x | 2026-10-29T02:05 |
 | carry | ETH | carry | None | 2273.99 | — | 0.0% | —x | 2026-11-01T09:05 |
 
 ## Closed trades, summary
 
-- Trades 7 · win rate 43% · average -0.01 R · total -0.1 R · profit factor 0.03 · worst losing streak 2 · costs -0.00 R per trade
+- Trades 11 · win rate 36% · average -0.01 R · total -0.1 R · profit factor 0.07 · worst losing streak 2 · costs -0.00 R per trade
 
 ## Last 50 closed trades
 
 | Closed | Book | Coin | Kind | Tier | Entry | Exit | R | R vs benchmark | Reason | Hours |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-01T15:05 | carry | PUMP | carry | C | 0.00428664 | — | -0.00 | n/a | left the basket | 85 |
+| 2026-11-01T15:05 | carry | HYPE | carry | C | 77.9595 | — | -0.00 | n/a | left the basket | 228 |
+| 2026-11-01T15:05 | carry | XPL | carry | C | 0.085169 | — | +0.00 | n/a | left the basket | 390 |
+| 2026-11-01T15:05 | carry | ZEC | carry | C | 1343.73 | — | -0.01 | n/a | left the basket | 853 |
 | 2026-10-30T01:05 | carry | ETH | carry | C | 2466.76 | — | +0.00 | n/a | funding below exit | 325 |
 | 2026-10-23T01:05 | carry | PUMP | carry | C | 0.00495399 | — | -0.01 | n/a | funding below exit | 623 |
 | 2026-10-22T07:05 | carry | HYPE | carry | C | 87.0708 | — | +0.00 | n/a | funding below exit | 490 |
@@ -34,4 +34,14 @@ _Rendered 2026-11-01T14:05:52.499715Z in paper mode from state/positions_paper.j
 ## Last run
 
 - BTC weekly Bullish · daily Bearish · data 6 min after the bar close
-- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 6 open
+- ZEC: carry EXITING · funding 10.5%/yr left the basket
+- ZEC: carry dust · spot remainder below the exchange's size step, written off at the mark
+- ZEC: carry dust · perp remainder below the exchange's size step, written off at the mark
+- ZEC: carry CLOSED · -0.15% of pot · capture 73%
+- XPL: carry EXITING · funding 17.7%/yr left the basket
+- XPL: carry CLOSED · +0.08% of pot · capture 71%
+- HYPE: carry EXITING · funding 15.5%/yr left the basket
+- HYPE: carry CLOSED · -0.01% of pot · capture 58%
+- PUMP: carry EXITING · funding 6.9%/yr left the basket
+- PUMP: carry CLOSED · -0.01% of pot · capture -125%
+- evaluated 6 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 2 open
