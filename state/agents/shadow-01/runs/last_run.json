@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-02T00:05:55Z",
+  "t": "2026-11-02T01:05:54Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 4.09557671563573,
+    "drawdown_pct": 4.078792777160664,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bearish · data 6 min after the bar close",
+    "BTC weekly Bullish · daily Bearish · data 66 min after the bar close",
     "long-short book: between rebalances (next on 2026-11-05); 16 names held as they drift",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -63,7 +63,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.27964
+      "mark": 0.2787
     },
     {
       "coin": "NEAR",
@@ -77,9 +77,9 @@
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 9.128358,
       "days": 200,
-      "mark": 4.297
+      "mark": 4.2694
     },
     {
       "coin": "SOL",
@@ -93,9 +93,9 @@
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 10.717334399999999,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 94.724
+      "mark": 94.257
     },
     {
       "coin": "STRK",
@@ -111,7 +111,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04298
+      "mark": 0.0426
     },
     {
       "coin": "VVV",
@@ -127,7 +127,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 22.96
+      "mark": 22.842
     },
     {
       "coin": "ZEC",
@@ -143,7 +143,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1239.8
+      "mark": 1231.7
     },
     {
       "coin": "ARB",
@@ -159,7 +159,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.16466
+      "mark": 0.16368
     },
     {
       "coin": "FARTCOIN",
@@ -175,7 +175,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.12304
+      "mark": 0.12237
     },
     {
       "coin": "ONDO",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.40541
+      "mark": 0.40061
     },
     {
       "coin": "PUMP",
@@ -207,7 +207,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004206
+      "mark": 0.004195
     },
     {
       "coin": "UNI",
@@ -223,7 +223,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 7.2271
+      "mark": 7.1765
     },
     {
       "coin": "ZRO",
@@ -237,9 +237,9 @@
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 45.4500336,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.8218
+      "mark": 1.7927
     },
     {
       "coin": "kPEPE",
@@ -255,7 +255,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004909
+      "mark": 0.004906
     },
     {
       "coin": "AAVE",
@@ -271,7 +271,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 134.87
+      "mark": 135.2596
     },
     {
       "coin": "ADA",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.19378
+      "mark": 0.193363
     },
     {
       "coin": "LINK",
@@ -303,9 +303,9 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 11.416
+      "mark": 11.36
     }
   ],
-  "equity": 959.0345277248756,
-  "hours_local": "19:05 EST"
+  "equity": 959.2157667934645,
+  "hours_local": "20:05 EST"
 }
