@@ -1,8 +1,8 @@
 {
  "v": 1,
- "gen": "2026-11-01T12:00:31Z",
+ "gen": "2026-11-02T14:21:40Z",
  "lab": {
-  "tried": 13117,
+  "tried": 13154,
   "survivors": 117,
   "by_family": {
    "rs_rotation": {
@@ -14,7 +14,7 @@
     "survived": 0
    },
    "donchian": {
-    "tried": 411,
+    "tried": 447,
     "survived": 0
    },
    "meanrev": {
@@ -42,7 +42,7 @@
     "survived": 0
    },
    "ls_xs": {
-    "tried": 43,
+    "tried": 44,
     "survived": 0
    },
    "trend_ens": {
@@ -78,21 +78,21 @@
     "survived": 0
    }
   },
-  "last_batch": "2026-11-01",
+  "last_batch": "2026-11-02",
   "gates_version": 12,
   "vetoed": 113,
   "retired": 4,
   "funnel": {
-   "tested": 13117,
-   "passed_cheap": 11188,
+   "tested": 13154,
+   "passed_cheap": 11219,
    "passed_audit": 140,
    "waiting_holdout": 14,
    "passed_holdout": 117,
    "vetoed": 113
   },
   "last": {
-   "date": "2026-11-01",
-   "tried": 51,
+   "date": "2026-11-02",
+   "tried": 37,
    "passed": 0
   },
   "studies": [
@@ -108,7 +108,7 @@
   "now": "bull",
   "fine": "bull",
   "since": "2026-08-24",
-  "as_of": "2026-10-31"
+  "as_of": "2026-11-01"
  },
  "shortlist": [
   {
@@ -122,7 +122,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 33.5,
+   "days": 34.6,
    "backtest": {
     "sharpe": 1.132,
     "cagr_pct": 17.32,
@@ -146,24 +146,24 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9971,
-   "deflated_now": 0.5768,
+   "deflated_now": 0.6483,
    "trials_now": 258,
-   "deflated_alpha_now": 0.0109,
-   "search_k": 2635,
+   "deflated_alpha_now": 0.0107,
+   "search_k": 2677,
    "rw_p": 1.0,
    "verdict_now": "unproven",
    "verdict_now_why": "does not beat Bitcoin at the same risk over development (-3.4%/yr)",
    "bench": {
     "dev": {
      "days": 3561,
-     "bot_pct": 544.71,
+     "bot_pct": 584.66,
      "btc_pct": 26401.44,
-     "btc_same_risk_pct": 327.73,
-     "excess_pct_yr": 4.2,
-     "excess_t": 0.85,
-     "sharpe_bot": 1.49,
+     "btc_same_risk_pct": 323.04,
+     "excess_pct_yr": 4.93,
+     "excess_t": 1.01,
+     "sharpe_bot": 1.55,
      "sharpe_btc": 1.18,
-     "sharpe_diff_z": 0.93
+     "sharpe_diff_z": 1.1
     },
     "holdout": {
      "days": 364,
@@ -295,7 +295,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 29.5,
+   "days": 30.6,
    "backtest": {
     "sharpe": 1.609,
     "cagr_pct": 31.29,
@@ -319,24 +319,24 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9932,
-   "deflated_now": 0.8472,
+   "deflated_now": 0.9084,
    "trials_now": 245,
-   "deflated_alpha_now": 0.163,
-   "search_k": 2635,
-   "rw_p": 0.9934,
+   "deflated_alpha_now": 0.162,
+   "search_k": 2677,
+   "rw_p": 0.9853,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.993 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.985 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
-     "bot_pct": 713.43,
+     "bot_pct": 828.57,
      "btc_pct": 21119.59,
-     "btc_same_risk_pct": 364.92,
-     "excess_pct_yr": 6.1,
-     "excess_t": 1.08,
-     "sharpe_bot": 1.6,
+     "btc_same_risk_pct": 365.79,
+     "excess_pct_yr": 7.52,
+     "excess_t": 1.34,
+     "sharpe_bot": 1.69,
      "sharpe_btc": 1.19,
-     "sharpe_diff_z": 1.13
+     "sharpe_diff_z": 1.39
     },
     "holdout": {
      "days": 368,
@@ -469,7 +469,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 27.5,
+   "days": 28.6,
    "backtest": {
     "sharpe": 1.751,
     "cagr_pct": 32.29,
@@ -493,24 +493,24 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9979,
-   "deflated_now": 0.8797,
+   "deflated_now": 0.932,
    "trials_now": 245,
-   "deflated_alpha_now": 0.3408,
-   "search_k": 2635,
-   "rw_p": 0.9436,
+   "deflated_alpha_now": 0.3392,
+   "search_k": 2677,
+   "rw_p": 0.9325,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.944 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.933 is above 0.1",
    "bench": {
     "dev": {
      "days": 3346,
-     "bot_pct": 683.17,
+     "bot_pct": 792.95,
      "btc_pct": 21119.59,
-     "btc_same_risk_pct": 330.62,
-     "excess_pct_yr": 6.52,
-     "excess_t": 1.18,
-     "sharpe_bot": 1.65,
+     "btc_same_risk_pct": 331.66,
+     "excess_pct_yr": 7.93,
+     "excess_t": 1.44,
+     "sharpe_bot": 1.75,
      "sharpe_btc": 1.19,
-     "sharpe_diff_z": 1.26
+     "sharpe_diff_z": 1.53
     },
     "holdout": {
      "days": 370,
@@ -643,7 +643,7 @@
    "enabled": false,
    "live": false,
    "status": "retired",
-   "days": 14.5,
+   "days": 15.6,
    "backtest": {
     "sharpe": 1.574,
     "cagr_pct": 29.81,
@@ -667,24 +667,24 @@
     "p5_pct": null
    },
    "deflated_at_trial": 0.9913,
-   "deflated_now": 0.4335,
+   "deflated_now": 0.5264,
    "trials_now": 245,
-   "deflated_alpha_now": 0.2561,
-   "search_k": 2635,
-   "rw_p": 0.9943,
+   "deflated_alpha_now": 0.2547,
+   "search_k": 2677,
+   "rw_p": 0.989,
    "verdict_now": "unproven",
-   "verdict_now_why": "Romano-Wolf adjusted p 0.994 is above 0.1",
+   "verdict_now_why": "Romano-Wolf adjusted p 0.989 is above 0.1",
    "bench": {
     "dev": {
      "days": 3561,
-     "bot_pct": 410.65,
+     "bot_pct": 459.59,
      "btc_pct": 26401.44,
-     "btc_same_risk_pct": 382.51,
-     "excess_pct_yr": 0.58,
-     "excess_t": 0.11,
-     "sharpe_bot": 1.22,
+     "btc_same_risk_pct": 377.03,
+     "excess_pct_yr": 1.63,
+     "excess_t": 0.3,
+     "sharpe_bot": 1.29,
      "sharpe_btc": 1.18,
-     "sharpe_diff_z": 0.11
+     "sharpe_diff_z": 0.32
     },
     "holdout": {
      "days": 383,
@@ -720,7 +720,7 @@
      {
       "check": "runs healthy",
       "ok": false,
-      "detail": "fresh, successful runs on 0 of 14 days a run was due (0%, needs 95%)"
+      "detail": "fresh, successful runs on 0 of 15 days a run was due (0%, needs 95%)"
      },
      {
       "check": "orders placed",
@@ -788,7 +788,7 @@
     "same targets as the backtest: engine targets matched the backtest's on 0 of 0 coin-days where either holds something, and named the same coins on 0 of 0 days (needs 80% of each, at least 10 coin-days)",
     "same coins as the backtest: held the same coins as the backtest replay on 0 of 0 days (needs 80%)",
     "return matches the backtest: only 0 paper days to compare with the backtest replay (needs 5)",
-    "runs healthy: fresh, successful runs on 0 of 14 days a run was due (0%, needs 95%)",
+    "runs healthy: fresh, successful runs on 0 of 15 days a run was due (0%, needs 95%)",
     "orders placed: 0 orders filled since enrolment (needs 10)",
     "days invested: held positions on 0 days (needs 15)",
     "edge not confirmed on unseen data (forward: not in the frozen forward set; prereg: not a pre-registered hypothesis; sequential: paper sequential test waiting)"
@@ -796,15 +796,15 @@
   }
  ],
  "honesty": {
-  "as_of": "2026-11-01",
-  "k": 2635,
-  "luck_t": 3.521,
-  "need_t": 5.166,
-  "spa_p": 0.2482235907153008,
-  "rc_p": 0.25201326385599243,
-  "best": "ls-759fac45",
-  "strategies": 2107,
-  "report": "reports/honesty/2026-11-01.md"
+  "as_of": "2026-11-02",
+  "k": 2677,
+  "luck_t": 3.525,
+  "need_t": 5.17,
+  "spa_p": 0.2413951353832033,
+  "rc_p": 0.2432308398347866,
+  "best": "don-839854d0",
+  "strategies": 2033,
+  "report": "reports/honesty/2026-11-02.md"
  },
  "fleet": {
   "regime": "bull",
@@ -863,7 +863,7 @@
  "sequential": [
   {
    "agent": "carry-1h",
-   "recipe": "car-3a21eb1f",
+   "recipe": "car-6485434d",
    "role": "info (carry: cash yardstick)",
    "start": "2026-09-26",
    "burn_in": 20,
