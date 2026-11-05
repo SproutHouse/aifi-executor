@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-05T00:05:53Z",
+  "t": "2026-11-05T01:05:53Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 4.36300066950904,
+    "drawdown_pct": 4.441023764317174,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bearish · data 6 min after the bar close",
+    "BTC weekly Bullish · daily Bearish · data 66 min after the bar close",
     "long-short book: between rebalances (next on 2026-11-05); 16 names held as they drift",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -63,7 +63,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.27597
+      "mark": 0.27682
     },
     {
       "coin": "NEAR",
@@ -79,7 +79,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 4.0055
+      "mark": 4.01315
     },
     {
       "coin": "SOL",
@@ -95,7 +95,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 95.419
+      "mark": 95.795
     },
     {
       "coin": "STRK",
@@ -111,7 +111,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04256
+      "mark": 0.04254
     },
     {
       "coin": "VVV",
@@ -127,7 +127,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 21.442
+      "mark": 21.26
     },
     {
       "coin": "ZEC",
@@ -143,7 +143,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1303.4
+      "mark": 1292.6
     },
     {
       "coin": "ARB",
@@ -157,9 +157,9 @@
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 1.0957884,
+      "funding_pct": -1.34685,
       "days": 200,
-      "mark": 0.16175
+      "mark": 0.16269
     },
     {
       "coin": "FARTCOIN",
@@ -175,7 +175,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.1243
+      "mark": 0.1251
     },
     {
       "coin": "ONDO",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.40794
+      "mark": 0.407855
     },
     {
       "coin": "PUMP",
@@ -207,7 +207,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004253
+      "mark": 0.004292
     },
     {
       "coin": "UNI",
@@ -223,7 +223,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 7.6531
+      "mark": 7.6753
     },
     {
       "coin": "ZRO",
@@ -239,7 +239,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.82079
+      "mark": 1.8207
     },
     {
       "coin": "kPEPE",
@@ -255,7 +255,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004973
+      "mark": 0.004989
     },
     {
       "coin": "AAVE",
@@ -271,7 +271,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 131.68
+      "mark": 131.88
     },
     {
       "coin": "ADA",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.19704
+      "mark": 0.19678
     },
     {
       "coin": "LINK",
@@ -303,9 +303,9 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 11.42918
+      "mark": 11.397
     }
   ],
-  "equity": 956.3733139014157,
-  "hours_local": "19:05 EST"
+  "equity": 955.5915392652907,
+  "hours_local": "20:05 EST"
 }
