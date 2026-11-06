@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-06T00:07:14.389864Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-06T01:06:09.523935Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -61,60 +61,6 @@ _Rendered 2026-11-06T00:07:14.389864Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bullish · daily Bearish · data 6 min after the bar close
-- long-short book 2026-11-05: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long BNB, ETH, HYPE, LIT, UNI, XMR, XRP, kPEPE · short CRV, FARTCOIN, NEAR, PONS, SOL, STRK, TAO, XPL
-- long-short book: refused at leg formation, so left out of that side's leg today: long ZEC (funding 38%/yr against longs above 30%) · short WLD (funding -76%/yr against shorts beyond -30%)
-- long-short book: no second source for the price band, so it was not checked for 7 of 30 eligible names: CASHCAT (no Binance CASHCATUSDT pair); FARTCOIN (no Binance FARTCOINUSDT pair); LIT (Binance LITUSDT not trading: last trade 739 h ago); PONS (no Binance PONSUSDT pair); VVV (no Binance VVVUSDT pair); XMR (Binance XMRUSDT not trading: last trade 739 h ago); kPEPE (no Binance kPEPEUSDT pair)
-- AAVE: target +0% of pot, holding -5% → close
-- AAVE [longshort]: closed on target weight zero at 129.77 → -0.09 R
-- ADA: target +0% of pot, holding -5% → close
-- ADA [longshort]: closed on target weight zero at 0.18169 → +0.02 R
-- ARB: target +0% of pot, holding +4% → close
-- ARB [longshort]: closed on target weight zero at 0.15765 → +0.03 R
-- CRV: target -5% of pot, holding +4% → close
-- CRV [longshort]: closed on side flips at 0.25213 → -0.31 R
-- FARTCOIN: target -5% of pot, holding -4% → hold
-- LINK: target +0% of pot, holding -5% → close
-- LINK [longshort]: closed on target weight zero at 10.729 → -0.02 R
-- NEAR: target -5% of pot, holding +4% → close
-- NEAR [longshort]: closed on side flips at 3.6802 → -0.25 R
-- ONDO: target +0% of pot, holding -4% → close
-- ONDO [longshort]: closed on target weight zero at 0.36699 → +0.04 R
-- PUMP: target +0% of pot, holding -4% → close
-- PUMP [longshort]: closed on target weight zero at 0.0038789 → +0.02 R
-- SOL: target -5% of pot, holding -4% → hold
-- STRK: target -5% of pot, holding +4% → close
-- STRK [longshort]: closed on side flips at 0.03956 → -0.26 R
-- UNI: target +5% of pot, holding +5% → hold
-- VVV: target +0% of pot, holding +4% → close
-- VVV [longshort]: closed on target weight zero at 20.988 → -0.21 R
-- ZEC: target +0% of pot, holding +5% → close
-- ZEC [longshort]: closed on target weight zero at 1285.6 → +0.05 R
-- ZRO: target +0% of pot, holding -5% → close
-- ZRO [longshort]: closed on target weight zero at 1.5927 → -0.04 R
-- kPEPE: target +5% of pot, holding +5% → hold
-- BNB: target +5% of pot, holding +0% → open
-- BNB: ENTERED BNB long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- CRV: target -5% of pot, holding -0% → open
-- CRV: ENTERED CRV short [longshort] · book tier S · stop 0.50427 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- ETH: target +5% of pot, holding +0% → open
-- ETH: ENTERED ETH long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- HYPE: target +5% of pot, holding +0% → open
-- HYPE: ENTERED HYPE long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- LIT: target +5% of pot, holding +0% → open
-- LIT: ENTERED LIT long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- NEAR: target -5% of pot, holding -0% → open
-- NEAR: ENTERED NEAR short [longshort] · book tier S · stop 7.3603 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- PONS: target -5% of pot, holding -0% → open
-- PONS: ENTERED PONS short [longshort] · book tier S · stop 0.36512 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- STRK: target -5% of pot, holding -0% → open
-- STRK: ENTERED STRK short [longshort] · book tier S · stop 0.07912 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- TAO: target -5% of pot, holding -0% → open
-- TAO: ENTERED TAO short [longshort] · book tier S · stop 432.44 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- XMR: target +5% of pot, holding +0% → open
-- XMR: ENTERED XMR long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- XPL: target -5% of pot, holding -0% → open
-- XPL: ENTERED XPL short [longshort] · book tier S · stop 0.11471 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- XRP: target +5% of pot, holding +0% → open
-- XRP: ENTERED XRP long [longshort] · book tier L · stop 0 (100.0% away) · size 4.7% of pot at 3x · risk 4.67% of pot
-- evaluated 25 names · 0 triggers · 2 refused · 0 proposed · 12 entered · 16 open
+- BTC weekly Bullish · daily Bearish · data 66 min after the bar close
+- long-short book 2026-11-05: the day's book stands (decided 00:05 UTC); long BNB, ETH, HYPE, LIT, UNI, XMR, XRP, kPEPE · short CRV, FARTCOIN, NEAR, PONS, SOL, STRK, TAO, XPL; nothing pending
+- evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
