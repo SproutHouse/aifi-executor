@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-06T01:06:09.523935Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-06T02:06:10.503995Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -61,6 +61,6 @@ _Rendered 2026-11-06T01:06:09.523935Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bullish · daily Bearish · data 66 min after the bar close
+- BTC weekly Bullish · daily Bearish · data 126 min after the bar close
 - long-short book 2026-11-05: the day's book stands (decided 00:05 UTC); long BNB, ETH, HYPE, LIT, UNI, XMR, XRP, kPEPE · short CRV, FARTCOIN, NEAR, PONS, SOL, STRK, TAO, XPL; nothing pending
 - evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open

@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-06T01:05:56Z",
+  "t": "2026-11-06T02:05:57Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 3.630826420473636,
+    "drawdown_pct": 3.8811525895980368,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bearish · data 66 min after the bar close",
+    "BTC weekly Bullish · daily Bearish · data 126 min after the bar close",
     "long-short book 2026-11-05: the day's book stands (decided 00:05 UTC); long BNB, ETH, HYPE, LIT, UNI, XMR, XRP, kPEPE · short CRV, FARTCOIN, NEAR, PONS, SOL, STRK, TAO, XPL; nothing pending",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -63,7 +63,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 694.23
+      "mark": 694.56
     },
     {
       "coin": "CRV",
@@ -77,9 +77,9 @@
       "trigger": null,
       "why": "short leg, weight -4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": 6.9403728,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.2553
+      "mark": 0.25603
     },
     {
       "coin": "ETH",
@@ -95,7 +95,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 2242.7
+      "mark": 2238.8
     },
     {
       "coin": "FARTCOIN",
@@ -109,9 +109,9 @@
       "trigger": null,
       "why": "short leg, weight -4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": 7.360152,
+      "funding_pct": -5.561198399999999,
       "days": 200,
-      "mark": 0.11756
+      "mark": 0.11745
     },
     {
       "coin": "HYPE",
@@ -127,7 +127,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 77.6398
+      "mark": 77.714
     },
     {
       "coin": "LIT",
@@ -143,7 +143,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 3.4698
+      "mark": 3.388
     },
     {
       "coin": "NEAR",
@@ -159,7 +159,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 3.7548
+      "mark": 3.7248
     },
     {
       "coin": "PONS",
@@ -175,7 +175,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 67,
-      "mark": 0.1848
+      "mark": 0.18527
     },
     {
       "coin": "SOL",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 90.27
+      "mark": 90.252
     },
     {
       "coin": "STRK",
@@ -207,7 +207,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04016
+      "mark": 0.04054
     },
     {
       "coin": "TAO",
@@ -221,9 +221,9 @@
       "trigger": null,
       "why": "short leg, weight -4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": 7.612002000000001,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 219.85
+      "mark": 219.98
     },
     {
       "coin": "UNI",
@@ -239,7 +239,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 6.9655
+      "mark": 6.9387
     },
     {
       "coin": "XMR",
@@ -253,9 +253,9 @@
       "trigger": null,
       "why": "long leg, weight +4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": 55.5745788,
+      "funding_pct": 78.77062079999999,
       "days": 200,
-      "mark": 624.81
+      "mark": 619.35
     },
     {
       "coin": "XPL",
@@ -269,9 +269,9 @@
       "trigger": null,
       "why": "short leg, weight -4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": 7.9165871999999995,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.057303
+      "mark": 0.057771
     },
     {
       "coin": "XRP",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.2198
+      "mark": 1.2178
     },
     {
       "coin": "kPEPE",
@@ -301,11 +301,11 @@
       "trigger": null,
       "why": "long leg, weight +4.7% of equity (decided 00:05 UTC)",
       "vol_m": null,
-      "funding_pct": -9.32064,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.004892
+      "mark": 0.00488
     }
   ],
-  "equity": 963.6883903164244,
-  "hours_local": "20:05 EST"
+  "equity": 961.1834407303343,
+  "hours_local": "21:05 EST"
 }
