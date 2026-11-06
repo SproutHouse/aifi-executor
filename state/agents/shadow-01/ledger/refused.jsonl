@@ -1,0 +1,2 @@
+{"t": "2026-11-06T00:05:56Z", "coin": "ZEC", "kind": "book", "tier": "L", "stage": "leg formation", "detail": [{"check": "universe filters", "ok": false, "detail": "funding 38%/yr against longs above 30%"}]}
+{"t": "2026-11-06T00:05:56Z", "coin": "WLD", "kind": "book", "tier": "S", "stage": "leg formation", "detail": [{"check": "universe filters", "ok": false, "detail": "funding -76%/yr against shorts beyond -30%"}]}
