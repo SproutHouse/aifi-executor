@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-07T02:05:53Z",
+  "t": "2026-11-08T00:05:54Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 4.598056105382591,
+    "drawdown_pct": 4.119442862382425,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bullish · daily Bearish · data 126 min after the bar close",
+    "BTC weekly Bullish · daily Bearish · data 6 min after the bar close",
     "long-short book: between rebalances (next on 2026-11-12); 16 names held as they drift",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -57,13 +57,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 90.089,
+      "close": 89.779,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": -7.4473139999999995,
+      "funding_pct": 6.7877735999999995,
       "days": 200,
-      "mark": 90.4936
+      "mark": 89.689
     },
     {
       "coin": "FARTCOIN",
@@ -73,13 +73,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.11844,
+      "close": 0.11806,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.11879
+      "mark": 0.11805
     },
     {
       "coin": "UNI",
@@ -89,13 +89,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 6.8873,
+      "close": 7.2248,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 6.9667
+      "mark": 7.2163
     },
     {
       "coin": "kPEPE",
@@ -105,13 +105,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.004983,
+      "close": 0.004861,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": -4.2182028,
+      "funding_pct": -30.407712000000004,
       "days": 200,
-      "mark": 0.005018
+      "mark": 0.004843
     },
     {
       "coin": "BNB",
@@ -121,13 +121,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 693.45,
+      "close": 695.98,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 8.0273136,
       "days": 200,
-      "mark": 695.895
+      "mark": 695.93
     },
     {
       "coin": "CRV",
@@ -137,13 +137,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.26378,
+      "close": 0.26794,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.26303
+      "mark": 0.26745
     },
     {
       "coin": "ETH",
@@ -153,13 +153,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 2238.1,
+      "close": 2239.5,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 2246.8
+      "mark": 2237.6
     },
     {
       "coin": "HYPE",
@@ -169,13 +169,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 78.489,
+      "close": 77.736,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 79.103
+      "mark": 77.632
     },
     {
       "coin": "LIT",
@@ -185,13 +185,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 3.3263,
+      "close": 3.3073,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -31.467672,
       "days": 200,
-      "mark": 3.4624
+      "mark": 3.30965
     },
     {
       "coin": "NEAR",
@@ -201,13 +201,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 3.7127,
+      "close": 3.7357,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 3.7497
+      "mark": 3.7252
     },
     {
       "coin": "PONS",
@@ -217,13 +217,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.19438,
+      "close": 0.17479,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
-      "days": 68,
-      "mark": 0.201046
+      "days": 69,
+      "mark": 0.17611
     },
     {
       "coin": "STRK",
@@ -233,13 +233,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.04085,
+      "close": 0.04029,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.04129
+      "mark": 0.04017
     },
     {
       "coin": "TAO",
@@ -249,13 +249,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 223.58,
+      "close": 223.46,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 224.7
+      "mark": 222.89
     },
     {
       "coin": "XMR",
@@ -265,13 +265,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 612.49,
+      "close": 601.44,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 113.4362184,
+      "funding_pct": 2.6107428,
       "days": 200,
-      "mark": 610.77
+      "mark": 601.81
     },
     {
       "coin": "XPL",
@@ -281,13 +281,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 0.057698,
+      "close": 0.057208,
       "trigger": null,
       "why": "short leg, held between rebalances",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -3.9848364,
       "days": 200,
-      "mark": 0.058635
+      "mark": 0.057191
     },
     {
       "coin": "XRP",
@@ -297,15 +297,15 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 1.1785,
+      "close": 1.1637,
       "trigger": null,
       "why": "long leg, held between rebalances",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.1782
+      "mark": 1.1628
     }
   ],
-  "equity": 954.0059550277068,
-  "hours_local": "21:05 EST"
+  "equity": 958.8166233766217,
+  "hours_local": "19:05 EST"
 }
