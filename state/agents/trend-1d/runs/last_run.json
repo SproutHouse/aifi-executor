@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-08T02:05:50Z",
+  "t": "2026-11-09T02:05:57Z",
   "agent": "trend-1d",
   "tf": "1d",
   "mode": "paper",
@@ -41,13 +41,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 75850.0,
+      "close": 74821.0,
       "trigger": null,
-      "why": "close 75850 at or below its 50-day average 81925",
+      "why": "close 74821 at or below its 50-day average 81795",
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 1500,
-      "mark": 75715.0
+      "mark": 75330.0
     },
     {
       "coin": "ETH",
@@ -57,13 +57,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 2239.5,
+      "close": 2125.8,
       "trigger": null,
-      "why": "close 2239.5 at or below its 50-day average 2492.7",
+      "why": "close 2125.8 at or below its 50-day average 2482.6",
       "vol_m": null,
-      "funding_pct": 6.6758208,
+      "funding_pct": -12.9348408,
       "days": 1500,
-      "mark": 2232.5
+      "mark": 2147.0
     }
   ],
   "equity": 947.3100793064124,
