@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-13T00:07:23.923612Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-13T01:06:39.725630Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -69,50 +69,6 @@ _Rendered 2026-11-13T00:07:23.923612Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bullish · daily Bearish · data 6 min after the bar close
-- long-short book 2026-11-12: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long ARB, DOGE, HYPE, LIT, SUI, TAO, UNI, kPEPE · short CASHCAT, CRV, NEAR, SOL, VVV, WLD, XPL, XRP
-- long-short book: no second source for the price band, so it was not checked for 7 of 30 eligible names: CASHCAT (no Binance CASHCATUSDT pair); FARTCOIN (no Binance FARTCOINUSDT pair); LIT (Binance LITUSDT not trading: last trade 907 h ago); PONS (no Binance PONSUSDT pair); VVV (no Binance VVVUSDT pair); XMR (Binance XMRUSDT not trading: last trade 907 h ago); kPEPE (no Binance kPEPEUSDT pair)
-- BNB: target +0% of pot, holding +4% → close
-- BNB [longshort]: closed on target weight zero at 657.57 → -0.05 R
-- CRV: target -6% of pot, holding -4% → hold
-- ETH: target +0% of pot, holding +4% → close
-- ETH [longshort]: closed on target weight zero at 2017.6 → -0.10 R
-- FARTCOIN: target +0% of pot, holding -4% → close
-- FARTCOIN [longshort]: closed on target weight zero at 0.10993 → +0.08 R
-- HYPE: target +6% of pot, holding +4% → hold
-- LIT: target +6% of pot, holding +4% → hold
-- NEAR: target -6% of pot, holding -4% → hold
-- PONS: target +0% of pot, holding -4% → close
-- PONS [longshort]: closed on target weight zero at 0.15231 → +0.17 R
-- STRK: target +0% of pot, holding -4% → close
-- STRK [longshort]: closed on target weight zero at 0.037489 → +0.05 R
-- TAO: target +6% of pot, holding -5% → close
-- TAO [longshort]: closed on side flips at 212.05 → +0.02 R
-- XMR: target +0% of pot, holding +4% → close
-- XMR [longshort]: closed on target weight zero at 543.8 → -0.15 R
-- XRP: target -6% of pot, holding +4% → close
-- XRP [longshort]: closed on side flips at 1.0422 → -0.14 R
-- kPEPE: target +6% of pot, holding +4% → hold
-- ARB: target +6% of pot, holding +0% → open
-- ARB: ENTERED ARB long [longshort] · book tier L · stop 0 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- CASHCAT: target -6% of pot, holding -0% → open
-- CASHCAT: ENTERED CASHCAT short [longshort] · book tier S · stop 0.10188 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- DOGE: target +6% of pot, holding +0% → open
-- DOGE: ENTERED DOGE long [longshort] · book tier L · stop 0 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- SOL: target -6% of pot, holding -4% → increase
-- SOL: resized to 6% of pot, stop 194.1
-- SUI: target +6% of pot, holding +0% → open
-- SUI: ENTERED SUI long [longshort] · book tier L · stop 0 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- TAO: target +6% of pot, holding +0% → open
-- TAO: ENTERED TAO long [longshort] · book tier L · stop 0 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- UNI: target +6% of pot, holding +4% → increase
-- UNI: resized to 6% of pot, stop 0
-- VVV: target -6% of pot, holding -0% → open
-- VVV: ENTERED VVV short [longshort] · book tier S · stop 37.973 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- WLD: target -6% of pot, holding -0% → open
-- WLD: ENTERED WLD short [longshort] · book tier S · stop 0.60156 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- XPL: target -6% of pot, holding -4% → increase
-- XPL: resized to 6% of pot, stop 0.11072
-- XRP: target -6% of pot, holding -0% → open
-- XRP: ENTERED XRP short [longshort] · book tier S · stop 2.0844 (100.0% away) · size 5.7% of pot at 3x · risk 5.73% of pot
-- evaluated 22 names · 0 triggers · 0 refused · 0 proposed · 8 entered · 16 open
+- BTC weekly Bullish · daily Bearish · data 66 min after the bar close
+- long-short book 2026-11-12: the day's book stands (decided 00:06 UTC); long ARB, DOGE, HYPE, LIT, SUI, TAO, UNI, kPEPE · short CASHCAT, CRV, NEAR, SOL, VVV, WLD, XPL, XRP; nothing pending
+- evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
