@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-18T13:06:26Z",
+  "t": "2026-11-18T14:06:34Z",
   "agent": "carry-1h",
   "tf": "1h",
   "mode": "paper",
@@ -16,7 +16,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 1.8510021780593386,
+    "drawdown_pct": 1.8616454149160557,
     "halt": false,
     "peak": 1000.7171516561625
   },
@@ -30,7 +30,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bearish · daily Bearish · data 6 min after the bar close",
+    "BTC weekly Bearish · daily Bearish · data 7 min after the bar close",
     "evaluated 2 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 2 open"
   ],
   "readings": [
@@ -45,10 +45,10 @@
       "close": null,
       "trigger": null,
       "why": "funding 8.8%/yr (281h mean)",
-      "vol_m": 43.28160160775999,
-      "funding_pct": 8.830735908896798,
+      "vol_m": 44.28869361570999,
+      "funding_pct": 8.828669982918152,
       "days": null,
-      "mark": 64050.0
+      "mark": 63930.7
     },
     {
       "coin": "ETH",
@@ -60,13 +60,13 @@
       "line": null,
       "close": null,
       "trigger": null,
-      "why": "funding 3.6%/yr (281h mean)",
-      "vol_m": 12.806433137359994,
-      "funding_pct": 3.551470471174377,
+      "why": "funding 3.5%/yr (281h mean)",
+      "vol_m": 12.569379638839996,
+      "funding_pct": 3.4926067003558727,
       "days": null,
-      "mark": 1795.5
+      "mark": 1792.4
     }
   ],
-  "equity": 981.765289686077,
-  "hours_local": "08:06 EST"
+  "equity": 981.7749764883215,
+  "hours_local": "09:06 EST"
 }
