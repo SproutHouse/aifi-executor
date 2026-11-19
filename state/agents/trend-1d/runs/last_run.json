@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-18T02:06:17Z",
+  "t": "2026-11-19T00:06:52Z",
   "agent": "trend-1d",
   "tf": "1d",
   "mode": "paper",
@@ -27,7 +27,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bearish · daily Bearish · data 126 min after the bar close",
+    "BTC weekly Bearish · daily Bearish · data 7 min after the bar close",
     "BTC: target 0% of pot, holding 0% → none",
     "ETH: target 0% of pot, holding 0% → none",
     "evaluated 2 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 0 open"
@@ -41,13 +41,13 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 64922.0,
+      "close": 63037.0,
       "trigger": null,
-      "why": "close 64922 at or below its 50-day average 79051",
+      "why": "close 63037 at or below its 50-day average 78640",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 2.4959868,
       "days": 1500,
-      "mark": 64306.0
+      "mark": 62834.0
     },
     {
       "coin": "ETH",
@@ -57,15 +57,15 @@
       "h4": null,
       "range": null,
       "line": null,
-      "close": 1824.3,
+      "close": 1776.5,
       "trigger": null,
-      "why": "close 1824.3 at or below its 50-day average 2345",
+      "why": "close 1776.5 at or below its 50-day average 2326.9",
       "vol_m": null,
-      "funding_pct": 3.9510228,
+      "funding_pct": 10.950000000000001,
       "days": 1500,
-      "mark": 1801.0
+      "mark": 1773.3
     }
   ],
   "equity": 947.3100793064124,
-  "hours_local": "21:06 EST"
+  "hours_local": "19:06 EST"
 }
