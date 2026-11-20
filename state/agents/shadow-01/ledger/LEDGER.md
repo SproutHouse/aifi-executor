@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-20T00:07:41.824742Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-20T01:07:14.652017Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -77,48 +77,6 @@ _Rendered 2026-11-20T00:07:41.824742Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bearish · daily Bearish · data 6 min after the bar close
-- long-short book 2026-11-19: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long AAVE, ADA, DOGE, LINK, LIT, SUI, TAO, kPEPE · short CASHCAT, ENA, HYPE, PONS, PUMP, WLD, XPL, ZEC
-- long-short book: refused at leg formation, so left out of that side's leg today: long VVV (funding 59%/yr against longs above 30%)
-- long-short book: no second source for the price band, so it was not checked for 7 of 30 eligible names: CASHCAT (no Binance CASHCATUSDT pair); FARTCOIN (no Binance FARTCOINUSDT pair); LIT (Binance LITUSDT not trading: last trade 19 h ago); PONS (no Binance PONSUSDT pair); VVV (no Binance VVVUSDT pair); XMR (Binance XMRUSDT not trading: last trade 19 h ago); kPEPE (no Binance kPEPEUSDT pair)
-- ARB: target +0% of pot, holding +5% → close
-- ARB [longshort]: closed on target weight zero at 0.12197 → -0.20 R
-- CASHCAT: target -5% of pot, holding -5% → hold
-- CRV: target +0% of pot, holding -4% → close
-- CRV [longshort]: closed on target weight zero at 0.19215 → +0.24 R
-- DOGE: target +5% of pot, holding +5% → hold
-- HYPE: target -5% of pot, holding +4% → close
-- HYPE [longshort]: closed on side flips at 67.191 → -0.13 R
-- LIT: target +5% of pot, holding +4% → hold
-- NEAR: target +0% of pot, holding -4% → close
-- NEAR [longshort]: closed on target weight zero at 3.2196 → +0.13 R
-- SOL: target +0% of pot, holding -5% → close
-- SOL [longshort]: closed on target weight zero at 73.292 → +0.25 R
-- SUI: target +5% of pot, holding +5% → hold
-- TAO: target +5% of pot, holding +5% → hold
-- UNI: target +0% of pot, holding +5% → close
-- UNI [longshort]: closed on target weight zero at 4.9436 → -0.23 R
-- VVV: target +0% of pot, holding -7% → close
-- VVV [longshort]: closed on target weight zero at 22.016 → -0.16 R
-- WLD: target -5% of pot, holding -5% → hold
-- XPL: target -5% of pot, holding -5% → hold
-- XRP: target +0% of pot, holding -5% → close
-- XRP [longshort]: closed on target weight zero at 0.96283 → +0.07 R
-- kPEPE: target +5% of pot, holding +4% → hold
-- AAVE: target +5% of pot, holding +0% → open
-- AAVE: ENTERED AAVE long [longshort] · book tier L · stop 0 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- ADA: target +5% of pot, holding +0% → open
-- ADA: ENTERED ADA long [longshort] · book tier L · stop 0 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- ENA: target -5% of pot, holding -0% → open
-- ENA: ENTERED ENA short [longshort] · book tier S · stop 0.20974 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- HYPE: target -5% of pot, holding -0% → open
-- HYPE: ENTERED HYPE short [longshort] · book tier S · stop 134.38 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- LINK: target +5% of pot, holding +0% → open
-- LINK: ENTERED LINK long [longshort] · book tier L · stop 0 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- PONS: target -5% of pot, holding -0% → open
-- PONS: ENTERED PONS short [longshort] · book tier S · stop 0.23002 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- PUMP: target -5% of pot, holding -0% → open
-- PUMP: ENTERED PUMP short [longshort] · book tier S · stop 0.0053053 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- ZEC: target -5% of pot, holding -0% → open
-- ZEC: ENTERED ZEC short [longshort] · book tier S · stop 1792.5 (100.0% away) · size 4.6% of pot at 3x · risk 4.61% of pot
-- evaluated 23 names · 0 triggers · 1 refused · 0 proposed · 8 entered · 16 open
+- BTC weekly Bearish · daily Bearish · data 67 min after the bar close
+- long-short book 2026-11-19: the day's book stands (decided 00:06 UTC); long AAVE, ADA, DOGE, LINK, LIT, SUI, TAO, kPEPE · short CASHCAT, ENA, HYPE, PONS, PUMP, WLD, XPL, ZEC; nothing pending
+- evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
