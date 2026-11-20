@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-20T01:07:01Z",
+  "t": "2026-11-20T02:06:36Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 6.111016939255694,
+    "drawdown_pct": 5.736602827855893,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bearish · daily Bearish · data 67 min after the bar close",
+    "BTC weekly Bearish · daily Bearish · data 127 min after the bar close",
     "long-short book 2026-11-19: the day's book stands (decided 00:06 UTC); long AAVE, ADA, DOGE, LINK, LIT, SUI, TAO, kPEPE · short CASHCAT, ENA, HYPE, PONS, PUMP, WLD, XPL, ZEC; nothing pending",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -61,9 +61,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -13.813906800000003,
+      "funding_pct": 6.4287888,
       "days": 200,
-      "mark": 104.29
+      "mark": 103.28
     },
     {
       "coin": "ADA",
@@ -77,9 +77,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -5.8602648,
+      "funding_pct": -15.2591316,
       "days": 200,
-      "mark": 0.15202
+      "mark": 0.14917
     },
     {
       "coin": "CASHCAT",
@@ -95,7 +95,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 132,
-      "mark": 0.04127
+      "mark": 0.040502
     },
     {
       "coin": "DOGE",
@@ -109,9 +109,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -3.0148416,
+      "funding_pct": -5.490680399999999,
       "days": 200,
-      "mark": 0.058114
+      "mark": 0.05721
     },
     {
       "coin": "ENA",
@@ -125,9 +125,9 @@
       "trigger": null,
       "why": "short leg, weight -4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -11.3369292,
       "days": 200,
-      "mark": 0.10418
+      "mark": 0.102063
     },
     {
       "coin": "HYPE",
@@ -141,9 +141,9 @@
       "trigger": null,
       "why": "short leg, weight -4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 0.6171420000000001,
+      "funding_pct": -40.9167336,
       "days": 200,
-      "mark": 66.352
+      "mark": 65.351
     },
     {
       "coin": "LINK",
@@ -157,9 +157,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -8.3489808,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 9.0175
+      "mark": 8.8557
     },
     {
       "coin": "LIT",
@@ -175,7 +175,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 2.6834
+      "mark": 2.6823
     },
     {
       "coin": "PONS",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 81,
-      "mark": 0.11444
+      "mark": 0.10719
     },
     {
       "coin": "PUMP",
@@ -205,9 +205,9 @@
       "trigger": null,
       "why": "short leg, weight -4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 6.7190076,
       "days": 200,
-      "mark": 0.002625
+      "mark": 0.002562
     },
     {
       "coin": "SUI",
@@ -221,9 +221,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -4.5593172,
+      "funding_pct": -11.4206748,
       "days": 200,
-      "mark": 0.711
+      "mark": 0.70167
     },
     {
       "coin": "TAO",
@@ -237,9 +237,9 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 9.4493244,
+      "funding_pct": -8.599692000000001,
       "days": 200,
-      "mark": 191.64
+      "mark": 189.32
     },
     {
       "coin": "WLD",
@@ -253,9 +253,9 @@
       "trigger": null,
       "why": "short leg, weight -4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -38.6472804,
+      "funding_pct": -57.191149200000005,
       "days": 200,
-      "mark": 0.2506
+      "mark": 0.24477
     },
     {
       "coin": "XPL",
@@ -271,7 +271,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.046567
+      "mark": 0.045848
     },
     {
       "coin": "ZEC",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 891.44
+      "mark": 868.25
     },
     {
       "coin": "kPEPE",
@@ -301,11 +301,11 @@
       "trigger": null,
       "why": "long leg, weight +4.6% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -11.4902292,
+      "funding_pct": -46.246668,
       "days": 200,
-      "mark": 0.003716
+      "mark": 0.003576
     }
   ],
-  "equity": 938.8900443195506,
-  "hours_local": "20:07 EST"
+  "equity": 942.635670229523,
+  "hours_local": "21:06 EST"
 }
