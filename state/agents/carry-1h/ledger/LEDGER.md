@@ -1,13 +1,13 @@
 # Ledger
 
-_Rendered 2026-11-20T15:06:35.464698Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-20T16:06:38.878500Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
 | Book | Coin | Kind | Tier | Entry | Stop | Notional % eq | Lev | Opened |
 |---|---|---|---|---|---|---|---|---|
 | carry | BTC | carry | None | 76634.7 | — | 0.0% | —x | 2026-10-15T00:08 |
-| carry | ETH | carry | None | 2273.99 | — | 0.0% | —x | 2026-11-01T09:05 |
+| carry | ETH | carry | None | 2100.83 | — | 0.0% | —x | 2026-11-01T09:05 |
 
 ## Closed trades, summary
 

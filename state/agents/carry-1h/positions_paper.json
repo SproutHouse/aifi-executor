@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20T15:06:35.453952Z",
+  "updated": "2026-11-20T16:06:38.864124Z",
   "mode": "paper",
   "positions": {
     "BTC": {
@@ -13,13 +13,13 @@
       "book": "carry",
       "opened": "2026-10-15T00:08:02Z",
       "opened_ts": 1792022882,
-      "last_funding_ts": 1795186800076,
+      "last_funding_ts": 1795190400021,
       "legs": {
         "spot": {
           "pair": "@142",
           "sz": 0.00212,
           "entry": 76634.68263750001,
-          "mark": 61357.5
+          "mark": 59293.5
         },
         "perp": {
           "sz": 0.00212,
@@ -32,8 +32,8 @@
         "agent:carry-1h",
         "carry"
       ],
-      "funding_income": 1.122697768400218,
-      "theo_funding": 1.2024373749422232,
+      "funding_income": 1.121449699728718,
+      "theo_funding": 1.2011428573932392,
       "fees": 0.10893043885706999,
       "target_sz": 0.00212,
       "resized": {
@@ -53,18 +53,18 @@
       "book": "carry",
       "opened": "2026-11-01T09:05:46Z",
       "opened_ts": 1793523946,
-      "last_funding_ts": 1795186800076,
+      "last_funding_ts": 1795190400021,
       "legs": {
         "spot": {
           "pair": "@151",
           "szd": 4,
-          "sz": 0.0427,
-          "entry": 2273.9864249999996,
-          "mark": 1728.05
+          "sz": 0.059,
+          "entry": 2100.8298052118644,
+          "mark": 1646.4
         },
         "perp": {
-          "sz": 0.0427,
-          "entry": 2272.8230200000003
+          "sz": 0.059,
+          "entry": 2099.1463763389834
         }
       },
       "orders": {},
@@ -73,10 +73,15 @@
         "agent:carry-1h",
         "carry"
       ],
-      "target_sz": 0.0427,
-      "fees": 0.11164174857254999,
-      "funding_income": 0.28328215014113256,
-      "theo_funding": 0.2958506098282472
+      "target_sz": 0.059,
+      "fees": 0.14249660724705,
+      "funding_income": 0.28208430779333254,
+      "theo_funding": 0.2941932053308755,
+      "resized": {
+        "t": "2026-11-20T16:06:34Z",
+        "from": 0.0427,
+        "to": 0.059
+      }
     }
   }
 }
