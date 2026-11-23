@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-23T22:07:15Z",
+  "t": "2026-11-23T23:06:49Z",
   "agent": "carry-1h",
   "tf": "1h",
   "mode": "paper",
@@ -16,7 +16,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 1.8749995844301142,
+    "drawdown_pct": 1.903346048368966,
     "halt": false,
     "peak": 1000.7171516561625
   },
@@ -45,10 +45,10 @@
       "close": null,
       "trigger": null,
       "why": "funding 6.0%/yr (281h mean)",
-      "vol_m": 71.76008353748004,
-      "funding_pct": 6.015058364412811,
+      "vol_m": 70.89566538054999,
+      "funding_pct": 6.038036062633453,
       "days": null,
-      "mark": 61234.0
+      "mark": 61334.0
     },
     {
       "coin": "ETH",
@@ -61,12 +61,12 @@
       "close": null,
       "trigger": null,
       "why": "funding 0.1%/yr (281h mean)",
-      "vol_m": 25.02442059090999,
-      "funding_pct": 0.13333561708185054,
+      "vol_m": 25.15689658245999,
+      "funding_pct": 0.09403532669039148,
       "days": null,
-      "mark": 1719.4
+      "mark": 1715.0
     }
   ],
-  "equity": 981.6224412947645,
-  "hours_local": "17:07 EST"
+  "equity": 981.639267116691,
+  "hours_local": "18:06 EST"
 }
