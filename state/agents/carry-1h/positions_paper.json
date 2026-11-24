@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T21:07:18.248257Z",
+  "updated": "2026-11-24T22:07:05.179585Z",
   "mode": "paper",
   "positions": {
     "BTC": {
@@ -13,13 +13,13 @@
       "book": "carry",
       "opened": "2026-10-15T00:08:02Z",
       "opened_ts": 1792022882,
-      "last_funding_ts": 1795554000023,
+      "last_funding_ts": 1795557600065,
       "legs": {
         "spot": {
           "pair": "@142",
           "sz": 0.00212,
           "entry": 76634.68263750001,
-          "mark": 59644.5
+          "mark": 59886.5
         },
         "perp": {
           "sz": 0.00212,
@@ -32,8 +32,8 @@
         "agent:carry-1h",
         "carry"
       ],
-      "funding_income": 1.1637340163761838,
-      "theo_funding": 1.2436077683238496,
+      "funding_income": 1.1624629621963758,
+      "theo_funding": 1.242302958293925,
       "fees": 0.10893043885706999,
       "target_sz": 0.00212,
       "resized": {
@@ -53,14 +53,14 @@
       "book": "carry",
       "opened": "2026-11-01T09:05:46Z",
       "opened_ts": 1793523946,
-      "last_funding_ts": 1795554000023,
+      "last_funding_ts": 1795557600065,
       "legs": {
         "spot": {
           "pair": "@151",
           "szd": 4,
           "sz": 0.059,
           "entry": 2100.8298052118644,
-          "mark": 1671.45
+          "mark": 1681.15
         },
         "perp": {
           "sz": 0.059,
@@ -75,8 +75,8 @@
       ],
       "target_sz": 0.059,
       "fees": 0.14249660724705,
-      "funding_income": 0.22648874415301165,
-      "theo_funding": 0.23838617452438451,
+      "funding_income": 0.22744600050901165,
+      "theo_funding": 0.23932339938828423,
       "resized": {
         "t": "2026-11-20T16:06:34Z",
         "from": 0.0427,
