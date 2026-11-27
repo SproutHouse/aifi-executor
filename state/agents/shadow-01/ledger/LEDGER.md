@@ -1,36 +1,45 @@
 # Ledger
 
-_Rendered 2026-11-26T01:06:17.973313Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-27T00:07:17.654030Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
 | Book | Coin | Kind | Tier | Entry | Stop | Notional % eq | Lev | Opened |
 |---|---|---|---|---|---|---|---|---|
-| longshort | kPEPE | book | L | 0.0046053 | 0 | 4.5% | 3x | 2026-10-30T01:05 |
-| longshort | LIT | book | L | 3.45333 | 0 | 4.7% | 3x | 2026-11-06T00:05 |
-| longshort | XPL | book | S | 0.0553615 | 0.110723 | 4.7% | 3x | 2026-11-06T00:05 |
-| longshort | CASHCAT | book | S | 0.0509395 | 0.101879 | 5.7% | 3x | 2026-11-13T00:06 |
 | longshort | DOGE | book | L | 0.0665953 | 0 | 5.7% | 3x | 2026-11-13T00:06 |
-| longshort | SUI | book | L | 0.807053 | 0 | 5.7% | 3x | 2026-11-13T00:06 |
+| longshort | SUI | book | L | 0.772252 | 0 | 5.7% | 3x | 2026-11-13T00:06 |
 | longshort | TAO | book | L | 212.046 | 0 | 5.7% | 3x | 2026-11-13T00:06 |
-| longshort | WLD | book | S | 0.30078 | 0.601559 | 5.7% | 3x | 2026-11-13T00:06 |
-| longshort | AAVE | book | L | 104.602 | 0 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | ADA | book | L | 0.152326 | 0 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | ENA | book | S | 0.104868 | 0.209735 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | HYPE | book | S | 67.1914 | 134.383 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | LINK | book | L | 9.01601 | 0 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | PONS | book | S | 0.115012 | 0.230025 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | PUMP | book | S | 0.00265267 | 0.00530535 | 4.6% | 3x | 2026-11-20T00:06 |
-| longshort | ZEC | book | S | 896.232 | 1792.46 | 4.6% | 3x | 2026-11-20T00:06 |
+| longshort | ADA | book | L | 0.151198 | 0 | 4.6% | 3x | 2026-11-20T00:06 |
+| longshort | ENA | book | S | 0.103519 | 0.207037 | 4.6% | 3x | 2026-11-20T00:06 |
+| longshort | LINK | book | L | 9.09328 | 0 | 4.6% | 3x | 2026-11-20T00:06 |
+| longshort | ZEC | book | S | 802.578 | 1605.16 | 4.6% | 3x | 2026-11-20T00:06 |
+| longshort | BNB | book | S | 554.623 | 1109.25 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | ETH | book | S | 1691.15 | 3382.31 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | LIT | book | S | 2.48276 | 4.96552 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | NEAR | book | L | 3.06119 | 0 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | SOL | book | L | 71.1606 | 0 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | TRUMP | book | S | 0.862708 | 1.72542 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | VVV | book | L | 26.3747 | 0 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | XMR | book | S | 457.391 | 914.782 | 6.4% | 3x | 2026-11-27T00:06 |
+| longshort | ZRO | book | S | 1.13983 | 2.27966 | 6.4% | 3x | 2026-11-27T00:06 |
 
 ## Closed trades, summary
 
-- Trades 41 · win rate 56% · average -0.03 R · total -1.1 R · profit factor 0.61 · worst losing streak 3 · costs 0.00 R per trade
+- Trades 50 · win rate 58% · average -0.02 R · total -0.9 R · profit factor 0.76 · worst losing streak 3 · costs 0.00 R per trade
 
 ## Last 50 closed trades
 
 | Closed | Book | Coin | Kind | Tier | Entry | Exit | R | R vs benchmark | Reason | Hours |
 |---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-27T00:06 | longshort | kPEPE | book | L | 0.0046053 | 0.00348326 | -0.25 | n/a | target weight zero | 671 |
+| 2026-11-27T00:06 | longshort | XPL | book | S | 0.0553615 | 0.0477849 | +0.14 | n/a | target weight zero | 504 |
+| 2026-11-27T00:06 | longshort | WLD | book | S | 0.30078 | 0.241661 | +0.19 | n/a | target weight zero | 336 |
+| 2026-11-27T00:06 | longshort | PUMP | book | S | 0.00265267 | 0.00258729 | +0.02 | n/a | target weight zero | 168 |
+| 2026-11-27T00:06 | longshort | PONS | book | S | 0.115012 | 0.0876098 | +0.24 | n/a | target weight zero | 168 |
+| 2026-11-27T00:06 | longshort | LIT | book | L | 3.45333 | 2.48276 | -0.28 | n/a | side flips | 504 |
+| 2026-11-27T00:06 | longshort | HYPE | book | S | 67.1914 | 62.5813 | +0.07 | n/a | target weight zero | 168 |
+| 2026-11-27T00:06 | longshort | CASHCAT | book | S | 0.0509395 | 0.0433136 | +0.15 | n/a | target weight zero | 336 |
+| 2026-11-27T00:06 | longshort | AAVE | book | L | 104.602 | 94.6287 | -0.09 | n/a | target weight zero | 168 |
 | 2026-11-20T00:06 | longshort | XRP | book | S | 1.04218 | 0.962831 | +0.07 | n/a | target weight zero | 168 |
 | 2026-11-20T00:06 | longshort | VVV | book | S | 18.9865 | 22.016 | -0.16 | n/a | target weight zero | 168 |
 | 2026-11-20T00:06 | longshort | UNI | book | L | 6.35724 | 4.94363 | -0.23 | n/a | target weight zero | 504 |
@@ -77,6 +86,55 @@ _Rendered 2026-11-26T01:06:17.973313Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bearish · daily Bearish · data 66 min after the bar close
-- long-short book: between rebalances (next on 2026-11-26); 16 names held as they drift
-- evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
+- BTC weekly Bearish · daily Bearish · data 6 min after the bar close
+- long-short book 2026-11-26: 29 names ranked of 30 eligible (top 30 by Hyperliquid volume); long ADA, DOGE, LINK, NEAR, SOL, SUI, TAO, VVV · short BNB, ENA, ETH, LIT, TRUMP, XMR, ZEC, ZRO
+- long-short book: no second source for the price band, so it was not checked for 5 of 30 eligible names: FARTCOIN (no Binance FARTCOINUSDT pair); LIT (Binance LITUSDT not trading: last trade 187 h ago); VVV (no Binance VVVUSDT pair); XMR (Binance XMRUSDT not trading: last trade 187 h ago); kPEPE (no Binance kPEPEUSDT pair)
+- AAVE: target +0% of pot, holding +4% → close
+- AAVE [longshort]: closed on target weight zero at 94.629 → -0.09 R
+- CASHCAT: target +0% of pot, holding -5% → close
+- CASHCAT [longshort]: closed on target weight zero at 0.043314 → +0.15 R
+- DOGE: target +6% of pot, holding +5% → hold
+- HYPE: target +0% of pot, holding -4% → close
+- HYPE [longshort]: closed on target weight zero at 62.581 → +0.07 R
+- LIT: target -6% of pot, holding +3% → close
+- LIT [longshort]: closed on side flips at 2.4828 → -0.28 R
+- PONS: target +0% of pot, holding -3% → close
+- PONS [longshort]: closed on target weight zero at 0.08761 → +0.24 R
+- PUMP: target +0% of pot, holding -4% → close
+- PUMP [longshort]: closed on target weight zero at 0.0025873 → +0.02 R
+- TAO: target +6% of pot, holding +5% → hold
+- WLD: target +0% of pot, holding -5% → close
+- WLD [longshort]: closed on target weight zero at 0.24166 → +0.19 R
+- XPL: target +0% of pot, holding -6% → close
+- XPL [longshort]: closed on target weight zero at 0.047785 → +0.14 R
+- kPEPE: target +0% of pot, holding +3% → close
+- kPEPE [longshort]: closed on target weight zero at 0.0034833 → -0.25 R
+- ADA: target +6% of pot, holding +4% → increase
+- ADA: resized to 6% of pot, stop 0
+- BNB: target -6% of pot, holding -0% → open
+- BNB: ENTERED BNB short [longshort] · book tier S · stop 1109.2 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- ENA: target -6% of pot, holding -4% → increase
+- ENA: resized to 6% of pot, stop 0.20704
+- ETH: target -6% of pot, holding -0% → open
+- ETH: ENTERED ETH short [longshort] · book tier S · stop 3382.3 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- LINK: target +6% of pot, holding +5% → increase
+- LINK: resized to 6% of pot, stop 0
+- LIT: target -6% of pot, holding -0% → open
+- LIT: ENTERED LIT short [longshort] · book tier S · stop 4.9655 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- NEAR: target +6% of pot, holding +0% → open
+- NEAR: ENTERED NEAR long [longshort] · book tier L · stop 0 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- SOL: target +6% of pot, holding +0% → open
+- SOL: ENTERED SOL long [longshort] · book tier L · stop 0 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- SUI: target +6% of pot, holding +5% → increase
+- SUI: resized to 6% of pot, stop 0
+- TRUMP: target -6% of pot, holding -0% → open
+- TRUMP: ENTERED TRUMP short [longshort] · book tier S · stop 1.7254 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- VVV: target +6% of pot, holding +0% → open
+- VVV: ENTERED VVV long [longshort] · book tier L · stop 0 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- XMR: target -6% of pot, holding -0% → open
+- XMR: ENTERED XMR short [longshort] · book tier S · stop 914.78 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- ZEC: target -6% of pot, holding -4% → increase
+- ZEC: resized to 6% of pot, stop 1605.2
+- ZRO: target -6% of pot, holding -0% → open
+- ZRO: ENTERED ZRO short [longshort] · book tier S · stop 2.2797 (100.0% away) · size 6.4% of pot at 3x · risk 6.44% of pot
+- evaluated 24 names · 0 triggers · 0 refused · 0 proposed · 9 entered · 16 open
