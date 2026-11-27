@@ -1,5 +1,5 @@
 {
-  "t": "2026-11-27T01:06:06Z",
+  "t": "2026-11-27T02:06:00Z",
   "agent": "shadow-01",
   "tf": "1d",
   "mode": "paper",
@@ -30,7 +30,7 @@
   "open_proposals": [],
   "throttle": {
     "multiplier": 1.0,
-    "drawdown_pct": 5.651063159446323,
+    "drawdown_pct": 5.693949710189748,
     "halt": false,
     "peak": 1000.0
   },
@@ -44,7 +44,7 @@
     "entered": 0
   },
   "summary": [
-    "BTC weekly Bearish · daily Bearish · data 66 min after the bar close",
+    "BTC weekly Bearish · daily Bearish · data 126 min after the bar close",
     "long-short book 2026-11-26: the day's book stands (decided 00:06 UTC); long ADA, DOGE, LINK, NEAR, SOL, SUI, TAO, VVV · short BNB, ENA, ETH, LIT, TRUMP, XMR, ZEC, ZRO; nothing pending",
     "evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open"
   ],
@@ -61,9 +61,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 4.197529200000001,
+      "funding_pct": -1.6381200000000002,
       "days": 200,
-      "mark": 0.14933
+      "mark": 0.14942
     },
     {
       "coin": "BNB",
@@ -77,9 +77,9 @@
       "trigger": null,
       "why": "short leg, weight -6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 7.1911716,
+      "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 555.87
+      "mark": 556.87
     },
     {
       "coin": "DOGE",
@@ -93,9 +93,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 2.9885616,
       "days": 200,
-      "mark": 0.056621
+      "mark": 0.056822
     },
     {
       "coin": "ENA",
@@ -111,7 +111,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 0.1017
+      "mark": 0.10196
     },
     {
       "coin": "ETH",
@@ -125,9 +125,9 @@
       "trigger": null,
       "why": "short leg, weight -6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 6.6722292,
       "days": 200,
-      "mark": 1701.0
+      "mark": 1702.5
     },
     {
       "coin": "LINK",
@@ -143,7 +143,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 9.3531
+      "mark": 9.3391
     },
     {
       "coin": "LIT",
@@ -159,7 +159,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 2.5082
+      "mark": 2.4984
     },
     {
       "coin": "NEAR",
@@ -173,9 +173,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 8.8351608,
       "days": 200,
-      "mark": 3.0831
+      "mark": 3.08015
     },
     {
       "coin": "SOL",
@@ -191,7 +191,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 71.275
+      "mark": 71.627
     },
     {
       "coin": "SUI",
@@ -205,9 +205,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": 9.7290312,
       "days": 200,
-      "mark": 0.67071
+      "mark": 0.67168
     },
     {
       "coin": "TAO",
@@ -221,9 +221,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -6.541968000000001,
       "days": 200,
-      "mark": 183.795
+      "mark": 183.697
     },
     {
       "coin": "TRUMP",
@@ -237,9 +237,9 @@
       "trigger": null,
       "why": "short leg, weight -6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": -54.4123896,
+      "funding_pct": -43.144752,
       "days": 200,
-      "mark": 0.8665
+      "mark": 0.86737
     },
     {
       "coin": "VVV",
@@ -253,9 +253,9 @@
       "trigger": null,
       "why": "long leg, weight +6.4% of equity (decided 00:06 UTC)",
       "vol_m": null,
-      "funding_pct": 10.950000000000001,
+      "funding_pct": -39.237003599999994,
       "days": 200,
-      "mark": 26.4173
+      "mark": 26.05
     },
     {
       "coin": "XMR",
@@ -271,7 +271,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 468.39
+      "mark": 463.2
     },
     {
       "coin": "ZEC",
@@ -287,7 +287,7 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 701.13
+      "mark": 709.24
     },
     {
       "coin": "ZRO",
@@ -303,9 +303,9 @@
       "vol_m": null,
       "funding_pct": 10.950000000000001,
       "days": 200,
-      "mark": 1.1436
+      "mark": 1.1404
     }
   ],
-  "equity": 943.488787638057,
-  "hours_local": "20:06 EST"
+  "equity": 943.0597443709179,
+  "hours_local": "21:06 EST"
 }
