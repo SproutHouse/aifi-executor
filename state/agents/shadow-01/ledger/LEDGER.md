@@ -1,6 +1,6 @@
 # Ledger
 
-_Rendered 2026-11-27T02:06:13.724051Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
+_Rendered 2026-11-28T00:06:13.411049Z in paper mode from state/positions_paper.json and state/ledger/*.jsonl. Do not edit._
 
 ## Open positions
 
@@ -86,6 +86,6 @@ _Rendered 2026-11-27T02:06:13.724051Z in paper mode from state/positions_paper.j
 
 ## Last run
 
-- BTC weekly Bearish · daily Bearish · data 126 min after the bar close
-- long-short book 2026-11-26: the day's book stands (decided 00:06 UTC); long ADA, DOGE, LINK, NEAR, SOL, SUI, TAO, VVV · short BNB, ENA, ETH, LIT, TRUMP, XMR, ZEC, ZRO; nothing pending
+- BTC weekly Bearish · daily Bearish · data 6 min after the bar close
+- long-short book: between rebalances (next on 2026-12-03); 16 names held as they drift
 - evaluated 16 names · 0 triggers · 0 refused · 0 proposed · 0 entered · 16 open
